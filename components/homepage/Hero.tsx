@@ -94,9 +94,8 @@ export default function Hero() {
                             Personalized treatment plans designed to restore your mobility and freedom.
                         </p>
 
-                        {/* CTA Buttons */}
                         <div className="hero-content-item flex flex-wrap gap-4 justify-start">
-                            <Button href="/contact" className="!h-[56px] !text-[15px]">
+                            <Button href="/contact" className="!h-[56px]">
                                 Book an Appointment
                             </Button>
 
