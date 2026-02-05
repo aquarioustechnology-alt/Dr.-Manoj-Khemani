@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 if (typeof window !== 'undefined') {
@@ -17,6 +17,7 @@ const services = [
         heading: 'Advanced Knee Replacement & Surgical Solutions',
         description: 'Empathy-driven care using advanced surgical techniques for faster recovery and long-term joint health.',
         image: '/homepage/knee-replacement.png',
+        link: '/treatments/knee-replacement',
     },
     {
         id: 'arthritis',
@@ -24,6 +25,7 @@ const services = [
         heading: 'Comprehensive Arthritis Pain Management',
         description: 'Focusing on non-surgical treatments first to restore mobility and reduce persistent joint pain effectively.',
         image: '/homepage/arthritis-treatment.png',
+        link: '/treatments/arthritis',
     },
     {
         id: 'sports',
@@ -31,6 +33,7 @@ const services = [
         heading: 'Specialized Sports Injury & ACL Rehabilitation',
         description: 'From ACL reconstruction to rotator cuff repair, getting you back in the game with comprehensive rehabilitation.',
         image: '/homepage/sports-injury.png',
+        link: '/treatments/sports-injuries',
     },
     {
         id: 'joint',
@@ -38,6 +41,7 @@ const services = [
         heading: 'Restoring Mobility & Independence For Life',
         description: 'Improving quality of life by restoring lost mobility and independence through personalized treatment plans.',
         image: '/homepage/bone-fracture.jpg',
+        link: '/treatments/joint-pain',
     },
 ]
 
@@ -103,6 +107,15 @@ export default function ServicesSection() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
                     </div>
 
+                    {/* Top Right Arrow Trigger */}
+                    <a
+                        href={activeTab.link}
+                        className="absolute top-6 right-6 lg:top-10 lg:right-10 w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-full flex items-center justify-center z-30 shadow-lg hover:scale-110 transition-transform duration-300 group"
+                        aria-label={`View details for ${activeTab.title}`}
+                    >
+                        <ArrowUpRight className="w-6 h-6 lg:w-8 lg:h-8 text-leaf-600 group-hover:rotate-45 transition-transform duration-300" />
+                    </a>
+
                     {/* Content Layer */}
                     <div className="relative z-20 h-full w-full flex flex-col justify-end lg:flex-row">
                         {/* Tab Navigation (Stacked Vertical Pills - Bottom Left) */}
@@ -129,6 +142,16 @@ export default function ServicesSection() {
                             <p className="tab-content-anim text-base text-gray-100 max-w-md leading-relaxed font-medium opacity-90">
                                 {activeTab.description}
                             </p>
+
+                            {/* CTA Actions */}
+                            <div className="tab-content-anim mt-8 flex items-center gap-4">
+                                <Button
+                                    className="bg-leaf-500 hover:bg-leaf-600 text-white border-none"
+                                    onClick={() => document.getElementById('appointment-form')?.scrollIntoView({ behavior: 'smooth' })}
+                                >
+                                    Book An Appointment
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
