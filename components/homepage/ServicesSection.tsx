@@ -1,10 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Bone, Activity, Sparkles, Scan } from 'lucide-react'
+import { ArrowRight, ChevronRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 if (typeof window !== 'undefined') {
@@ -13,51 +12,53 @@ if (typeof window !== 'undefined') {
 
 const services = [
     {
-        icon: Bone,
-        title: 'Joint Replacement',
-        description: 'Advanced knee, hip, and shoulder replacement surgery using minimally invasive techniques for faster recovery and better outcomes.',
-        image: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=80',
-        link: '/services/joint-replacement',
+        id: 'knee',
+        title: 'Knee Replacement',
+        heading: 'Advanced Knee Replacement & Surgical Solutions',
+        description: 'Empathy-driven care using advanced surgical techniques for faster recovery and long-term joint health.',
+        image: '/homepage/service-knee.webp',
     },
     {
-        icon: Scan,
-        title: 'Arthroscopy',
-        description: 'Minimally invasive diagnostic and surgical procedures for joint conditions, ensuring minimal scarring and rapid rehabilitation.',
-        image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
-        link: '/services/arthroscopy',
+        id: 'arthritis',
+        title: 'Arthritis Treatment',
+        heading: 'Comprehensive Arthritis Pain Management',
+        description: 'Focusing on non-surgical treatments first to restore mobility and reduce persistent joint pain effectively.',
+        image: '/homepage/service-arthritis.webp',
     },
     {
-        icon: Activity,
-        title: 'Sports Medicine',
-        description: 'Specialized care for athletes and active individuals, from ACL reconstruction to rotator cuff repair and sports injury rehabilitation.',
-        image: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=600&q=80',
-        link: '/services/sports-medicine',
+        id: 'sports',
+        title: 'Sports Injuries / ACL',
+        heading: 'Specialized Sports Injury & ACL Rehabilitation',
+        description: 'From ACL reconstruction to rotator cuff repair, getting you back in the game with comprehensive rehabilitation.',
+        image: '/homepage/service-sports.webp',
     },
     {
-        icon: Sparkles,
-        title: 'Spine Surgery',
-        description: 'Comprehensive spine care including disc replacement, spinal fusion, and minimally invasive procedures for chronic back conditions.',
-        image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&q=80',
-        link: '/services/spine-surgery',
+        id: 'joint',
+        title: 'Joint Pain & Mobility Issues',
+        heading: 'Restoring Mobility & Independence For Life',
+        description: 'Improving quality of life by restoring lost mobility and independence through personalized treatment plans.',
+        image: '/homepage/service-joint.webp',
     },
 ]
 
 export default function ServicesSection() {
+    const [activeTab, setActiveTab] = useState(services[0])
     const sectionRef = useRef<HTMLElement>(null)
+    const contentRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (!sectionRef.current) return
 
         const ctx = gsap.context(() => {
-            gsap.from('.service-card', {
+            gsap.from('.services-header-item', {
                 scrollTrigger: {
-                    trigger: '.services-grid',
+                    trigger: sectionRef.current,
                     start: 'top 80%',
                 },
-                y: 60,
+                y: 30,
                 opacity: 0,
                 duration: 0.8,
-                stagger: 0.15,
+                stagger: 0.2,
                 ease: 'power3.out',
             })
         }, sectionRef)
@@ -65,69 +66,71 @@ export default function ServicesSection() {
         return () => ctx.revert()
     }, [])
 
+    // Tab change animation
+    useEffect(() => {
+        if (!contentRef.current) return
+
+        gsap.fromTo('.tab-content-anim',
+            { opacity: 0, x: 20 },
+            { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out' }
+        )
+    }, [activeTab])
+
     return (
-        <section ref={sectionRef} className="py-24 lg:py-32 bg-offwhite relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-leaf-200 to-transparent" />
-
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section ref={sectionRef} className="pt-20 pb-24 bg-white relative overflow-hidden">
+            <div className="max-w-[1600px] mx-auto px-6 lg:px-20">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="text-leaf-600 font-semibold text-sm uppercase tracking-wider">Our Services</span>
-                    <h2 className="text-3xl lg:text-4xl xl:text-5xl font-display font-bold text-text-primary mt-4 mb-6">
-                        Comprehensive<br />
-                        <span className="gradient-text">Orthopedic Care</span>
+                <div className="text-center w-full mb-16">
+                    <div className="services-header-item inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-white text-gray-600 text-xs font-semibold tracking-widest uppercase mb-6">
+                        <span className="w-2 h-2 rounded-full bg-[#EC1D24]"></span>
+                        Our Services
+                    </div>
+                    <h2 className="services-header-item text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight whitespace-nowrap">
+                        Orthopedic <span className="text-leaf-500">Care</span>
                     </h2>
-                    <p className="text-text-secondary text-lg">
-                        From diagnosis to recovery, we provide complete orthopedic care tailored to your unique needs
-                    </p>
                 </div>
 
-                {/* Services Grid */}
-                <div className="services-grid grid md:grid-cols-2 gap-8">
-                    {services.map((service, index) => (
-                        <Link
-                            key={index}
-                            href={service.link}
-                            className="service-card group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
-                        >
-                            {/* Image */}
-                            <div className="relative h-56 overflow-hidden">
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                {/* Main Interactive Section */}
+                <div className="relative w-full aspect-[21/8] min-h-[450px] lg:min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-900">
+                    {/* Background Image with Overlay */}
+                    <div className="absolute inset-0 w-full h-full">
+                        <img
+                            src={activeTab.image}
+                            alt={activeTab.title}
+                            className="w-full h-full object-cover transition-all duration-1000 ease-in-out scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/40 z-10" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+                    </div>
 
-                                {/* Icon */}
-                                <div className="absolute top-4 right-4 w-12 h-12 bg-white/90 backdrop-blur rounded-xl flex items-center justify-center text-leaf-600 shadow-lg group-hover:bg-leaf-600 group-hover:text-white transition-all duration-300">
-                                    <service.icon size={24} />
-                                </div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-6">
-                                <h3 className="text-xl font-display font-bold text-text-primary mb-3 group-hover:text-leaf-600 transition-colors">
+                    {/* Content Layer */}
+                    <div className="relative z-20 h-full w-full flex flex-col justify-end lg:flex-row">
+                        {/* Tab Navigation (Stacked Vertical Pills - Bottom Left) */}
+                        <div className="lg:absolute lg:bottom-12 lg:left-12 p-8 lg:p-0 flex flex-col gap-3 items-start">
+                            {services.map((service) => (
+                                <button
+                                    key={service.id}
+                                    onClick={() => setActiveTab(service)}
+                                    className={`px-8 py-3 rounded-full text-lg font-medium transition-all duration-300 whitespace-nowrap min-w-[200px] text-left border ${activeTab.id === service.id
+                                        ? 'bg-white text-leaf-600 border-white shadow-xl scale-105 z-10'
+                                        : 'bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20'
+                                        }`}
+                                >
                                     {service.title}
-                                </h3>
-                                <p className="text-text-muted text-sm leading-relaxed mb-4">
-                                    {service.description}
-                                </p>
-                                <span className="inline-flex items-center gap-2 text-leaf-600 font-semibold text-sm group-hover:gap-3 transition-all">
-                                    Learn More
-                                    <ArrowRight size={16} />
-                                </span>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+                                </button>
+                            ))}
+                        </div>
 
-                {/* View All Button */}
-                <div className="text-center mt-12">
-                    <Button href="/services" variant="secondary">
-                        View All Services
-                    </Button>
+                        {/* Content Area (Bottom Right Align - Text Left Aligned - Pushed to Extreme Edge) */}
+                        <div ref={contentRef} className="lg:absolute lg:bottom-12 lg:right-0 lg:w-[45%] p-8 lg:p-0 lg:pr-0 text-white text-left flex flex-col items-start">
+                            <h3 className="tab-content-anim text-3xl lg:text-5xl font-bold mb-4 leading-tight">
+                                {activeTab.heading}
+                            </h3>
+                            <p className="tab-content-anim text-base text-gray-100 max-w-md leading-relaxed font-medium opacity-90">
+                                {activeTab.description}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
