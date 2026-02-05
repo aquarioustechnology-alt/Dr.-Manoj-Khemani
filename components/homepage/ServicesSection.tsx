@@ -16,28 +16,28 @@ const services = [
         title: 'Knee Replacement',
         heading: 'Advanced Knee Replacement & Surgical Solutions',
         description: 'Empathy-driven care using advanced surgical techniques for faster recovery and long-term joint health.',
-        image: '/homepage/service-knee.webp',
+        image: '/homepage/knee-replacement.png',
     },
     {
         id: 'arthritis',
         title: 'Arthritis Treatment',
         heading: 'Comprehensive Arthritis Pain Management',
         description: 'Focusing on non-surgical treatments first to restore mobility and reduce persistent joint pain effectively.',
-        image: '/homepage/service-arthritis.webp',
+        image: '/homepage/arthritis-treatment.png',
     },
     {
         id: 'sports',
         title: 'Sports Injuries / ACL',
         heading: 'Specialized Sports Injury & ACL Rehabilitation',
         description: 'From ACL reconstruction to rotator cuff repair, getting you back in the game with comprehensive rehabilitation.',
-        image: '/homepage/service-sports.webp',
+        image: '/homepage/sports-injury.png',
     },
     {
         id: 'joint',
         title: 'Joint Pain & Mobility Issues',
         heading: 'Restoring Mobility & Independence For Life',
         description: 'Improving quality of life by restoring lost mobility and independence through personalized treatment plans.',
-        image: '/homepage/service-joint.webp',
+        image: '/homepage/bone-fracture.jpg',
     },
 ]
 
