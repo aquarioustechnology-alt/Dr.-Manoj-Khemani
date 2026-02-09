@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { CheckCircle2 } from 'lucide-react'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
@@ -21,11 +22,31 @@ const trustPoints = [
     "Comprehensive post-operative care and rehabilitation",
 ]
 
+const doctorImages = [
+    "/homepage/Dr Image 1.webp",
+    "/homepage/Dr Image 3.webp",
+    "/homepage/Dr Image 7.webp",
+    "/homepage/Dr Image 11.webp",
+    "/homepage/Dr Image 14.webp",
+    "/homepage/Dr Image 17.webp",
+    "/homepage/Dr Image 20.webp",
+]
+
 export default function WhyChooseUs() {
     const sectionRef = useRef<HTMLElement>(null)
     const [counts, setCounts] = useState(stats.map(() => 0))
     const hasAnimated = useRef(false)
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+    // Auto-slide images
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % doctorImages.length)
+        }, 3500)
+        return () => clearInterval(interval)
+    }, [])
+
+    // Counter animation
     useEffect(() => {
         if (!sectionRef.current) return
 
@@ -36,10 +57,9 @@ export default function WhyChooseUs() {
                     stats.forEach((stat, index) => {
                         let start = 0
                         const end = stat.value
-                        const duration = 2000
-                        const stepTime = duration / end
+                        const increment = Math.ceil(end / 60)
                         const timer = setInterval(() => {
-                            start += Math.ceil(end / 50)
+                            start += increment
                             if (start >= end) {
                                 start = end
                                 clearInterval(timer)
@@ -49,7 +69,7 @@ export default function WhyChooseUs() {
                                 newCounts[index] = start
                                 return newCounts
                             })
-                        }, stepTime)
+                        }, 30)
                     })
                 }
             },
@@ -102,21 +122,25 @@ export default function WhyChooseUs() {
                         </h2>
 
                         {/* Paragraph */}
-                        <p className="why-content text-[15px] text-gray-600 leading-relaxed font-medium mb-10">
+                        <p className="why-content text-[15px] text-gray-600 leading-relaxed font-medium mb-8">
                             With over two decades of orthopaedic expertise, <span className="font-bold text-black">Dr. Manoj Kumar Khemani</span> delivers exceptional surgical outcomes through advanced technology and patient-centered care. His adoption of <span className="font-bold text-black">AR-guided surgery</span> ensures precision in every procedure.
                         </p>
 
-                        {/* Trust Points */}
-                        <ul className="why-content space-y-4 mb-10">
+                        {/* Trust Points - Matching About Section Style */}
+                        <ul className="why-content space-y-2 mb-10">
                             {trustPoints.map((point, index) => (
-                                <li key={index} className="flex items-start gap-3">
-                                    <span className="mt-1.5 w-2 h-2 rounded-full bg-leaf-500 shrink-0"></span>
-                                    <span className="text-[15px] text-gray-700 font-medium">{point}</span>
+                                <li key={index} className="flex items-start gap-4 text-gray-800 group">
+                                    <div className="mt-1 shrink-0 flex items-center justify-center">
+                                        <div className="w-6 h-6 rounded-full bg-leaf-50 flex items-center justify-center border border-leaf-200 group-hover:bg-leaf-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                            <CheckCircle2 size={14} className="text-leaf-600 group-hover:text-white" />
+                                        </div>
+                                    </div>
+                                    <span className="text-[15px] font-medium leading-relaxed pt-0.5">{point}</span>
                                 </li>
                             ))}
                         </ul>
 
-                        {/* Stats Row */}
+                        {/* Stats Row with Counter Animation */}
                         <div className="why-content flex flex-wrap gap-8 lg:gap-12">
                             {stats.map((stat, index) => (
                                 <div key={index} className="text-center">
@@ -129,35 +153,45 @@ export default function WhyChooseUs() {
                         </div>
                     </div>
 
-                    {/* Right Column: Image Collage */}
+                    {/* Right Column: Auto-Sliding Image Gallery */}
                     <div className="why-content relative">
-                        <div className="grid grid-cols-2 gap-4">
-                            {/* Main Large Image */}
-                            <div className="col-span-2 relative aspect-[16/9] rounded-2xl overflow-hidden">
-                                <img
-                                    src="/homepage/Dr Image 17.webp"
-                                    alt="Dr. Khemani in surgery"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            {/* Two smaller images */}
-                            <div className="relative aspect-square rounded-2xl overflow-hidden">
-                                <img
-                                    src="/homepage/Dr Image 3.webp"
-                                    alt="Dr. Khemani with patient"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="relative aspect-square rounded-2xl overflow-hidden">
-                                <img
-                                    src="/homepage/Dr Image 11.webp"
-                                    alt="Dr. Khemani at conference"
-                                    className="w-full h-full object-cover"
-                                />
+                        <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl">
+                            {doctorImages.map((img, index) => (
+                                <div
+                                    key={index}
+                                    className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentImageIndex
+                                        ? 'opacity-100 scale-100 z-10'
+                                        : 'opacity-0 scale-105 z-0'
+                                        }`}
+                                >
+                                    <img
+                                        src={img}
+                                        alt="Dr. Manoj Khemani"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            ))}
+
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-20"></div>
+
+                            {/* Image Indicators */}
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+                                {doctorImages.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setCurrentImageIndex(index)}
+                                        className={`h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
+                                            ? 'bg-white w-8'
+                                            : 'bg-white/40 w-2 hover:bg-white/70'
+                                            }`}
+                                        aria-label={`View image ${index + 1}`}
+                                    />
+                                ))}
                             </div>
                         </div>
 
-                        {/* Decorative Element */}
+                        {/* Decorative Elements */}
                         <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-leaf-100 -z-10"></div>
                         <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-leaf-50 -z-10"></div>
                     </div>
