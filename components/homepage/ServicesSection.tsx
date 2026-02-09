@@ -147,11 +147,34 @@ export default function ServicesSection() {
                             <div className="tab-content-anim mt-8 flex items-center gap-4">
                                 <Button
                                     className="bg-leaf-500 hover:bg-leaf-600 text-white border-none"
-                                    onClick={() => document.getElementById('appointment-form')?.scrollIntoView({ behavior: 'smooth' })}
+                                    href={activeTab.link}
                                 >
-                                    Book An Appointment
+                                    Know More
                                 </Button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                {/* Consultation Callout Section */}
+                <div className="mt-32 services-header-item">
+                    <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 py-10">
+                        <div className="text-left w-full lg:w-auto">
+                            <h3 className="text-2xl lg:text-[2.5rem] font-bold text-gray-900 mb-4 tracking-tight leading-tight">
+                                Not sure which treatment you need?
+                            </h3>
+                            <p className="text-lg lg:text-xl text-gray-600 font-medium">
+                                Schedule a consultation with Dr. Khemani for a personalized assessment.
+                            </p>
+                        </div>
+
+                        <div className="shrink-0">
+                            <Button
+                                href="/contact"
+                                className="!bg-leaf-500 hover:!bg-leaf-600 !text-white !h-[60px]"
+                                iconClassName="!text-leaf-500"
+                            >
+                                Book Consultation
+                            </Button>
                         </div>
                     </div>
                 </div>

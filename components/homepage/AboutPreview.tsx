@@ -80,7 +80,7 @@ export default function AboutPreview() {
                         <div className="about-bottom-col relative h-[500px] lg:h-[700px]">
                             <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white group">
                                 <img
-                                    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"
+                                    src="/homepage/Doctor headshot 1.jpg"
                                     alt="Dr. Manoj Khemani Portrait"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
@@ -93,7 +93,7 @@ export default function AboutPreview() {
                                         className="!h-[52px] shadow-xl !bg-black hover:!bg-gray-900"
                                         iconClassName="text-black"
                                     >
-                                        Read More About Me
+                                        Know Dr. Khemani
                                     </Button>
                                 </div>
                             </div>
@@ -128,13 +128,13 @@ export default function AboutPreview() {
                                         "Life Member of West Bengal Arthroplasty Society",
                                         "Life Member of Indian Society of Hip & Knee Surgeons"
                                     ].map((item, index) => (
-                                        <li key={index} className="flex items-start gap-4 text-gray-600 group">
+                                        <li key={index} className="flex items-start gap-4 text-gray-800 group">
                                             <div className="mt-1 shrink-0 flex items-center justify-center">
-                                                <div className="w-5 h-5 rounded-full bg-leaf-50 flex items-center justify-center border border-leaf-100 group-hover:bg-leaf-600 group-hover:text-white transition-colors duration-300">
-                                                    <CheckCircle2 size={12} className="text-leaf-600 group-hover:text-white" />
+                                                <div className="w-6 h-6 rounded-full bg-leaf-50 flex items-center justify-center border border-leaf-200 group-hover:bg-leaf-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                                    <CheckCircle2 size={14} className="text-leaf-600 group-hover:text-white" />
                                                 </div>
                                             </div>
-                                            <span className="text-[14px] font-medium leading-relaxed pt-0.5">{item}</span>
+                                            <span className="text-[15px] font-medium leading-relaxed pt-0.5">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
