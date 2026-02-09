@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
+
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
@@ -81,7 +83,7 @@ export default function ServicesSection() {
     }, [activeTab])
 
     return (
-        <section ref={sectionRef} className="pt-20 pb-24 bg-white relative overflow-hidden">
+        <section ref={sectionRef} className="pt-20 pb-24 bg-white relative overflow-hidden z-20">
             <div className="max-w-[1600px] mx-auto px-6 lg:px-20">
                 {/* Section Header */}
                 <div className="text-center w-full mb-16">
@@ -156,7 +158,7 @@ export default function ServicesSection() {
                     </div>
                 </div>
                 {/* Consultation Callout Section */}
-                <div className="mt-32 services-header-item">
+                <div className="mt-2 services-header-item">
                     <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 py-10">
                         <div className="text-left w-full lg:w-auto">
                             <h3 className="text-2xl lg:text-[2.5rem] font-bold text-gray-900 mb-4 tracking-tight leading-tight">
@@ -168,13 +170,15 @@ export default function ServicesSection() {
                         </div>
 
                         <div className="shrink-0">
-                            <Button
+                            <Link
                                 href="/contact"
-                                className="!bg-leaf-500 hover:!bg-leaf-600 !text-white !h-[60px]"
-                                iconClassName="!text-leaf-500"
+                                className="group relative flex items-center gap-3 text-black hover:text-leaf-600 transition-colors duration-300 pb-2"
                             >
-                                Book Consultation
-                            </Button>
+                                <span className="text-lg lg:text-xl font-bold">Book Consultation</span>
+                                <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-2 transition-transform" />
+                                {/* Bottom Bold Line */}
+                                <div className="absolute bottom-0 left-0 w-full h-[3px] bg-black group-hover:bg-leaf-600 transition-colors duration-300"></div>
+                            </Link>
                         </div>
                     </div>
                 </div>

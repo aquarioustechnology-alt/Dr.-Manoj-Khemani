@@ -12,9 +12,11 @@
   --color-text-secondary: #57534e;
   --color-text-muted: #a8a29e;
   --color-leaf: #A8CA3D;
+  --color-leaf-100: #f4f8e6;
+  --color-leaf-200: #eaf2cd;
   --color-leaf-light: #b7d94c;
   --color-leaf-dark: #86a32e;
-  
+
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -40,7 +42,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Manrope', system-ui, sans-serif;
   font-weight: 600;
   letter-spacing: -0.02em;

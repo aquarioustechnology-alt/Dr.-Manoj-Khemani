@@ -50,7 +50,7 @@ export default function AboutPreview() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="pt-20 pb-12 lg:pt-[100px] lg:pb-20 bg-[#F9F9F9] relative z-10 rounded-t-[3rem] shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.05)]">
+        <section ref={sectionRef} className="pt-20 pb-12 lg:pt-[100px] lg:pb-20 bg-[#F9F9F9] relative z-20 rounded-t-[3rem] shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.05)]">
             <div className="w-full max-w-[1600px] mx-auto px-6 lg:px-20">
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
@@ -80,7 +80,7 @@ export default function AboutPreview() {
                         <div className="about-bottom-col relative h-[500px] lg:h-[700px]">
                             <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white group">
                                 <img
-                                    src="/homepage/Doctor headshot 1.jpg"
+                                    src="/homepage/Doctor Headshot 2.png"
                                     alt="Dr. Manoj Khemani Portrait"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
