@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Phone, Calendar } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 const navLinks = [
@@ -38,7 +38,7 @@ export default function Header() {
     return (
         <>
             <header
-                className={`z-50 transition-all duration-500 ease-in-out flex items-center justify-between px-6 lg:px-10
+                className={`z-50 transition-all duration-500 ease-in-out flex items-center justify-between px-3 lg:px-5
                     ${isScrolled
                         ? 'fixed top-0 left-0 right-0 w-full rounded-none bg-white/95 backdrop-blur-xl shadow-md py-3'
                         : 'absolute top-[31px] left-[85px] w-[calc(100%-170px)] rounded-full bg-white/90 backdrop-blur-lg shadow-xl shadow-leaf-900/5 border border-white/50 py-3'
@@ -60,7 +60,7 @@ export default function Header() {
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center gap-1">
                     {navLinks.map((link) => (
-                        <div key={link.label} className="relative group px-4 py-2">
+                        <div key={link.label} className="relative group px-3 py-2">
                             {link.isDropdown ? (
                                 <>
                                     <button className="flex items-center gap-1 text-[15px] font-medium text-black group-hover:text-leaf-600 transition-colors">
@@ -95,9 +95,20 @@ export default function Header() {
                     ))}
                 </nav>
 
-                <div className="hidden lg:flex items-center">
-                    <Button href="/contact" className="!h-[56px] !text-[16px] !font-semibold mr-1">
-                        Book An Appointment
+                <div className="hidden lg:flex items-center gap-5">
+                    <a href="tel:+918697449191" className="flex items-center gap-2 group">
+                        <Phone size={18} className="text-black group-hover:text-leaf-600 transition-colors" />
+                        <span className="font-medium text-sm text-black group-hover:text-leaf-600 transition-colors">
+                            +(91) 8697449191
+                        </span>
+                    </a>
+                    <Button
+                        href="/contact"
+                        className="!h-[48px] !text-[15px] !font-semibold !bg-[#EC1D26] hover:!bg-[#EC1D26]/90 !pl-1 !pr-5"
+                        icon={Calendar}
+                        iconClassName="!text-[#EC1D26] group-hover:!text-white !w-9 !h-9"
+                    >
+                        Book Appointment
                     </Button>
                 </div>
 
