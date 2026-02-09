@@ -44,7 +44,7 @@ export default function Hero() {
     return (
         <section className="sticky top-0 z-0 w-full h-screen min-h-[750px] p-[15px] bg-white">
             {/* Main Rounded Container */}
-            <div ref={containerRef} className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <div ref={containerRef} className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
 
                 {/* Background Images Slider */}
                 <div className="absolute inset-0 w-full h-full">

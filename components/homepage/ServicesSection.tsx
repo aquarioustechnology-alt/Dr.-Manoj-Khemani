@@ -95,7 +95,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Main Interactive Section */}
-                <div className="relative w-full aspect-[21/8] min-h-[450px] lg:min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-900">
+                <div className="relative w-full aspect-[21/8] min-h-[450px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 w-full h-full">
                         <img
