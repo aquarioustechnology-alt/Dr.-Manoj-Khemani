@@ -72,7 +72,7 @@ export default function Hero() {
                         Let's try a dark gradient on the right side to pop the white text, 
                         assuming the user accepts white text for a premium feel. 
                     */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent z-20" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 via-35% to-transparent to-50% z-20" />
                 </div>
 
                 {/* Content - Left Side */}
