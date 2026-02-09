@@ -9,10 +9,10 @@ import { Phone, Play, Star, X } from 'lucide-react'
 gsap.registerPlugin(ScrollTrigger)
 
 const HERO_IMAGES = [
-    "/homepage/Dr Image 3.webp",
-    "/homepage/hero_new_1.jpg",
-    "/homepage/hero_new_2.jpg",
-    "/homepage/Dr Image 8.webp"
+    "/homepage/Dr Image 5.webp",
+    "/homepage/Dr Image 6.webp",
+    "/homepage/Dr Image 10.webp",
+    "/homepage/Dr Image 20.webp"
 ]
 
 export default function Hero() {
@@ -103,8 +103,8 @@ export default function Hero() {
                             <div className="hero-content-item flex flex-wrap gap-4 justify-start">
                                 <Button
                                     href="/contact"
-                                    className="!h-[56px] !bg-[#95BF1B] !text-white !font-medium"
-                                    iconClassName="!text-[#95BF1B]"
+                                    className="!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
+                                    iconClassName="!text-[#95BF1B] group-hover:!text-white"
                                 >
                                     Schedule Appointment
                                 </Button>
@@ -127,14 +127,14 @@ export default function Hero() {
                                 href="https://www.google.com/search?sca_esv=ec04cb20b49346cc&rlz=1C1CHBF_enIN1200IN1200&sxsrf=ANbL-n5rzJ1uMMjHbrUOsXZVPxqBQR2O5g:1770612528391&q=Dr.+Manoj+Khemani&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-SiiHLMuwmCQZ7DqSL8AQqoJuAtjtegtdjEPKu9tUSpBEYyfYP2fz4cnCC1qzcZxqegTjm-9Z7zSARwuWeikrR-6huVZB4afx26jop4w_AoC7H5HW1kakDkl-Kg9CL30eb_soZjsRmQ21-CAgUWIIm_zNyzUmt70bPCaa99gE_vD7oJIEs&sa=X&ved=2ahUKEwibo6jWzcuSAxUdVmwGHVxlEnoQ0pQJegQIDxAB&biw=1536&bih=695&dpr=1.25#lrd=0x3a0275f9be75d203:0x221fc85cb7257132,1,,,,"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-10 px-10 py-8 bg-white/10 backdrop-blur-[30px] border border-white/20 rounded-3xl shadow-2xl hover:bg-white/20 transition-all cursor-pointer group/review"
+                                className="flex items-center gap-6 px-6 py-5 bg-white/10 backdrop-blur-[30px] border border-white/20 rounded-3xl shadow-2xl hover:bg-white/20 transition-all cursor-pointer group/review"
                                 style={{ boxShadow: 'inset 0 6px 0 0 rgba(255, 255, 255, 0.1), 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)' }}
                             >
                                 {/* Left Side: Avatars + Text */}
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex -space-x-3">
+                                <div className="flex flex-col gap-3">
+                                    <div className="flex -space-x-4">
                                         {[32, 65, 86].map((i) => (
-                                            <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
+                                            <div key={i} className="w-14 h-14 rounded-full border-2 border-white overflow-hidden relative">
                                                 <img
                                                     src={`https://randomuser.me/api/portraits/thumb/men/${i}.jpg`}
                                                     alt="Reviewer"
@@ -147,16 +147,16 @@ export default function Hero() {
                                 </div>
 
                                 {/* Divider */}
-                                <div className="w-[1px] h-12 bg-white/20"></div>
+                                <div className="w-[1px] h-16 bg-white/20"></div>
 
                                 {/* Right Side: Google Logo + Rating */}
-                                <div className="flex flex-col items-center gap-1">
+                                <div className="flex flex-col items-center gap-2">
                                     <img
                                         src="/homepage/google logo with rating.png"
                                         alt="Google Rating"
-                                        className="h-10 object-contain"
+                                        className="h-14 object-contain"
                                     />
-                                    <span className="text-white font-bold text-lg">4.8</span>
+                                    <span className="text-white font-bold text-xl">4.8</span>
                                 </div>
                             </a>
                         </div>
