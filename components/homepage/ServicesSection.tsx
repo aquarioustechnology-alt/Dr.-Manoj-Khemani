@@ -83,7 +83,7 @@ export default function ServicesSection() {
     }, [activeTab])
 
     return (
-        <section ref={sectionRef} className="pt-20 pb-24 bg-white relative overflow-hidden z-20">
+        <section ref={sectionRef} className="pt-20 pb-4 bg-white relative overflow-hidden z-20">
             <div className="max-w-[1600px] mx-auto px-6 lg:px-20">
                 {/* Section Header */}
                 <div className="text-center w-full mb-16">
