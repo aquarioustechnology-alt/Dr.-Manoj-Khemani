@@ -41,7 +41,7 @@ export default function Header() {
                 className={`z-50 transition-all duration-500 ease-in-out flex items-center justify-between px-6 lg:px-10
                     ${isScrolled
                         ? 'fixed top-0 left-0 right-0 w-full rounded-none bg-white/95 backdrop-blur-xl shadow-md py-3'
-                        : 'absolute top-[23px] left-[85px] w-[calc(100%-170px)] rounded-full bg-white/90 backdrop-blur-lg shadow-xl shadow-leaf-900/5 border border-white/50 py-3'
+                        : 'absolute top-[31px] left-[85px] w-[calc(100%-170px)] rounded-full bg-white/90 backdrop-blur-lg shadow-xl shadow-leaf-900/5 border border-white/50 py-3'
                     }`}
             >
                 {/* Logo */}
