@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ChevronLeft, ChevronRight, Award } from 'lucide-react'
+import Button from '@/components/ui/Button'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
@@ -13,31 +14,31 @@ const achievements = [
     {
         id: 1,
         title: "Best Orthopaedic Surgeon Award",
-        description: "Recognized for pioneering work in <span class='text-[#EB547C]'>AR-guided knee replacement</span> and surgical innovation in Kolkata.",
+        description: "Recognized for pioneering work in <span class='text-[#A6CB3B]'>AR-guided knee replacement</span> and surgical innovation in Kolkata.",
         image: "/homepage/Achievement 1.jpeg"
     },
     {
         id: 2,
         title: "Clinical Excellence Recognition",
-        description: "Commemorating over <span class='text-[#EB547C]'>20 years of exceptional success</span> in complex joint replacement and trauma surgeries.",
+        description: "Commemorating over <span class='text-[#A6CB3B]'>20 years of exceptional success</span> in complex joint replacement and trauma surgeries.",
         image: "/homepage/Achievement 2.jpeg"
     },
     {
         id: 3,
         title: "Pioneer in Digital Orthopaedics",
-        description: "Awarded for early adoption and mastery of <span class='text-[#EB547C]'>Augmented Reality technology</span> in daily surgical practices.",
+        description: "Awarded for early adoption and mastery of <span class='text-[#A6CB3B]'>Augmented Reality technology</span> in daily surgical practices.",
         image: "/homepage/Achievement 3.jpeg"
     },
     {
         id: 4,
         title: "Top Joint Replacement Specialist",
-        description: "Ranked among the <span class='text-[#EB547C]'>elite surgeons</span> in Eastern India for superior patient outcomes and recovery speeds.",
+        description: "Ranked among the <span class='text-[#A6CB3B]'>elite surgeons</span> in Eastern India for superior patient outcomes and recovery speeds.",
         image: "/homepage/Achievement 4.jpeg"
     },
     {
         id: 5,
         title: "Healthcare Leadership Award",
-        description: "Recognizing significant contributions to <span class='text-[#EB547C]'>orthopaedic education</span> and mentoring the next generation of surgeons.",
+        description: "Recognizing significant contributions to <span class='text-[#A6CB3B]'>orthopaedic education</span> and mentoring the next generation of surgeons.",
         image: "/homepage/Achievement 5.jpeg"
     }
 ]
@@ -80,7 +81,7 @@ export default function Achievements() {
     }
 
     return (
-        <section ref={sectionRef} className="py-24 lg:py-32 bg-[#1c1917] text-white overflow-hidden relative z-20">
+        <section ref={sectionRef} className="py-[90px] bg-[#1c1917] text-white overflow-hidden relative z-20">
             {/* Subtle background pattern */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
                 <div className="absolute inset-0" style={{
@@ -103,7 +104,7 @@ export default function Achievements() {
                         </h2>
                     </div>
                     <div className="lg:w-1/3 achievement-reveal">
-                        <p className="text-lg lg:text-xl text-white/70 leading-relaxed font-medium">
+                        <p className="text-[15px] text-white/70 leading-relaxed font-medium">
                             Dr. Manoj Kumar Khemani's exceptional contributions to orthopaedics have garnered prestigious awards, affirming his dedication to innovation and patient care.
                         </p>
                     </div>
@@ -132,7 +133,7 @@ export default function Achievements() {
                     </div>
 
                     {/* Slides Container */}
-                    <div className="overflow-visible">
+                    <div className="overflow-visible mb-16 lg:mb-20">
                         <div
                             ref={carouselRef}
                             className="flex gap-6 lg:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
@@ -143,7 +144,7 @@ export default function Achievements() {
                                     key={item.id}
                                     className="min-w-[85%] sm:min-w-[45%] lg:min-w-[31.5%] group"
                                 >
-                                    <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-8 border border-white/5 bg-white/5">
+                                    <div className="relative aspect-[3/2] rounded-[2rem] overflow-hidden mb-8 border border-white/5 bg-white/5">
                                         <img
                                             src={item.image}
                                             alt={item.title}
@@ -169,6 +170,17 @@ export default function Achievements() {
                             ))}
                         </div>
                     </div>
+                </div>
+
+                {/* Bottom CTA Button */}
+                <div className="flex justify-center achievement-reveal">
+                    <Button
+                        href="/contact"
+                        className="!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
+                        iconClassName="!text-[#95BF1B] group-hover:!text-white"
+                    >
+                        Schedule a Consultation
+                    </Button>
                 </div>
 
             </div>
