@@ -43,7 +43,7 @@ export default function Button({
                 </div>
 
                 {/* Text on Right */}
-                <span className="font-medium text-sm tracking-wide text-left text-white">
+                <span className="font-medium text-sm tracking-wide text-left">
                     {children}
                 </span>
             </BaseButton>
