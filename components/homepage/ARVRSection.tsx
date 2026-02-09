@@ -98,7 +98,7 @@ export default function ARVRSection() {
                         {/* Two Information Cards with Hover and Reveal Effects */}
                         <div className="grid sm:grid-cols-2 gap-6">
                             {/* Card 1 */}
-                            <div className="ar-vr-card-anim group bg-white rounded-2xl p-6 shadow-sm border border-gray-100/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                            <div className="ar-vr-card-anim group bg-white rounded-2xl p-6 shadow-sm border border-gray-100/30 transition-all duration-300 hover:border-leaf-500 hover:bg-leaf-50/30 hover:scale-[1.02]">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="w-12 h-12 rounded-full bg-[#EC1D24] flex items-center justify-center text-white shrink-0 transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110">
                                         <Target size={24} />
@@ -113,7 +113,7 @@ export default function ARVRSection() {
                             </div>
 
                             {/* Card 2 */}
-                            <div className="ar-vr-card-anim group bg-white rounded-2xl p-6 shadow-sm border border-gray-100/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                            <div className="ar-vr-card-anim group bg-white rounded-2xl p-6 shadow-sm border border-gray-100/30 transition-all duration-300 hover:border-leaf-500 hover:bg-leaf-50/30 hover:scale-[1.02]">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="w-12 h-12 rounded-full bg-[#EC1D24] flex items-center justify-center text-white shrink-0 transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110">
                                         <Cpu size={24} />
