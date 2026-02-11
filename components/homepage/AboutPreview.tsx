@@ -86,15 +86,22 @@ export default function AboutPreview() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
 
-                                {/* Read More Button inside Image - Styled Black */}
-                                <div className="absolute bottom-6 left-6 z-20">
-                                    <Button
-                                        href="/about"
-                                        className="!h-[52px] shadow-xl !bg-black hover:!bg-gray-900"
-                                        iconClassName="text-black"
-                                    >
-                                        Know Dr. Khemani
-                                    </Button>
+                                {/* Doctor Info Container */}
+                                <div className="absolute bottom-6 left-6 right-6 z-20">
+                                    <div className="bg-white/95 backdrop-blur-md p-6 rounded-[20px] shadow-2xl border border-white/50 w-fit animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col gap-6">
+                                        <div className="flex flex-col gap-1.5">
+                                            <h4 className="text-gray-900 font-bold text-[22px] leading-tight">Dr. Manoj Kumar Khemani</h4>
+                                            <p className="text-black font-medium text-[14px] leading-tight mt-1">MS in Orthopedics, Texila American University</p>
+                                            <p className="text-black font-medium text-[14px] leading-tight text-opacity-80">Mch. Ortho degree, University of Seychelles</p>
+                                        </div>
+                                        <Button
+                                            href="/about"
+                                            className="!h-[48px] w-full sm:w-fit shadow-xl !bg-black hover:!bg-gray-900"
+                                            iconClassName="text-black !w-[38px] !h-[38px] sm:!w-[42px] sm:!h-[42px]"
+                                        >
+                                            Know Dr. Khemani
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
