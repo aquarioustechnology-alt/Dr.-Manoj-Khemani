@@ -45,7 +45,7 @@ export default function Hero() {
     }, [])
 
     return (
-        <section className={`sticky top-0 w-full p-[15px] bg-white transition-all duration-300 ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
+        <section className={`relative w-full p-[15px] bg-white transition-all duration-300 ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
             {/* Main Rounded Container */}
             <div ref={containerRef} className="relative w-full rounded-3xl overflow-hidden shadow-2xl">
 
