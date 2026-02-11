@@ -38,10 +38,11 @@ export default function Header() {
     return (
         <>
             <header
-                className={`z-50 transition-all duration-500 ease-in-out ${isScrolled
+                className={`z-50 transition-all duration-500 ease-in-out will-change-transform ${isScrolled
                     ? 'fixed top-0 left-0 right-0 w-full bg-white/95 backdrop-blur-xl shadow-md py-3'
                     : 'absolute top-[31px] left-1/2 -translate-x-1/2 w-[calc(100%-30px)] max-w-7.5xl rounded-full bg-white/90 backdrop-blur-lg shadow-xl shadow-leaf-900/5 border border-white/50 py-3'
                     }`}
+                style={{ backfaceVisibility: 'hidden', perspective: 1000 }}
             >
                 <div className={`flex items-center justify-between px-3 lg:px-5 ${isScrolled ? 'max-w-7.5xl mx-auto' : ''}`}>
                     {/* Logo */}
