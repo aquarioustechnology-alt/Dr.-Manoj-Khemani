@@ -13,32 +13,32 @@ if (typeof window !== 'undefined') {
 const achievements = [
     {
         id: 1,
-        title: "Best Orthopaedic Surgeon Award",
-        description: "Recognized for pioneering work in <span class='text-[#A6CB3B]'>AR-guided knee replacement</span> and surgical innovation in Kolkata.",
+        title: "Hands-on Workshop Faculty",
+        description: "Leading the <span class='text-[#A6CB3B]'>Advanced Orthopaedic Workshop</span>, training surgeons in the latest AR-guided knee replacement techniques.",
         image: "/homepage/Achievement 1.jpeg"
     },
     {
         id: 2,
-        title: "Clinical Excellence Recognition",
-        description: "Commemorating over <span class='text-[#A6CB3B]'>20 years of exceptional success</span> in complex joint replacement and trauma surgeries.",
+        title: "Medical Education Keynote",
+        description: "Invited as a guest speaker to share insights on <span class='text-[#A6CB3B]'>precision orthopaedics</span> at a renowned medical institution.",
         image: "/homepage/Achievement 2.jpeg"
     },
     {
         id: 3,
-        title: "Pioneer in Digital Orthopaedics",
-        description: "Awarded for early adoption and mastery of <span class='text-[#A6CB3B]'>Augmented Reality technology</span> in daily surgical practices.",
+        title: "Rural Doctors Association",
+        description: "Featured speaker at the <span class='text-[#A6CB3B]'>Annual Rural Doctors Conference</span>, discussing accessible healthcare innovation.",
         image: "/homepage/Achievement 3.jpeg"
     },
     {
         id: 4,
-        title: "Top Joint Replacement Specialist",
-        description: "Ranked among the <span class='text-[#A6CB3B]'>elite surgeons</span> in Eastern India for superior patient outcomes and recovery speeds.",
+        title: "National Orthopaedic Summit",
+        description: "Sharing clinical expertise on <span class='text-[#A6CB3B]'>complex joint replacements</span> at a major national medical conference.",
         image: "/homepage/Achievement 4.jpeg"
     },
     {
         id: 5,
-        title: "Healthcare Leadership Award",
-        description: "Recognizing significant contributions to <span class='text-[#A6CB3B]'>orthopaedic education</span> and mentoring the next generation of surgeons.",
+        title: "Surgical Mentorship Program",
+        description: "Actively mentoring junior residents and surgeons in the <span class='text-[#A6CB3B]'>mastery of robotic and digital orthopaedics</span>.",
         image: "/homepage/Achievement 5.jpeg"
     }
 ]
@@ -96,41 +96,44 @@ export default function Achievements() {
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-24">
                     <div className="lg:w-1/2 achievement-reveal">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/80 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
-                            Awards & Recognitions
+                            Academic & Professional Milestones
                         </div>
                         <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold tracking-tight">
-                            Recognizing Excellence: <br />
-                            <span className="text-leaf-400">Awards and Accolades</span>
+                            Excellence in Action: <br />
+                            <span className="text-leaf-400">Medical Engagements</span>
                         </h2>
                     </div>
                     <div className="lg:w-1/3 achievement-reveal">
-                        <p className="text-[15px] text-white/70 leading-relaxed font-medium">
-                            Dr. Manoj Kumar Khemani's exceptional contributions to orthopaedics have garnered prestigious awards, affirming his dedication to innovation and patient care.
+                        <p className="text-[15px] text-white/70 leading-relaxed font-medium mb-8">
+                            Dr. Manoj Kumar Khemani's journey extends beyond the operation theatre, encompassing medical education, academic leadership, and active participation in global orthopaedic communities.
                         </p>
+
+                        {/* Navigation Buttons */}
+                        <div className="flex gap-4">
+                            <button
+                                onClick={prevSlide}
+                                disabled={currentIndex === 0}
+                                className={`group relative flex items-center justify-center w-12 h-12 transition-all duration-300 ${currentIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}`}
+                                aria-label="Previous slide"
+                            >
+                                <div className="absolute inset-0 rounded-full border border-white/20 transition-all duration-300 group-hover:bg-leaf-500 group-hover:border-leaf-500" />
+                                <ChevronLeft size={24} className="relative z-10 text-white transition-transform duration-300 group-hover:scale-110" />
+                            </button>
+                            <button
+                                onClick={nextSlide}
+                                disabled={currentIndex >= achievements.length - 3}
+                                className={`group relative flex items-center justify-center w-12 h-12 transition-all duration-300 ${currentIndex >= achievements.length - 3 ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}`}
+                                aria-label="Next slide"
+                            >
+                                <div className="absolute inset-0 rounded-full border border-white/20 transition-all duration-300 group-hover:bg-leaf-500 group-hover:border-leaf-500" />
+                                <ChevronRight size={24} className="relative z-10 text-white transition-transform duration-300 group-hover:scale-110" />
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 {/* Carousel Section */}
                 <div className="relative achievement-reveal">
-                    {/* Navigation Buttons */}
-                    <div className="absolute -top-16 lg:-top-20 right-0 flex gap-4">
-                        <button
-                            onClick={prevSlide}
-                            disabled={currentIndex === 0}
-                            className={`w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all ${currentIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-leaf-500 hover:border-leaf-500'}`}
-                            aria-label="Previous slide"
-                        >
-                            <ChevronLeft size={24} />
-                        </button>
-                        <button
-                            onClick={nextSlide}
-                            disabled={currentIndex >= achievements.length - 3}
-                            className={`w-12 h-12 rounded-full border border-white/20 flex items-center justify-center transition-all ${currentIndex >= achievements.length - 3 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-leaf-500 hover:border-leaf-500'}`}
-                            aria-label="Next slide"
-                        >
-                            <ChevronRight size={24} />
-                        </button>
-                    </div>
 
                     {/* Slides Container */}
                     <div className="overflow-visible mb-16 lg:mb-20">

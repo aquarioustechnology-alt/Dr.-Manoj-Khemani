@@ -144,7 +144,7 @@ export default function WhyChooseUs() {
                         <div className="why-content flex flex-wrap gap-8 lg:gap-12">
                             {stats.map((stat, index) => (
                                 <div key={index} className="text-center">
-                                    <span className="block text-4xl lg:text-5xl font-bold text-[#1A1A1A]">
+                                    <span className="block text-4xl lg:text-5xl font-extrabold text-[#1A1A1A]">
                                         {counts[index]}{stat.suffix}
                                     </span>
                                     <span className="text-sm text-gray-500 font-medium">{stat.label}</span>
