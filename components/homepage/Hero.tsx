@@ -76,11 +76,11 @@ export default function Hero() {
                 </div>
 
                 {/* Content Layer - Unified Flex Structure */}
-                <div ref={contentRef} className="absolute inset-0 z-30 flex items-center px-8 lg:px-20 pt-20">
+                <div ref={contentRef} className="absolute inset-0 z-30 flex items-center px-6 lg:px-20 py-[50px] md:py-[60px] lg:py-[70px] 2xl:py-[80px]">
                     <div className="max-w-7.5xl mx-auto w-full flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 lg:gap-0">
 
                         {/* Left Side Content */}
-                        <div className="max-w-2xl text-left">
+                        <div className="max-w-3xl text-left">
                             {/* Subheading */}
                             <div className="hero-content-item mb-4">
                                 <span className="inline-block py-1 px-3 border border-white/30 rounded-full bg-white/10 backdrop-blur-md text-white/90 text-sm font-medium tracking-wider uppercase">
@@ -89,9 +89,8 @@ export default function Hero() {
                             </div>
 
                             {/* Heading */}
-                            <h1 className="hero-content-item text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] drop-shadow-sm">
-                                Get Back to Life <br />
-                                <span className="text-leaf-400">with Dr. Manoj Khemani</span>
+                            <h1 className="hero-content-item text-4xl sm:text-5xl lg:text-7xl 2xl:text-8xl font-bold text-white mb-6 leading-[1.1] drop-shadow-sm">
+                                Get Back to Life with <span className="text-leaf-400">Dr. Manoj Khemani</span>
                             </h1>
 
                             <p className="hero-content-item text-lg text-gray-200 mb-10 max-w-xl leading-relaxed">
@@ -102,7 +101,7 @@ export default function Hero() {
                             <div className="hero-content-item flex flex-wrap gap-4 justify-start">
                                 <Button
                                     href="/contact"
-                                    className="!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
+                                    className="w-full sm:w-auto !h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
                                     iconClassName="!text-[#95BF1B] group-hover:!text-white"
                                 >
                                     Schedule Appointment
@@ -110,7 +109,7 @@ export default function Hero() {
 
                                 <button
                                     onClick={() => setIsVideoOpen(true)}
-                                    className="group inline-flex items-center gap-3 pl-1 pr-6 py-1.5 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-medium text-sm transition-all hover:bg-white hover:text-black hover:border-white"
+                                    className="w-full sm:w-auto group inline-flex items-center justify-center sm:justify-start gap-3 pl-1 pr-6 py-1.5 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-medium text-sm transition-all hover:bg-white hover:text-black hover:border-white"
                                 >
                                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-leaf-500 group-hover:text-white transition-colors">
                                         <Play size={20} className="fill-current" />
