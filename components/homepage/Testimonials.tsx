@@ -101,89 +101,85 @@ export default function Testimonials() {
             </div>
 
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
-                    {/* Left Column: Heading and Testimonial Card */}
-                    <div className="lg:col-span-6 flex flex-col justify-between gap-8 h-full">
+                    {/* Left Column: Heading and Testimonial Card (60%) */}
+                    <div className="lg:col-span-7 flex flex-col gap-8">
                         <div className="testimonial-reveal">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/80 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/80 text-[12px] font-bold tracking-[0.2em] uppercase mb-4">
                                 Patient Success Stories
                             </div>
-                            <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold tracking-tight mb-8">
+                            <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold tracking-tight">
                                 Unique Approach To Your <br />
                                 <span className="text-leaf-400">Health Needs</span>
                             </h2>
                         </div>
 
                         {/* Testimonial Card */}
-                        <div className="testimonial-reveal bg-[#A6CB3B]/10 border border-[#A6CB3B]/20 rounded-[18px] p-8 lg:p-10 relative flex flex-col justify-between h-full min-h-[320px]">
+                        <div id="testimonial-card" className="testimonial-reveal bg-[#A6CB3B]/10 border border-[#A6CB3B]/20 rounded-[18px] p-8 lg:p-9 relative flex flex-col justify-between">
                             <div>
-                                <Quote size={48} className="text-[#A6CB3B] opacity-40 mb-6" />
-                                <div className="flex gap-1 mb-6">
+                                <Quote size={40} className="text-[#A6CB3B] opacity-40 mb-5" />
+                                <div className="flex gap-1 mb-5">
                                     {[...Array(testimonial.rating)].map((_, i) => (
-                                        <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
+                                        <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
                                     ))}
                                 </div>
-                                <p className="text-base lg:text-lg text-white/90 leading-relaxed font-medium">
+                                <p className="text-base lg:text-lg text-white/90 leading-relaxed font-medium mb-8">
                                     "{testimonial.content}"
                                 </p>
                             </div>
 
-                            <div className="mt-12 flex items-center justify-between">
+                            <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-full bg-leaf-500/20 border border-leaf-500 flex items-center justify-center text-leaf-500 font-medium text-xl uppercase">
+                                    <div className="w-12 h-12 rounded-full bg-leaf-500/20 border border-leaf-500 flex items-center justify-center text-leaf-500 font-medium text-lg uppercase">
                                         {testimonial.name.split(' ').map(n => n[0]).join('')}
                                     </div>
                                     <div>
-                                        <span className="block font-bold text-white text-lg">{testimonial.name}</span>
-                                        <span className="text-white/50 text-sm">{testimonial.role}</span>
+                                        <span className="block font-bold text-white text-base">{testimonial.name}</span>
+                                        <span className="text-white/50 text-xs">{testimonial.role}</span>
                                     </div>
                                 </div>
 
-                                {/* Navigation Arrows */}
-                                <div className="flex gap-3">
+                                {/* Navigation Arrows - Individually Circular */}
+                                <div className="flex gap-4">
                                     <button
                                         onClick={prevSlide}
-                                        className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#A6CB3B] hover:border-[#A6CB3B] hover:text-white transition-all duration-300 group"
+                                        className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-leaf-500 hover:border-leaf-500 text-white/40 hover:text-white transition-all duration-300 group"
                                     >
-                                        <ChevronLeft size={24} className="group-hover:scale-110 transition-transform" />
+                                        <ChevronLeft size={22} className="group-hover:-translate-x-0.5 transition-transform" />
                                     </button>
                                     <button
                                         onClick={nextSlide}
-                                        className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#A6CB3B] hover:border-[#A6CB3B] hover:text-white transition-all duration-300 group"
+                                        className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-leaf-500 hover:border-leaf-500 text-white/40 hover:text-white transition-all duration-300 group"
                                     >
-                                        <ChevronRight size={24} className="group-hover:scale-110 transition-transform" />
+                                        <ChevronRight size={22} className="group-hover:translate-x-0.5 transition-transform" />
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Right Column: Two Side-by-Side Columns */}
-                    <div className="lg:col-span-6 grid grid-cols-2 gap-3 lg:gap-4">
-                        {/* Left Sub-Column: Image (70%) + Google Rating (30%) */}
+                    {/* Right Column: Two Side-by-Side Columns (40%) */}
+                    <div className="lg:col-span-5 grid grid-cols-2 gap-3 lg:gap-4">
+                        {/* Left Sub-Column */}
                         <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal">
-                            {/* Top: Image (70% height) */}
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl" style={{ flex: '8 1 0%' }}>
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl" style={{ flex: '7 1 0%' }}>
                                 <img
-                                    src="/homepage/Dr Image 5.webp"
+                                    src="/homepage/Doctor 25.jpg"
                                     alt="Doctor Consultation"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                             </div>
-                            {/* Bottom: Google Rating (30% height) */}
-                            <div className="bg-white text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '2 1 0%' }}>
+                            <div className="bg-white text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '3 1 0%' }}>
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="inline-flex items-center justify-center w-10 h-10 shrink-0">
                                         <img src="/homepage/Google icon.png" alt="Google" className="w-full h-full object-contain" />
                                     </div>
-                                    {/* Circular Patient Avatars */}
                                     <div className="flex -space-x-2">
                                         <img src="/homepage/Dr Image 15.webp" alt="Patient" className="w-9 h-9 rounded-full object-cover border-2 border-white" />
                                         <img src="/homepage/Dr Image 16.webp" alt="Patient" className="w-9 h-9 rounded-full object-cover border-2 border-white" />
                                         <img src="/homepage/Dr Image 18.webp" alt="Patient" className="w-9 h-9 rounded-full object-cover border-2 border-white" />
-                                        <img src="/homepage/Dr Image 19.webp" alt="Patient" className="w-9 h-9 rounded-full object-cover border-2 border-white" />
                                     </div>
                                 </div>
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">4.9</h3>
@@ -191,20 +187,18 @@ export default function Testimonials() {
                             </div>
                         </div>
 
-                        {/* Right Sub-Column: Happy Patients (20%) + Image (80%) */}
+                        {/* Right Sub-Column */}
                         <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal">
-                            {/* Top: 25K+ Happy Patients (20% height) */}
-                            <div className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '2 1 0%' }}>
+                            <div className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '3 1 0%' }}>
                                 <div className="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center mb-3">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 9.05v-.1"></path><path d="M16 9.05v-.1"></path><path d="M7.5 15a5.5 5.5 0 0 0 9 0"></path></svg>
                                 </div>
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">25K+</h3>
                                 <p className="text-base font-medium opacity-70">Happy Patients</p>
                             </div>
-                            {/* Bottom: Image (80% height) */}
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl" style={{ flex: '8 1 0%' }}>
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl" style={{ flex: '7 1 0%' }}>
                                 <img
-                                    src="/homepage/Dr Image 4.webp"
+                                    src="/homepage/Dr Image 18.webp"
                                     alt="Medical Excellence"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
@@ -212,6 +206,9 @@ export default function Testimonials() {
                             </div>
                         </div>
                     </div>
+
+
+
                 </div>
             </div>
         </section>

@@ -104,11 +104,54 @@ export default function WhyChooseUs() {
         <section ref={sectionRef} className="py-[90px] bg-white relative overflow-hidden z-20">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
 
-                {/* Two Column Layout */}
+                {/* Two Column Layout - Swapped */}
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                    {/* Left Column: Content */}
-                    <div>
+                    {/* Left Column: Auto-Sliding Image Gallery (Moved from Right) */}
+                    <div className="why-content relative lg:order-1">
+                        <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl">
+                            {doctorImages.map((img, index) => (
+                                <div
+                                    key={index}
+                                    className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentImageIndex
+                                        ? 'opacity-100 scale-100 z-10'
+                                        : 'opacity-0 scale-105 z-0'
+                                        }`}
+                                >
+                                    <img
+                                        src={img}
+                                        alt="Dr. Manoj Khemani"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            ))}
+
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-20"></div>
+
+                            {/* Image Indicators */}
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+                                {doctorImages.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setCurrentImageIndex(index)}
+                                        className={`h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
+                                            ? 'bg-white w-8'
+                                            : 'bg-white/40 w-2 hover:bg-white/70'
+                                            }`}
+                                        aria-label={`View image ${index + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Decorative Elements */}
+                        <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-leaf-100 -z-10"></div>
+                        <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-leaf-50 -z-10"></div>
+                    </div>
+
+                    {/* Right Column: Content (Moved from Left) */}
+                    <div className="lg:order-2">
                         {/* Badge */}
                         <div className="why-content inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-white text-gray-600 text-xs font-semibold tracking-widest uppercase mb-6">
                             <span className="w-2 h-2 rounded-full bg-[#EC1D24]"></span>
@@ -151,49 +194,6 @@ export default function WhyChooseUs() {
                                 </div>
                             ))}
                         </div>
-                    </div>
-
-                    {/* Right Column: Auto-Sliding Image Gallery */}
-                    <div className="why-content relative">
-                        <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl">
-                            {doctorImages.map((img, index) => (
-                                <div
-                                    key={index}
-                                    className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentImageIndex
-                                        ? 'opacity-100 scale-100 z-10'
-                                        : 'opacity-0 scale-105 z-0'
-                                        }`}
-                                >
-                                    <img
-                                        src={img}
-                                        alt="Dr. Manoj Khemani"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            ))}
-
-                            {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-20"></div>
-
-                            {/* Image Indicators */}
-                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
-                                {doctorImages.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => setCurrentImageIndex(index)}
-                                        className={`h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
-                                            ? 'bg-white w-8'
-                                            : 'bg-white/40 w-2 hover:bg-white/70'
-                                            }`}
-                                        aria-label={`View image ${index + 1}`}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Decorative Elements */}
-                        <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-leaf-100 -z-10"></div>
-                        <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-leaf-50 -z-10"></div>
                     </div>
 
                 </div>

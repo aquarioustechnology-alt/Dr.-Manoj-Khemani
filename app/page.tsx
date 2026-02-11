@@ -7,6 +7,9 @@ import ARVRSection from '@/components/homepage/ARVRSection'
 import Achievements from '@/components/homepage/Achievements'
 import WhyChooseUs from '@/components/homepage/WhyChooseUs'
 import Testimonials from '@/components/homepage/Testimonials'
+import VideoSection from '@/components/homepage/VideoSection'
+import FAQ from '@/components/homepage/FAQ'
+import Blogs from '@/components/homepage/Blogs'
 import CTASection from '@/components/homepage/CTASection'
 
 export default function Home() {
@@ -21,6 +24,9 @@ export default function Home() {
         <Achievements />
         <WhyChooseUs />
         <Testimonials />
+        <VideoSection />
+        <FAQ />
+        <Blogs />
         <CTASection />
       </main>
       <Footer />

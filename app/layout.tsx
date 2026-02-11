@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   keywords: 'orthopedic surgeon, knee replacement, hip replacement, spine surgery, sports medicine, Kolkata, Dr Manoj Khemani',
 }
 
+import FloatingActions from '@/components/common/FloatingActions'
+
 export default function RootLayout({
   children,
 }: {
@@ -14,8 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="antialiased font-sans">
         {children}
+        <FloatingActions />
       </body>
     </html>
   )
