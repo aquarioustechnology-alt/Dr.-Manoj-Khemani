@@ -4,7 +4,8 @@ import { useEffect, useState, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
-import { Phone, Play, Star, X } from 'lucide-react'
+import Link from 'next/link'
+import { Phone, Play, Star, X, ArrowUpRight } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -44,9 +45,9 @@ export default function Hero() {
     }, [])
 
     return (
-        <section className={`sticky top-0 w-full h-screen min-h-[750px] p-[15px] bg-white transition-all duration-300 ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
+        <section className={`sticky top-0 w-full p-[15px] bg-white transition-all duration-300 ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
             {/* Main Rounded Container */}
-            <div ref={containerRef} className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+            <div ref={containerRef} className="relative w-full rounded-3xl overflow-hidden shadow-2xl">
 
                 {/* Background Images Slider */}
                 <div className="absolute inset-0 w-full h-full">
@@ -64,19 +65,11 @@ export default function Hero() {
                         </div>
                     ))}
 
-                    {/* Overlay - Left to Right Gradient */}
-                    {/* User asked for overlay from left to right. Text is on Right. 
-                        Usually text needs contrast. If text is black, we need light overlay. 
-                        If text is white, we need dark overlay.
-                        Given "Maven Clinic" style (clean, often dark text on light), but "Get Back to Life" implies strong impact.
-                        Let's try a dark gradient on the right side to pop the white text, 
-                        assuming the user accepts white text for a premium feel. 
-                    */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 via-35% to-transparent to-50% z-20" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 via-45% to-transparent to-65% z-20" />
                 </div>
 
                 {/* Content Layer - Unified Flex Structure */}
-                <div ref={contentRef} className="absolute inset-0 z-30 flex items-center px-6 lg:px-20 py-[50px] md:py-[60px] lg:py-[70px] 2xl:py-[80px]">
+                <div ref={contentRef} className="relative z-30 flex items-center px-6 lg:px-20 pt-[180px] pb-[120px]">
                     <div className="max-w-7.5xl mx-auto w-full flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 lg:gap-0">
 
                         {/* Left Side Content */}
@@ -89,7 +82,7 @@ export default function Hero() {
                             </div>
 
                             {/* Heading */}
-                            <h1 className="hero-content-item text-4xl sm:text-5xl lg:text-7xl 2xl:text-8xl font-bold text-white mb-6 leading-[1.1] drop-shadow-sm">
+                            <h1 className="hero-content-item text-[46px] sm:text-[60px] lg:text-[80px] 2xl:text-8xl font-bold text-white mb-6 leading-[1.1] drop-shadow-sm">
                                 Get Back to Life with <span className="text-leaf-400">Dr. Manoj Khemani</span>
                             </h1>
 
@@ -119,44 +112,59 @@ export default function Hero() {
                             </div>
                         </div>
 
-                        {/* Google Reviews - Updated Design */}
-                        <div className="hero-content-item hidden lg:block pb-1">
-                            <a
-                                href="https://www.google.com/search?sca_esv=ec04cb20b49346cc&rlz=1C1CHBF_enIN1200IN1200&sxsrf=ANbL-n5rzJ1uMMjHbrUOsXZVPxqBQR2O5g:1770612528391&q=Dr.+Manoj+Khemani&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-SiiHLMuwmCQZ7DqSL8AQqoJuAtjtegtdjEPKu9tUSpBEYyfYP2fz4cnCC1qzcZxqegTjm-9Z7zSARwuWeikrR-6huVZB4afx26jop4w_AoC7H5HW1kakDkl-Kg9CL30eb_soZjsRmQ21-CAgUWIIm_zNyzUmt70bPCaa99gE_vD7oJIEs&sa=X&ved=2ahUKEwibo6jWzcuSAxUdVmwGHVxlEnoQ0pQJegQIDxAB&biw=1536&bih=695&dpr=1.25#lrd=0x3a0275f9be75d203:0x221fc85cb7257132,1,,,,"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-6 px-6 py-5 bg-white/10 backdrop-blur-[30px] border border-white/20 rounded-3xl shadow-2xl hover:bg-white/20 transition-all cursor-pointer group/review"
-                                style={{ boxShadow: 'inset 0 6px 0 0 rgba(255, 255, 255, 0.1), 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)' }}
+                        {/* Google Reviews - Refined Design */}
+                        <div className="hero-content-item block pb-1">
+                            <div className="flex flex-col bg-black/40 backdrop-blur-[30px] border border-white/20 rounded-[32px] overflow-hidden shadow-2xl transition-all w-fit max-w-[320px] sm:max-w-md"
+                                style={{ boxShadow: 'inset 0 6px 0 0 rgba(255, 255, 255, 0.05)' }}
                             >
-                                {/* Left Side: Avatars + Text */}
-                                <div className="flex flex-col gap-3">
-                                    <div className="flex -space-x-4">
-                                        {[32, 65, 86].map((i) => (
-                                            <div key={i} className="w-14 h-14 rounded-full border-2 border-white overflow-hidden relative">
-                                                <img
-                                                    src={`https://randomuser.me/api/portraits/thumb/men/${i}.jpg`}
-                                                    alt="Reviewer"
-                                                    className="object-cover w-full h-full"
-                                                />
-                                            </div>
-                                        ))}
+                                {/* Top Row: Review Info */}
+                                <a
+                                    href="https://www.google.com/search?sca_esv=ec04cb20b49346cc&rlz=1C1CHBF_enIN1200IN1200&sxsrf=ANbL-n5rzJ1uMMjHbrUOsXZVPxqBQR2O5g:1770612528391&q=Dr.+Manoj+Khemani&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-SiiHLMuwmCQZ7DqSL8AQqoJuAtjtegtdjEPKu9tUSpBEYyfYP2fz4cnCC1qzcZxqegTjm-9Z7zSARwuWeikrR-6huVZB4afx26jop4w_AoC7H5HW1kakDkl-Kg9CL30eb_soZjsRmQ21-CAgUWIIm_zNyzUmt70bPCaa99gE_vD7oJIEs&sa=X&ved=2ahUKEwibo6jWzcuSAxUdVmwGHVxlEnoQ0pQJegQIDxAB&biw=1536&bih=695&dpr=1.25#lrd=0x3a0275f9be75d203:0x221fc85cb7257132,1,,,,"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-between gap-4 sm:gap-8 px-5 sm:px-8 py-5 sm:py-6 border-b border-white/10 hover:bg-white/5 transition-all group/review"
+                                >
+                                    {/* Left: Avatars + Text */}
+                                    <div className="flex flex-col gap-3 sm:gap-4">
+                                        <div className="flex -space-x-3 sm:-space-x-4">
+                                            {[
+                                                "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop", // Indian female
+                                                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop", // Multi-ethnic male
+                                                "https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&w=200&auto=format&fit=crop"  // South Asian male
+                                            ].map((url, i) => (
+                                                <div key={i} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-white overflow-hidden relative shrink-0 aspect-square">
+                                                    <img src={url} alt="Patient" className="object-cover w-full h-full" />
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <span className="text-white text-base sm:text-lg font-semibold whitespace-nowrap">Happy Patients</span>
                                     </div>
-                                    <span className="text-white text-sm font-medium whitespace-nowrap">Happy Patients</span>
-                                </div>
 
-                                {/* Divider */}
-                                <div className="w-[1px] h-16 bg-white/20"></div>
+                                    {/* Divider */}
+                                    <div className="w-[1px] h-14 sm:h-20 bg-white/20 shrink-0"></div>
 
-                                {/* Right Side: Google Logo + Rating */}
-                                <div className="flex flex-col items-center gap-2">
-                                    <img
-                                        src="/homepage/google logo with rating.png"
-                                        alt="Google Rating"
-                                        className="h-14 object-contain"
-                                    />
-                                    <span className="text-white font-bold text-xl">4.8</span>
-                                </div>
-                            </a>
+                                    {/* Right: Google Logo + Rating */}
+                                    <div className="flex flex-col items-center gap-0 shrink-0">
+                                        <img
+                                            src="/homepage/google logo with rating.png"
+                                            alt="Google Rating"
+                                            className="h-12 sm:h-20 object-contain"
+                                        />
+                                        <span className="text-white font-bold text-xl sm:text-3xl mt-[-2px] sm:mt-[-8px]">4.8</span>
+                                    </div>
+                                </a>
+
+                                {/* Bottom Row: Clinic CTA */}
+                                <Link
+                                    href="/contact"
+                                    className="flex items-center justify-between gap-4 px-5 sm:px-8 py-4 sm:py-5 hover:bg-white/5 transition-all group/cta"
+                                >
+                                    <span className="text-white text-sm sm:text-lg font-medium">Visit Healing Touch Clinic</span>
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:translate-x-1 transition-transform">
+                                        <ArrowUpRight size={18} className="sm:w-6 sm:h-6" />
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
 
                     </div>
