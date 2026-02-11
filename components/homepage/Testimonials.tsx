@@ -101,7 +101,7 @@ export default function Testimonials() {
             </div>
 
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
 
                     {/* Left Column: Heading and Testimonial Card (60%) */}
                     <div className="lg:col-span-7 flex flex-col gap-8">
@@ -162,12 +162,12 @@ export default function Testimonials() {
                     {/* Right Column: Two Side-by-Side Columns (40%) */}
                     <div className="lg:col-span-5 grid grid-cols-2 gap-3 lg:gap-4">
                         {/* Left Sub-Column */}
-                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal">
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl" style={{ flex: '7 1 0%' }}>
+                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal min-h-0">
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl min-h-0" style={{ flex: '7 1 0%' }}>
                                 <img
                                     src="/homepage/Doctor 25.jpg"
                                     alt="Doctor Consultation"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                             </div>
@@ -188,7 +188,7 @@ export default function Testimonials() {
                         </div>
 
                         {/* Right Sub-Column */}
-                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal">
+                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal min-h-0">
                             <div className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '3 1 0%' }}>
                                 <div className="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center mb-3">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 9.05v-.1"></path><path d="M16 9.05v-.1"></path><path d="M7.5 15a5.5 5.5 0 0 0 9 0"></path></svg>
@@ -196,11 +196,11 @@ export default function Testimonials() {
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">25K+</h3>
                                 <p className="text-base font-medium opacity-70">Happy Patients</p>
                             </div>
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl" style={{ flex: '7 1 0%' }}>
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl min-h-0" style={{ flex: '7 1 0%' }}>
                                 <img
                                     src="/homepage/Dr Image 18.webp"
                                     alt="Medical Excellence"
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                             </div>
