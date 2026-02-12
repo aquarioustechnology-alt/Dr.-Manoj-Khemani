@@ -45,7 +45,7 @@ export default function Hero() {
     }, [])
 
     return (
-        <section className={`sticky top-0 z-0 w-full h-screen min-h-[750px] p-[15px] bg-white transition-all duration-300 ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
+        <section className={`sticky top-0 z-0 w-full min-h-[600px] p-[10px] bg-white transition-all duration-300 ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
             {/* Main Rounded Container */}
             <div ref={containerRef} className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
 
@@ -69,7 +69,7 @@ export default function Hero() {
                 </div>
 
                 {/* Content Layer - Unified Flex Structure */}
-                <div ref={contentRef} className="relative z-30 flex items-center px-6 lg:px-20 pt-[180px] pb-[120px]">
+                <div ref={contentRef} className="relative z-30 flex items-center px-6 lg:px-20 pt-[180px] pb-[100px]">
                     <div className="max-w-7.5xl mx-auto w-full flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 lg:gap-0">
 
                         {/* Left Side Content */}
@@ -114,54 +114,57 @@ export default function Hero() {
 
                         {/* Google Reviews - Refined Design */}
                         <div className="hero-content-item block pb-1">
-                            <div className="flex flex-col bg-black/40 backdrop-blur-[30px] border border-white/20 rounded-[32px] overflow-hidden shadow-2xl transition-all w-fit max-w-[320px] sm:max-w-md"
+                            <div className="flex flex-col bg-black/40 backdrop-blur-[30px] border border-white/20 rounded-[20px] overflow-hidden shadow-2xl transition-all w-fit max-w-[320px] sm:max-w-md"
                                 style={{ boxShadow: 'inset 0 6px 0 0 rgba(255, 255, 255, 0.05)' }}
                             >
                                 {/* Top Row: Review Info */}
                                 <a
-                                    href="https://www.google.com/search?sca_esv=ec04cb20b49346cc&rlz=1C1CHBF_enIN1200IN1200&sxsrf=ANbL-n5rzJ1uMMjHbrUOsXZVPxqBQR2O5g:1770612528391&q=Dr.+Manoj+Khemani&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-SiiHLMuwmCQZ7DqSL8AQqoJuAtjtegtdjEPKu9tUSpBEYyfYP2fz4cnCC1qzcZxqegTjm-9Z7zSARwuWeikrR-6huVZB4afx26jop4w_AoC7H5HW1kakDkl-Kg9CL30eb_soZjsRmQ21-CAgUWIIm_zNyzUmt70bPCaa99gE_vD7oJIEs&sa=X&ved=2ahUKEwibo6jWzcuSAxUdVmwGHVxlEnoQ0pQJegQIDxAB&biw=1536&bih=695&dpr=1.25#lrd=0x3a0275f9be75d203:0x221fc85cb7257132,1,,,,"
+                                    href="https://www.google.com/search?q=Dr.+Manoj+Khemani"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between gap-4 sm:gap-8 px-5 sm:px-8 py-5 sm:py-6 border-b border-white/10 hover:bg-white/5 transition-all group/review"
+                                    className="flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 py-3 sm:py-4 border-b border-white/10 hover:bg-white/5 transition-all group/review"
                                 >
-                                    {/* Left: Avatars + Text */}
-                                    <div className="flex flex-col gap-3 sm:gap-4">
-                                        <div className="flex -space-x-3 sm:-space-x-4">
-                                            {[
-                                                "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop", // Indian female
-                                                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop", // Multi-ethnic male
-                                                "https://images.unsplash.com/photo-1566753323558-f4e0952af115?q=80&w=200&auto=format&fit=crop"  // South Asian male
-                                            ].map((url, i) => (
-                                                <div key={i} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-white overflow-hidden relative shrink-0 aspect-square">
-                                                    <img src={url} alt="Patient" className="object-cover w-full h-full" />
-                                                </div>
-                                            ))}
+                                    {/* Left: Avatars Only */}
+                                    <div className="flex -space-x-2.5 sm:-space-x-3">
+                                        {[
+                                            "/homepage/img 1.webp",
+                                            "/homepage/img 2.webp",
+                                            "/homepage/img 3.webp",
+                                            "/homepage/img 4.webp"
+                                        ].map((url, i) => (
+                                            // Descending Z-index so first image is on top
+                                            <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white overflow-hidden relative shrink-0 aspect-square" style={{ zIndex: 10 - i }}>
+                                                <img src={url} alt="Patient" className="object-cover w-full h-full" />
+                                            </div>
+                                        ))}
+                                        {/* 5th Circle: Count (Lowest Z-index to be at bottom) */}
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white bg-[#95BF1B] flex items-center justify-center relative shrink-0 z-0">
+                                            <span className="text-white text-[9px] sm:text-[11px] font-bold leading-none">2k+</span>
                                         </div>
-                                        <span className="text-white text-base sm:text-lg font-semibold whitespace-nowrap">Happy Patients</span>
                                     </div>
 
                                     {/* Divider */}
-                                    <div className="w-[1px] h-14 sm:h-20 bg-white/20 shrink-0"></div>
+                                    <div className="w-[1px] h-8 sm:h-12 bg-white/20 shrink-0"></div>
 
-                                    {/* Right: Google Logo + Rating */}
-                                    <div className="flex flex-col items-center gap-0 shrink-0">
-                                        <img
-                                            src="/homepage/google logo with rating.png"
-                                            alt="Google Rating"
-                                            className="h-12 sm:h-20 object-contain"
-                                        />
-                                        <span className="text-white font-bold text-xl sm:text-3xl mt-[-2px] sm:mt-[-8px]">4.8</span>
+                                    {/* Right: Star Rating + Trust Text */}
+                                    <div className="flex flex-col items-start justify-center gap-0.5 shrink-0">
+                                        <div className="flex gap-0.5">
+                                            {[1, 2, 3, 4, 5].map((_, i) => (
+                                                <Star key={i} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />
+                                            ))}
+                                        </div>
+                                        <span className="text-white font-medium text-[10px] sm:text-xs mt-0.5">Trusted by 20,000+ Patients</span>
                                     </div>
                                 </a>
 
                                 {/* Bottom Row: Clinic CTA */}
                                 <Link
                                     href="/contact"
-                                    className="flex items-center justify-between gap-4 px-5 sm:px-8 py-4 sm:py-5 hover:bg-white/5 transition-all group/cta"
+                                    className="flex items-center justify-between gap-3 px-4 sm:px-6 py-2.5 sm:py-3 hover:bg-white/5 transition-all group/cta"
                                 >
-                                    <span className="text-white text-sm sm:text-lg font-medium">Visit Healing Touch Clinic</span>
-                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:translate-x-1 transition-transform">
-                                        <ArrowUpRight size={18} className="sm:w-6 sm:h-6" />
+                                    <span className="text-white text-xs sm:text-sm font-medium">Visit Healing Touch Clinic</span>
+                                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:translate-x-1 transition-transform">
+                                        <ArrowUpRight size={14} className="sm:w-4 sm:h-4" />
                                     </div>
                                 </Link>
                             </div>
