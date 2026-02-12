@@ -159,13 +159,13 @@ export default function Blogs() {
                     </div>
 
                     {/* Navigation Arrows */}
-                    <div className="flex items-center gap-4 p-2 rounded-full border border-gray-100 bg-gray-50/50">
+                    <div className="flex items-center gap-3">
                         <button
                             onClick={goPrev}
                             disabled={currentIndex === 0}
-                            className={`w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${currentIndex === 0
-                                ? 'border-gray-100 text-gray-200 cursor-not-allowed'
-                                : 'border-gray-200 text-[#1A1A1A] hover:bg-leaf-500 hover:border-leaf-500 hover:text-white'
+                            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${currentIndex === 0
+                                ? 'bg-gray-50 border-gray-200 text-gray-300 cursor-not-allowed'
+                                : 'bg-white border-black text-[#1A1A1A] hover:bg-leaf-500 hover:border-leaf-500 hover:text-white'
                                 }`}
                         >
                             <ChevronLeft size={20} />
@@ -173,9 +173,9 @@ export default function Blogs() {
                         <button
                             onClick={goNext}
                             disabled={currentIndex >= maxIndex}
-                            className={`w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${currentIndex >= maxIndex
-                                ? 'border-gray-100 text-gray-200 cursor-not-allowed'
-                                : 'border-gray-200 text-[#1A1A1A] hover:bg-leaf-500 hover:border-leaf-500 hover:text-white'
+                            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${currentIndex >= maxIndex
+                                ? 'bg-gray-50 border-gray-200 text-gray-300 cursor-not-allowed'
+                                : 'bg-white border-black text-[#1A1A1A] hover:bg-leaf-500 hover:border-leaf-500 hover:text-white'
                                 }`}
                         >
                             <ChevronRight size={20} />
@@ -223,32 +223,22 @@ export default function Blogs() {
                                         </div>
 
                                         {/* Content */}
-                                        <div className="p-6 flex flex-col flex-1">
+                                        <div className="p-6 pb-8 flex flex-col flex-1">
                                             {/* Date */}
-                                            <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
+                                            <div className="flex items-center gap-2 text-[#E53935] text-sm mb-3">
                                                 <Calendar size={14} />
                                                 <span className="font-medium">{blog.date}</span>
                                             </div>
 
                                             {/* Title */}
-                                            <h3 className="text-lg font-bold text-[#1A1A1A] mb-3 leading-snug group-hover:text-leaf-600 transition-colors duration-300 line-clamp-2">
+                                            <h3 className="text-lg font-bold text-[#1A1A1A] mb-3 leading-tight group-hover:text-leaf-600 transition-colors duration-300 line-clamp-2 min-h-[56px]">
                                                 {blog.title}
                                             </h3>
 
                                             {/* Excerpt */}
-                                            <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-3 flex-1">
+                                            <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-3">
                                                 {blog.excerpt}
                                             </p>
-
-                                            {/* Read More */}
-                                            <div className="mt-5 pt-5 border-t border-gray-100 flex items-center justify-between">
-                                                <span className="text-sm font-bold text-[#1A1A1A] group-hover:text-leaf-600 transition-colors">
-                                                    Read Article
-                                                </span>
-                                                <div className="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-leaf-500 flex items-center justify-center transition-all duration-300">
-                                                    <ArrowUpRight size={14} className="text-gray-500 group-hover:text-white transition-colors" />
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </Link>
