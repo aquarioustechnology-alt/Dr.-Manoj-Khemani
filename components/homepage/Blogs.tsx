@@ -163,20 +163,22 @@ export default function Blogs() {
                         <button
                             onClick={goPrev}
                             disabled={currentIndex === 0}
-                            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${currentIndex === 0
-                                ? 'bg-gray-50 border-gray-200 text-gray-300 cursor-not-allowed'
-                                : 'bg-white border-black text-[#1A1A1A] hover:bg-leaf-500 hover:border-leaf-500 hover:text-white'
+                            className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-transparent ${currentIndex === 0
+                                ? 'text-gray-300 cursor-not-allowed'
+                                : 'text-[#1A1A1A] hover:bg-leaf-500 hover:!border-leaf-500 hover:text-white'
                                 }`}
+                            style={{ border: currentIndex === 0 ? '1.5px solid #e5e7eb' : '1.5px solid rgba(0,0,0,0.8)' }}
                         >
                             <ChevronLeft size={20} />
                         </button>
                         <button
                             onClick={goNext}
                             disabled={currentIndex >= maxIndex}
-                            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${currentIndex >= maxIndex
-                                ? 'bg-gray-50 border-gray-200 text-gray-300 cursor-not-allowed'
-                                : 'bg-white border-black text-[#1A1A1A] hover:bg-leaf-500 hover:border-leaf-500 hover:text-white'
+                            className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-transparent ${currentIndex >= maxIndex
+                                ? 'text-gray-300 cursor-not-allowed'
+                                : 'text-[#1A1A1A] hover:bg-leaf-500 hover:!border-leaf-500 hover:text-white'
                                 }`}
+                            style={{ border: currentIndex >= maxIndex ? '1.5px solid #e5e7eb' : '1.5px solid rgba(0,0,0,0.8)' }}
                         >
                             <ChevronRight size={20} />
                         </button>
@@ -217,7 +219,7 @@ export default function Blogs() {
                                             </div>
 
                                             {/* Arrow icon on hover */}
-                                            <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-sm">
+                                            <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-sm z-10">
                                                 <ArrowUpRight size={18} className="text-[#1A1A1A]" />
                                             </div>
                                         </div>
