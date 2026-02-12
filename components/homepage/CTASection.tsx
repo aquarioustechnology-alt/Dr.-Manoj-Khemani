@@ -89,6 +89,37 @@ export default function CTASection() {
         }
     ]
 
+    const imageRefs = useRef<(HTMLImageElement | null)[]>([])
+
+    useEffect(() => {
+        if (!imageRefs.current.length) return
+
+        imageRefs.current.forEach((img, i) => {
+            if (!img) return
+            const isActive = i === activeClinic
+
+            if (isActive) {
+                gsap.to(img, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: 'power2.inOut',
+                    autoAlpha: 1,
+                    zIndex: 10,
+                })
+            } else {
+                gsap.to(img, {
+                    opacity: 0,
+                    scale: 1.05,
+                    duration: 1.2,
+                    ease: 'power2.inOut',
+                    autoAlpha: 0,
+                    zIndex: 0,
+                })
+            }
+        })
+    }, [activeClinic])
+
     return (
         <section ref={sectionRef} className="pt-[80px] pb-24 lg:pb-32 bg-[#f7faf2] relative overflow-hidden z-20">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8 relative">
@@ -169,7 +200,7 @@ export default function CTASection() {
                                         </div>
 
                                         {/* Expandable Content */}
-                                        <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                                        <div className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
                                             }`}>
                                             <div className="px-6 lg:px-8 pb-7">
                                                 {/* Address */}
@@ -205,21 +236,21 @@ export default function CTASection() {
 
                     {/* Right Column: Dynamic Clinic Image */}
                     <div className="lg:col-span-5 cta-reveal-right">
-                        <div className="relative h-full rounded-[2rem] overflow-hidden shadow-2xl group">
+                        <div className="relative h-[450px] lg:h-full min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl group border-[8px] border-white">
                             {clinics.map((clinic, index) => (
                                 <img
                                     key={index}
+                                    ref={(el) => {
+                                        imageRefs.current[index] = el
+                                    }}
                                     src={clinic.image}
                                     alt={clinic.name}
-                                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${activeClinic === index
-                                        ? 'opacity-100 scale-100 z-10'
-                                        : 'opacity-0 scale-105 z-0'
-                                        }`}
+                                    className="absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
                                 />
                             ))}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20" />
 
-                            <div className="absolute bottom-10 left-10 right-10 text-white">
+                            <div className="absolute bottom-10 left-10 right-10 text-white z-30">
                                 <div className="flex items-center gap-3 mb-5">
                                     <div className="w-10 h-10 rounded-full bg-leaf-500 flex items-center justify-center">
                                         <MapPin size={20} />
@@ -234,7 +265,7 @@ export default function CTASection() {
                                 <p className="text-white/60 text-sm leading-relaxed mb-7">
                                     State-of-the-art facilities equipped with modern medical technology for the best treatment outcomes.
                                 </p>
-                                <Button href="/contact">
+                                <Button href="/contact" className="!bg-leaf-500 hover:!bg-leaf-600 !text-white !border-none text-sm font-bold">
                                     Book a Visit Now
                                 </Button>
                             </div>
