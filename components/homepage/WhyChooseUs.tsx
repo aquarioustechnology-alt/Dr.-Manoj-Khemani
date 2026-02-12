@@ -11,7 +11,7 @@ if (typeof window !== 'undefined') {
 
 const stats = [
     { value: 20, suffix: '+', label: 'Years of Experience' },
-    { value: 5000, suffix: '+', label: 'Successful Surgeries' },
+    { value: 2, suffix: 'k+', label: 'Successful Surgeries' }, // Dynamic value will override
     { value: 98, suffix: '%', label: 'Patient Satisfaction' },
 ]
 
@@ -46,30 +46,60 @@ export default function WhyChooseUs() {
         return () => clearInterval(interval)
     }, [])
 
+    // Calculate dynamic stats
+    const calculateStats = () => {
+        const startYear = 2004 // Base year for experience
+        const years = new Date().getFullYear() - startYear
+
+        // For Surgeries, user requested "2k+". Keeping it simple/static 2 for now to match strict request, 
+        // as incrementing "2" by "1" daily would result in "3k+", "4k+" which is wrong scale.
+        const surgeries = 2
+
+        return [years, surgeries, 98]
+    }
+
     // Counter animation
     useEffect(() => {
         if (!sectionRef.current) return
+
+        const targetStats = calculateStats()
 
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting && !hasAnimated.current) {
                     hasAnimated.current = true
-                    stats.forEach((stat, index) => {
+                    targetStats.forEach((targetValue, index) => {
                         let start = 0
-                        const end = stat.value
-                        const increment = Math.ceil(end / 60)
-                        const timer = setInterval(() => {
-                            start += increment
-                            if (start >= end) {
-                                start = end
-                                clearInterval(timer)
-                            }
+                        const end = targetValue
+                        const duration = 2000 // 2 seconds
+                        const startTime = performance.now()
+
+                        const animate = (currentTime: number) => {
+                            const elapsed = currentTime - startTime
+                            const progress = Math.min(elapsed / duration, 1)
+                            const easeOut = 1 - Math.pow(1 - progress, 3) // Cubic ease out
+
+                            const currentCount = Math.floor(start + (end - start) * easeOut)
+
                             setCounts(prev => {
                                 const newCounts = [...prev]
-                                newCounts[index] = start
+                                newCounts[index] = currentCount
                                 return newCounts
                             })
-                        }, 30)
+
+                            if (progress < 1) {
+                                requestAnimationFrame(animate)
+                            } else {
+                                // Ensure final value is set exact
+                                setCounts(prev => {
+                                    const newCounts = [...prev]
+                                    newCounts[index] = end
+                                    return newCounts
+                                })
+                            }
+                        }
+
+                        requestAnimationFrame(animate)
                     })
                 }
             },
@@ -165,8 +195,8 @@ export default function WhyChooseUs() {
                         </h2>
 
                         {/* Paragraph */}
-                        <p className="why-content text-[15px] text-gray-600 leading-relaxed font-medium mb-8">
-                            With over two decades of orthopaedic expertise, <span className="font-bold text-black">Dr. Manoj Kumar Khemani</span> delivers exceptional surgical outcomes through advanced technology and patient-centered care. His adoption of <span className="font-bold text-black">AR-guided surgery</span> ensures precision in every procedure.
+                        <p className="why-content text-[15px] text-gray-600 leading-relaxed font-medium mb-4">
+                            With over two decades of orthopaedic expertise, <span className="font-bold text-black">Dr. Manoj Kumar Khemani</span> delivers exceptional surgical outcomes through advanced technology and patient-centered care. His adoption of <span className="font-bold text-black">AR VR guided surgery</span> ensures precision in every procedure.
                         </p>
 
                         {/* Trust Points - Matching About Section Style */}
@@ -186,7 +216,7 @@ export default function WhyChooseUs() {
                         {/* Stats Row with Counter Animation */}
                         <div className="why-content flex flex-wrap gap-8 lg:gap-12">
                             {stats.map((stat, index) => (
-                                <div key={index} className="text-center">
+                                <div key={index} className="text-left">
                                     <span className="block text-4xl lg:text-5xl font-extrabold text-[#1A1A1A]">
                                         {counts[index]}{stat.suffix}
                                     </span>
