@@ -207,10 +207,21 @@ export default function Testimonials() {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 mb-1">
-                                    <h3 className="text-4xl lg:text-5xl font-extrabold tracking-tight">4.9</h3>
-                                    <Star className="text-yellow-400 fill-yellow-400 shrink-0" size={24} />
-                                    <span className="text-sm font-semibold text-gray-500 whitespace-nowrap">(595 Reviews)</span>
+                                <div className="flex items-center gap-4 mb-2">
+                                    {/* Left Side: 4.9 */}
+                                    <h3 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 leading-none">4.9</h3>
+
+                                    {/* Right Side: Stacked Stars and Reviews */}
+                                    <div className="flex flex-col gap-1 justify-center">
+                                        {/* Top Div: All 5 stars */}
+                                        <div className="flex gap-0.5">
+                                            {[1, 2, 3, 4, 5].map((_, i) => (
+                                                <Star key={i} size={15} className="fill-[#F59E0B] text-[#F59E0B] shrink-0" />
+                                            ))}
+                                        </div>
+                                        {/* Down Div: 595 reviews in black */}
+                                        <div className="text-[13px] font-medium text-black leading-none">(595 Reviews)</div>
+                                    </div>
                                 </div>
                                 <p className="text-base font-medium opacity-60">Google Ratings</p>
                             </a>
