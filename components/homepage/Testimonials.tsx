@@ -181,7 +181,9 @@ export default function Testimonials() {
                                     alt="Doctor Consultation"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                {/* Green Hover Layer */}
+                                <div className="absolute inset-0 bg-[#A6CB3B]/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-0"></div>
                             </div>
                             <a
                                 href="https://www.google.com/search?q=dr.+manoj+kumar+khemani&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIPCAMQLhgnGK8BGMcBGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIPCAYQLhgnGK8BGMcBGOoCMgkIBxAjGCcY6gLSAQs0OTUzNjA3ajBqN6gCCLACAfEFVHcvRVIDzVI&sourceid=chrome&ie=UTF-8"
@@ -235,7 +237,9 @@ export default function Testimonials() {
                                     alt="Medical Excellence"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                {/* Green Hover Layer */}
+                                <div className="absolute inset-0 bg-[#A6CB3B]/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-0"></div>
                             </div>
                         </div>
                     </div>

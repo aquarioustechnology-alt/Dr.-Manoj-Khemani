@@ -10,6 +10,7 @@ import Testimonials from '@/components/homepage/Testimonials'
 import VideoSection from '@/components/homepage/VideoSection'
 import FAQ from '@/components/homepage/FAQ'
 import Blogs from '@/components/homepage/Blogs'
+import SocialMedia from '@/components/homepage/SocialMedia'
 import CTASection from '@/components/homepage/CTASection'
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <FAQ />
         <Blogs />
         <CTASection />
+        <SocialMedia />
       </main>
       <Footer />
     </>

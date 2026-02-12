@@ -124,18 +124,15 @@ export default function CTASection() {
         <section ref={sectionRef} className="pt-[80px] pb-24 lg:pb-32 bg-[#f7faf2] relative overflow-hidden z-20">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8 relative">
 
-                {/* Header */}
-                <div className="mb-10 cta-reveal-left">
-                    <div className="max-w-2xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-leaf-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
-                            <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
-                            Visit Our Clinics
-                        </div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] leading-[1.1] tracking-tight">
-                            Begin Your Path to <br />
-                            <span className="text-leaf-500">Pain-Free Living</span>
-                        </h2>
+                {/* Header - Centered */}
+                <div className="mb-16 cta-reveal-left flex flex-col items-center text-center">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-leaf-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
+                        <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
+                        Visit Our Clinics
                     </div>
+                    <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight">
+                        Begin Your Path to <span className="text-leaf-500">Pain-Free Living</span>
+                    </h2>
                 </div>
 
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
