@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown, Phone, Calendar } from 'lucide-react'
+import { Menu, X, ChevronDown, Phone, Calendar, Bone, Activity, Accessibility, HelpingHand, Snowflake, Link as LinkIcon, ShieldPlus } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 const navLinks = [
@@ -14,10 +14,13 @@ const navLinks = [
         label: 'Treatments',
         isDropdown: true,
         items: [
-            { href: '/services/knee-replacement', label: 'Knee Replacement' },
-            { href: '/services/hip-replacement', label: 'Hip Replacement' },
-            { href: '/services/arthroscopy', label: 'Arthroscopy' },
-            { href: '/services/fracture-care', label: 'Fracture Care' },
+            { href: '/services/knee-replacement', label: 'Knee Replacement', icon: Accessibility, description: 'Advanced robotic & traditional surgery' },
+            { href: '/services/hip-replacement', label: 'Hip Replacement', icon: Activity, description: 'Minimally invasive joint restoration' },
+            { href: '/services/fracture-care', label: 'Bone Fracture Treatment', icon: Bone, description: 'Complex trauma & fracture management' },
+            { href: '/services/osteoporosis', label: 'Osteoporosis Treatment', icon: ShieldPlus, description: 'Bone density preservation & care' },
+            { href: '/services/arthritis', label: 'Arthritis Treatment', icon: HelpingHand, description: 'Comprehensive joint pain solutions' },
+            { href: '/services/ligament-injuries', label: 'Ligament Injuries', icon: LinkIcon, description: 'ACL/PCL reconstruction & repair' },
+            { href: '/services/frozen-shoulder', label: 'Frozen Shoulder Treatment', icon: Snowflake, description: 'restore range of motion pain-free' },
         ]
     },
     { href: '/success-stories', label: 'Success Stories' },
@@ -69,18 +72,34 @@ export default function Header() {
                                             <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
                                         </button>
 
-                                        {/* Dropdown Menu */}
+                                        {/* Mega Menu Dropdown */}
                                         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
-                                            <div className="w-56 bg-white rounded-2xl shadow-xl border border-leaf-100/50 p-2 overflow-hidden">
-                                                {link.items?.map((item) => (
-                                                    <Link
-                                                        key={item.href}
-                                                        href={item.href}
-                                                        className="block px-4 py-3 text-sm font-medium text-black hover:bg-leaf-50 hover:text-leaf-600 rounded-xl transition-colors"
-                                                    >
-                                                        {item.label}
-                                                    </Link>
-                                                ))}
+                                            <div className="w-[660px] bg-white rounded-2xl shadow-2xl shadow-leaf-900/10 border border-white/50 p-6 overflow-hidden ring-1 ring-black/5">
+                                                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
+                                                    <div className="w-1 h-6 bg-leaf-500 rounded-full" />
+                                                    <h3 className="font-bold text-gray-900 text-sm tracking-wide uppercase">Specialized Orthopedic Care</h3>
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-3">
+                                                    {link.items?.map((item) => (
+                                                        <Link
+                                                            key={item.href}
+                                                            href={item.href}
+                                                            className="flex items-start gap-4 p-3 rounded-xl hover:bg-leaf-50/50 hover:shadow-sm border border-transparent hover:border-leaf-100 transition-all duration-300 group/item"
+                                                        >
+                                                            <div className="w-11 h-11 rounded-xl bg-leaf-50 flex items-center justify-center text-leaf-600 group-hover/item:bg-leaf-500 group-hover/item:text-white transition-all duration-300 shadow-sm group-hover/item:shadow-leaf-500/30">
+                                                                {item.icon && <item.icon size={22} className="stroke-[1.5]" />}
+                                                            </div>
+                                                            <div className="flex-1 space-y-0.5 group-hover/item:translate-x-1 transition-transform duration-300">
+                                                                <span className="block text-[15px] font-bold text-gray-900 group-hover/item:text-leaf-700 transition-colors">
+                                                                    {item.label}
+                                                                </span>
+                                                                <span className="block text-xs font-medium text-gray-500 group-hover/item:text-gray-600">
+                                                                    {item.description}
+                                                                </span>
+                                                            </div>
+                                                        </Link>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </>
