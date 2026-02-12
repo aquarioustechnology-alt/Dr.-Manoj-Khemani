@@ -119,10 +119,9 @@ export default function Footer() {
                                         <li key={link.label}>
                                             <Link
                                                 href={link.href}
-                                                className="group flex items-center gap-3 text-white/60 hover:text-leaf-400 transition-all duration-300 text-[15px]"
+                                                className="block text-white/60 hover:text-leaf-500 transition-all duration-300 text-[15px]"
                                             >
-                                                <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                                <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
+                                                {link.label}
                                             </Link>
                                         </li>
                                     ))}
@@ -140,10 +139,9 @@ export default function Footer() {
                                         <li key={link.label}>
                                             <Link
                                                 href={link.href}
-                                                className="group flex items-center gap-3 text-white/60 hover:text-leaf-400 transition-all duration-300 text-[15px]"
+                                                className="block text-white/60 hover:text-leaf-500 transition-all duration-300 text-[15px]"
                                             >
-                                                <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                                <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
+                                                {link.label}
                                             </Link>
                                         </li>
                                     ))}
@@ -161,10 +159,9 @@ export default function Footer() {
                                         <li key={link.label}>
                                             <Link
                                                 href={link.href}
-                                                className="group flex items-center gap-3 text-white/60 hover:text-leaf-400 transition-all duration-300 text-[15px]"
+                                                className="block text-white/60 hover:text-leaf-500 transition-all duration-300 text-[15px]"
                                             >
-                                                <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                                <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
+                                                {link.label}
                                             </Link>
                                         </li>
                                     ))}
@@ -180,7 +177,7 @@ export default function Footer() {
                 <div className="max-w-7.5xl mx-auto px-6 lg:px-8 py-8">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <p className="text-white/40 text-sm font-medium">
-                            &copy; {new Date().getFullYear()} <span className="text-white/60">Dr. Manoj Khemani- All Rights Reserved.</span> Designed with care.
+                            &copy; {new Date().getFullYear()} <span className="text-white/60">Dr. Manoj Khemani- All Rights Reserved.</span>
                         </p>
                         <div className="flex items-center gap-8">
                             <Link href="#" className="text-white/40 hover:text-leaf-400 text-sm font-medium transition-colors">
@@ -189,8 +186,6 @@ export default function Footer() {
                             <Link href="#" className="text-white/40 hover:text-leaf-400 text-sm font-medium transition-colors">
                                 Terms of Service
                             </Link>
-                            <div className="w-1 h-1 bg-white/10 rounded-full" />
-                            <p className="text-white/40 text-sm font-medium italic">Orthopedic Excellence</p>
                         </div>
                     </div>
                 </div>
