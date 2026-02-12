@@ -43,15 +43,25 @@ export default function VideoSection() {
         if (!sectionRef.current) return
 
         const ctx = gsap.context(() => {
-            gsap.from('.video-section-reveal', {
+            gsap.from('.video-reveal-left', {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: 'top 80%',
                 },
-                y: 50,
+                x: -100,
                 opacity: 0,
-                duration: 1,
-                stagger: 0.15,
+                duration: 1.2,
+                ease: 'power3.out',
+            })
+
+            gsap.from('.video-reveal-right', {
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                },
+                x: 100,
+                opacity: 0,
+                duration: 1.2,
                 ease: 'power3.out',
             })
         }, sectionRef)
@@ -92,7 +102,7 @@ export default function VideoSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
                     {/* Left Side: Heading */}
-                    <div className="lg:col-span-4 video-section-reveal">
+                    <div className="lg:col-span-4 video-reveal-left">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-white text-gray-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                             Video Gallery
@@ -120,7 +130,7 @@ export default function VideoSection() {
                     </div>
 
                     {/* Right Side: Accordion Video Columns */}
-                    <div className="lg:col-span-8 video-section-reveal">
+                    <div className="lg:col-span-8 video-reveal-right">
                         <div className="flex gap-3 lg:gap-4 h-[450px] sm:h-[500px] lg:h-[550px]">
                             {videos.map((video, index) => {
                                 const isActive = activeIndex === index

@@ -107,14 +107,25 @@ export default function Blogs() {
         if (!sectionRef.current) return
 
         const ctx = gsap.context(() => {
-            gsap.from('.blog-reveal', {
+            gsap.from('.blog-reveal-left', {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: 'top 80%',
                 },
-                y: 50,
+                x: -100,
                 opacity: 0,
-                duration: 0.8,
+                duration: 1.2,
+                ease: 'power3.out',
+            })
+
+            gsap.from('.blog-reveal-right', {
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                },
+                x: 100,
+                opacity: 0,
+                duration: 1.2,
                 stagger: 0.15,
                 ease: 'power3.out',
             })
@@ -136,7 +147,7 @@ export default function Blogs() {
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 blog-reveal">
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 blog-reveal-left">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-gray-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
@@ -173,7 +184,7 @@ export default function Blogs() {
                 </div>
 
                 {/* Blog Cards Carousel */}
-                <div className="overflow-hidden blog-reveal">
+                <div className="overflow-hidden blog-reveal-right">
                     <div
                         ref={trackRef}
                         className="flex transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]"
@@ -247,7 +258,7 @@ export default function Blogs() {
                 </div>
 
                 {/* Progress Dots */}
-                <div className="flex items-center justify-center gap-2 mt-10 blog-reveal">
+                <div className="flex items-center justify-center gap-2 mt-10 blog-reveal-right">
                     {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                         <button
                             key={i}

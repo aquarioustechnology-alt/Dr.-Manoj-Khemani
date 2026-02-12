@@ -1,11 +1,49 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Phone, MapPin } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger)
+}
+
 export default function CTASection() {
     const [activeClinic, setActiveClinic] = useState(0)
+    const sectionRef = useRef<HTMLElement>(null)
+
+    useEffect(() => {
+        if (!sectionRef.current) return
+
+        const ctx = gsap.context(() => {
+            gsap.from('.cta-reveal-left', {
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                },
+                x: -100,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.15,
+                ease: 'power3.out',
+            })
+
+            gsap.from('.cta-reveal-right', {
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                },
+                x: 100,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power3.out',
+            })
+        }, sectionRef)
+
+        return () => ctx.revert()
+    }, [])
 
     const clinics = [
         {
@@ -49,11 +87,11 @@ export default function CTASection() {
     ]
 
     return (
-        <section className="pt-[80px] pb-24 lg:pb-32 bg-[#f7faf2] relative overflow-hidden z-20">
+        <section ref={sectionRef} className="pt-[80px] pb-24 lg:pb-32 bg-[#f7faf2] relative overflow-hidden z-20">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8 relative">
 
                 {/* Header */}
-                <div className="mb-10">
+                <div className="mb-10 cta-reveal-left">
                     <div className="max-w-2xl">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-leaf-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
@@ -68,7 +106,7 @@ export default function CTASection() {
 
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
                     {/* Left Column: Clinic Accordion */}
-                    <div className="lg:col-span-7">
+                    <div className="lg:col-span-7 cta-reveal-left">
                         {clinics.map((clinic, index) => {
                             const isActive = activeClinic === index
 
@@ -155,7 +193,7 @@ export default function CTASection() {
                     </div>
 
                     {/* Right Column: Dynamic Clinic Image */}
-                    <div className="lg:col-span-5">
+                    <div className="lg:col-span-5 cta-reveal-right">
                         <div className="relative h-full rounded-[2rem] overflow-hidden shadow-2xl group">
                             {clinics.map((clinic, index) => (
                                 <img

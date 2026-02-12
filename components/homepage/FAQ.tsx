@@ -53,20 +53,26 @@ export default function FAQ() {
         if (!sectionRef.current) return
 
         const ctx = gsap.context(() => {
-            // Set initial state
-            gsap.set('.faq-reveal', { opacity: 1, y: 0 })
-
-            gsap.from('.faq-reveal', {
+            gsap.from('.faq-reveal-left', {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: 'top 80%',
-                    once: true,
                 },
-                y: 30,
+                x: -100,
                 opacity: 0,
-                duration: 0.6,
-                stagger: 0.08,
-                ease: 'power2.out',
+                duration: 1.2,
+                ease: 'power3.out',
+            })
+
+            gsap.from('.faq-reveal-right', {
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                },
+                x: 100,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power3.out',
             })
         }, sectionRef)
 
@@ -78,11 +84,11 @@ export default function FAQ() {
     }
 
     return (
-        <section ref={sectionRef} className="py-[60px] bg-[#F3F3F3] relative z-20">
+        <section ref={sectionRef} className="py-[60px] bg-[#F3F3F3] relative z-20 overflow-hidden">
             <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
                 {/* Header - Centered */}
-                <div className="flex flex-col items-center text-center mb-16 faq-reveal">
+                <div className="flex flex-col items-center text-center mb-16 faq-reveal-left">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                         <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                         FAQ
@@ -96,13 +102,13 @@ export default function FAQ() {
                 </div>
 
                 {/* FAQ Items - Centered */}
-                <div className="flex flex-col mb-12">
+                <div className="flex flex-col mb-12 faq-reveal-right">
                     {faqItems.slice(0, 5).map((item, index) => {
                         const isOpen = openIndex === index
                         return (
                             <div
                                 key={index}
-                                className={`faq-reveal border-b border-gray-300/60 transition-all duration-300 ${isOpen ? 'bg-white rounded-2xl border-transparent shadow-lg shadow-gray-200/50 mb-3 -mx-2 lg:-mx-4' : ''
+                                className={`border-b border-gray-300/60 transition-all duration-300 ${isOpen ? 'bg-white rounded-2xl border-transparent shadow-lg shadow-gray-200/50 mb-3 -mx-2 lg:-mx-4' : ''
                                     }`}
                             >
                                 <button
@@ -137,7 +143,7 @@ export default function FAQ() {
                 </div>
 
                 {/* View All Button - Centered */}
-                <div className="flex justify-center faq-reveal">
+                <div className="flex justify-center faq-reveal-right">
                     <Button
                         href="/faq"
                         className="!bg-[#1A1A1A] hover:!bg-[#333] !h-[52px]"

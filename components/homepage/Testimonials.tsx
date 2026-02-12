@@ -69,15 +69,27 @@ export default function Testimonials() {
         if (!sectionRef.current) return
 
         const ctx = gsap.context(() => {
-            gsap.from('.testimonial-reveal', {
+            gsap.from('.testimonial-reveal-left', {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: 'top 80%',
                 },
-                y: 50,
+                x: -100,
                 opacity: 0,
-                duration: 1,
-                stagger: 0.15,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: 'power3.out',
+            })
+
+            gsap.from('.testimonial-reveal-right', {
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 80%',
+                },
+                x: 100,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
                 ease: 'power3.out',
             })
         }, sectionRef)
@@ -105,7 +117,7 @@ export default function Testimonials() {
 
                     {/* Left Column: Heading and Testimonial Card (60%) */}
                     <div className="lg:col-span-7 flex flex-col gap-8">
-                        <div className="testimonial-reveal">
+                        <div className="testimonial-reveal-left">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/80 text-[12px] font-bold tracking-[0.2em] uppercase mb-4">
                                 Patient Success Stories
                             </div>
@@ -116,7 +128,7 @@ export default function Testimonials() {
                         </div>
 
                         {/* Testimonial Card */}
-                        <div id="testimonial-card" className="testimonial-reveal bg-[#A6CB3B]/10 border border-[#A6CB3B]/20 rounded-[18px] p-8 lg:p-9 relative flex flex-col justify-between">
+                        <div id="testimonial-card" className="testimonial-reveal-left bg-[#A6CB3B]/10 border border-[#A6CB3B]/20 rounded-[18px] p-8 lg:p-9 relative flex flex-col justify-between">
                             <div>
                                 <Quote size={40} className="text-[#A6CB3B] opacity-40 mb-5" />
                                 <div className="flex gap-1 mb-5">
@@ -162,7 +174,7 @@ export default function Testimonials() {
                     {/* Right Column: Two Side-by-Side Columns (40%) */}
                     <div className="lg:col-span-5 grid grid-cols-2 gap-3 lg:gap-4">
                         {/* Left Sub-Column */}
-                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal min-h-0">
+                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal-right min-h-0">
                             <div className="relative rounded-[18px] overflow-hidden group shadow-2xl min-h-0" style={{ flex: '7 1 0%' }}>
                                 <img
                                     src="/homepage/Doctor 25.jpg"
@@ -188,7 +200,7 @@ export default function Testimonials() {
                         </div>
 
                         {/* Right Sub-Column */}
-                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal min-h-0">
+                        <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal-right min-h-0">
                             <div className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '3 1 0%' }}>
                                 <div className="w-14 h-14 rounded-full border border-black/15 flex items-center justify-center mb-3 overflow-hidden bg-white/10">
                                     <img src="/homepage/Practo icon.png" alt="Practo" className="w-full h-full object-contain" />
