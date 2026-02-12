@@ -128,7 +128,7 @@ export default function Testimonials() {
                         </div>
 
                         {/* Testimonial Card */}
-                        <div id="testimonial-card" className="testimonial-reveal-left bg-[#A6CB3B]/10 border border-[#A6CB3B]/20 rounded-[18px] p-8 lg:p-9 relative flex flex-col justify-between">
+                        <div id="testimonial-card" className="testimonial-reveal-left bg-[#A6CB3B]/10 border border-[#A6CB3B]/20 rounded-[18px] p-8 lg:p-9 relative flex flex-col justify-between min-h-[320px] sm:min-h-[380px]">
                             <div>
                                 <Quote size={40} className="text-[#A6CB3B] opacity-40 mb-5" />
                                 <div className="flex gap-1 mb-5">
