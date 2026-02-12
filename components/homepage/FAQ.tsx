@@ -85,10 +85,10 @@ export default function FAQ() {
 
     return (
         <section ref={sectionRef} className="py-[60px] bg-[#F3F3F3] relative z-20 overflow-hidden">
-            <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto px-6 lg:px-8">
 
                 {/* Header - Centered */}
-                <div className="flex flex-col items-center text-center mb-16 faq-reveal-left">
+                <div className="flex flex-col items-center text-center mb-14 faq-reveal-left">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                         <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                         FAQ
@@ -102,29 +102,31 @@ export default function FAQ() {
                 </div>
 
                 {/* FAQ Items - Centered */}
-                <div className="flex flex-col mb-12 faq-reveal-right">
+                <div className="flex flex-col gap-3 mb-12 faq-reveal-right">
                     {faqItems.slice(0, 5).map((item, index) => {
                         const isOpen = openIndex === index
                         return (
                             <div
                                 key={index}
-                                className={`border-b border-gray-300/60 transition-all duration-300 ${isOpen ? 'bg-white rounded-2xl border-transparent shadow-lg shadow-gray-200/50 mb-3 -mx-2 lg:-mx-4' : ''
+                                className={`rounded-2xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${isOpen
+                                    ? 'bg-white shadow-xl shadow-gray-200/60 border border-leaf-200/50 ring-1 ring-leaf-100'
+                                    : 'bg-white/70 border border-gray-200/80 hover:bg-white hover:shadow-md hover:shadow-gray-200/40 hover:border-gray-300/60'
                                     }`}
+                                style={isOpen ? { borderLeft: '4px solid #A8CA3D' } : {}}
                             >
                                 <button
                                     onClick={() => toggleFAQ(index)}
-                                    className={`w-full flex items-center justify-between gap-6 text-left transition-all duration-300 group ${isOpen ? 'px-6 lg:px-8 pt-7 pb-2' : 'py-6 px-2'
-                                        }`}
+                                    className="w-full flex items-center justify-between gap-5 text-left px-6 lg:px-7 py-5 group"
                                 >
-                                    <span className={`text-base lg:text-lg font-semibold transition-colors duration-200 ${isOpen ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]/80 group-hover:text-[#1A1A1A]'
+                                    <span className={`text-[15px] lg:text-base font-semibold transition-colors duration-200 ${isOpen ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]/75 group-hover:text-[#1A1A1A]'
                                         }`}>
                                         {item.question}
                                     </span>
-                                    <div className={`w-9 h-9 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen
+                                    <div className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center transition-all duration-300 ${isOpen
                                         ? 'bg-[#E53935] text-white rotate-0'
-                                        : 'bg-gray-200 text-[#E53935] group-hover:bg-[#E53935]/10'
+                                        : 'bg-gray-100 text-[#E53935] group-hover:bg-[#E53935]/10'
                                         }`}>
-                                        {isOpen ? <Minus size={18} strokeWidth={2.5} /> : <Plus size={18} strokeWidth={2.5} />}
+                                        {isOpen ? <Minus size={16} strokeWidth={2.5} /> : <Plus size={16} strokeWidth={2.5} />}
                                     </div>
                                 </button>
 
@@ -133,9 +135,12 @@ export default function FAQ() {
                                     className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                                         }`}
                                 >
-                                    <p className={`text-gray-600 text-[15px] leading-relaxed font-medium ${isOpen ? 'px-6 lg:px-8 pb-7 pt-2' : 'px-2'}`}>
-                                        {item.answer}
-                                    </p>
+                                    <div className="px-6 lg:px-7 pb-6 pt-0">
+                                        <div className="w-10 h-[2px] bg-leaf-300 rounded-full mb-3"></div>
+                                        <p className="text-gray-500 text-[14px] leading-[1.8] font-medium">
+                                            {item.answer}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         )
