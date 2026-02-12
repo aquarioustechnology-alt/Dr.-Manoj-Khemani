@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ChevronLeft, ChevronRight, ArrowUpRight, Calendar } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowUpRight, Calendar, Clock } from 'lucide-react'
 import Link from 'next/link'
 
 if (typeof window !== 'undefined') {
@@ -17,6 +17,7 @@ const blogs = [
         excerpt: 'As a joint replacement surgeon, I often meet patients who are curious about the latest advancements in knee surgery. Robotic knee replacement is transforming outcomes with unprecedented precision.',
         image: '/homepage/Dr Image 11.webp',
         date: 'Jan 15, 2025',
+        readTime: '5 min Read',
         category: 'Knee Replacement',
         link: 'https://www.healmybones.com/advanced-robotic-knee-replacement/',
     },
@@ -26,6 +27,7 @@ const blogs = [
         excerpt: 'In the realm of knee replacement surgery, Augmented Reality represents a groundbreaking advancement that enhances surgical precision and improves patient outcomes significantly.',
         image: '/homepage/Dr Image 12.webp',
         date: 'Dec 28, 2024',
+        readTime: '6 min Read',
         category: 'Technology',
         link: 'https://www.healmybones.com/augmented-reality-ar-technology-in-knee-replacement-surgery/',
     },
@@ -35,6 +37,7 @@ const blogs = [
         excerpt: 'Gout, a type of inflammatory arthritis, occurs due to excessive uric acid in the body. Learn about the dietary changes that can help manage and prevent gout flare-ups effectively.',
         image: '/homepage/Dr Image 13.webp',
         date: 'Dec 10, 2024',
+        readTime: '4 min Read',
         category: 'Nutrition',
         link: 'https://www.healmybones.com/gout-diet-what-to-eat-and-what-not-best-gout-treatment/',
     },
@@ -44,6 +47,7 @@ const blogs = [
         excerpt: 'Keeping fit and active through sports is fantastic for overall health, but certain sports activities can increase your risk of developing arthritis later in life.',
         image: '/homepage/Dr Image 17.webp',
         date: 'Nov 22, 2024',
+        readTime: '5 min Read',
         category: 'Sports Injury',
         link: 'https://www.healmybones.com/play-sports-youre-at-greater-risk-for-arthritis/',
     },
@@ -53,6 +57,7 @@ const blogs = [
         excerpt: 'Arthroscopy can be a game-changer for people dealing with joint issues. Here are five essential tips to ensure a smooth and effective recovery after your procedure.',
         image: '/homepage/Dr Image 20.webp',
         date: 'Nov 5, 2024',
+        readTime: '4 min Read',
         category: 'Recovery',
         link: 'https://www.healmybones.com/post-arthroscopy-rehabilitation-5-tips-for-more-effective-recovery/',
     },
@@ -62,6 +67,7 @@ const blogs = [
         excerpt: 'Knee pain can be frustrating, affecting one\'s mobility and quality of life. Understanding common reasons for failure can help ensure better outcomes for your surgery.',
         image: '/homepage/Dr Image 21.webp',
         date: 'Oct 18, 2024',
+        readTime: '7 min Read',
         category: 'Knee Replacement',
         link: 'https://www.healmybones.com/common-reasons-knee-replacement-surgeries-fail/',
     },
@@ -71,6 +77,7 @@ const blogs = [
         excerpt: 'In today\'s fast-paced, technology-driven world, a sedentary lifestyle has become increasingly common. Discover how prolonged sitting affects your hip health and what you can do.',
         image: '/homepage/Dr Image 8.webp',
         date: 'Oct 2, 2024',
+        readTime: '5 min Read',
         category: 'Hip Care',
         link: 'https://www.healmybones.com/is-your-sedentary-lifestyle-destroying-your-hip/',
     },
@@ -80,6 +87,7 @@ const blogs = [
         excerpt: 'Physical therapy is a crucial aspect of the recovery process after orthopedic surgery. It helps restore movement, build strength, and get you back to your daily activities.',
         image: '/homepage/Dr Image 7.webp',
         date: 'Sep 15, 2024',
+        readTime: '6 min Read',
         category: 'Rehabilitation',
         link: 'https://www.healmybones.com/physical-therapy-after-orthopedic-surgery-all-you-need-to-know/',
     },
@@ -89,6 +97,7 @@ const blogs = [
         excerpt: 'Hip problems aren\'t just reserved for the elders. Especially with modern sedentary lifestyles, young adults are increasingly experiencing hip pain and mobility issues.',
         image: '/homepage/Dr Image 2.webp',
         date: 'Aug 30, 2024',
+        readTime: '5 min Read',
         category: 'Hip Care',
         link: 'https://www.healmybones.com/hip-pain-in-young-adults-all-you-need-to-know/',
     },
@@ -226,10 +235,17 @@ export default function Blogs() {
 
                                         {/* Content */}
                                         <div className="p-6 pb-8 flex flex-col flex-1">
-                                            {/* Date */}
-                                            <div className="flex items-center gap-2 text-[#E53935] text-sm mb-3">
-                                                <Calendar size={14} />
-                                                <span className="font-medium">{blog.date}</span>
+                                            {/* Date & Read Time */}
+                                            <div className="flex items-center gap-4 text-[#E53935] text-sm mb-3">
+                                                <div className="flex items-center gap-1.5 font-medium">
+                                                    <Calendar size={14} />
+                                                    <span>{blog.date}</span>
+                                                </div>
+                                                <div className="w-1 h-1 rounded-full bg-gray-300"></div>
+                                                <div className="flex items-center gap-1.5 font-medium text-gray-500">
+                                                    <Clock size={14} />
+                                                    <span>{blog.readTime}</span>
+                                                </div>
                                             </div>
 
                                             {/* Title */}

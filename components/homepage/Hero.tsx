@@ -122,9 +122,9 @@ export default function Hero() {
                                     href="https://www.google.com/search?q=Dr.+Manoj+Khemani"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 py-3 sm:py-4 border-b border-white/10 hover:bg-white/5 transition-all group/review"
+                                    className="flex flex-col gap-4 px-4 sm:px-6 py-4 border-b border-white/10 hover:bg-white/5 transition-all group/review"
                                 >
-                                    {/* Left: Avatars Only */}
+                                    {/* Top: Avatars */}
                                     <div className="flex -space-x-2.5 sm:-space-x-3">
                                         {[
                                             "/homepage/img 1.webp",
@@ -132,28 +132,23 @@ export default function Hero() {
                                             "/homepage/img 3.webp",
                                             "/homepage/img 4.webp"
                                         ].map((url, i) => (
-                                            // Descending Z-index so first image is on top
                                             <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white overflow-hidden relative shrink-0 aspect-square" style={{ zIndex: 10 - i }}>
                                                 <img src={url} alt="Patient" className="object-cover w-full h-full" />
                                             </div>
                                         ))}
-                                        {/* 5th Circle: Count (Lowest Z-index to be at bottom) */}
                                         <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white bg-[#95BF1B] flex items-center justify-center relative shrink-0 z-0">
                                             <span className="text-white text-[9px] sm:text-[11px] font-bold leading-none">2k+</span>
                                         </div>
                                     </div>
 
-                                    {/* Divider */}
-                                    <div className="w-[1px] h-8 sm:h-12 bg-white/20 shrink-0"></div>
-
-                                    {/* Right: Star Rating + Trust Text */}
-                                    <div className="flex flex-col items-start justify-center gap-0.5 shrink-0">
+                                    {/* Bottom: Star Rating + Trust Text */}
+                                    <div className="flex flex-col items-start gap-1">
                                         <div className="flex gap-0.5">
                                             {[1, 2, 3, 4, 5].map((_, i) => (
                                                 <Star key={i} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />
                                             ))}
                                         </div>
-                                        <span className="text-white font-medium text-[10px] sm:text-xs mt-0.5">Trusted by 20,000+ Patients</span>
+                                        <span className="text-white font-medium text-[10px] sm:text-xs tracking-wide">Trusted by 20,000+ Patients</span>
                                     </div>
                                 </a>
 
