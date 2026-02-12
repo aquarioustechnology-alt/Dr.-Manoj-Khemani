@@ -218,11 +218,14 @@ export default function CTASection() {
                                                     {clinic.timings.map((timing, idx) => (
                                                         <div
                                                             key={idx}
-                                                            className="flex flex-col items-center justify-center min-w-[100px] p-3 bg-white border border-gray-100 rounded-2xl shadow-sm group hover:border-leaf-200 transition-colors"
+                                                            className="flex flex-col items-center min-w-[110px] bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden group hover:border-leaf-200 transition-colors"
                                                         >
-                                                            <span className="text-[13px] font-bold text-[#1A1A1A] uppercase tracking-wider mb-2">{timing.day}</span>
-                                                            <div className="w-full h-px bg-gray-100 mb-2"></div>
-                                                            <span className="text-[14px] text-[#1A1A1A] font-bold whitespace-nowrap">{timing.hours}</span>
+                                                            <div className="w-full py-2 bg-leaf-500 flex items-center justify-center">
+                                                                <span className="text-[13px] font-bold text-white uppercase tracking-wider">{timing.day}</span>
+                                                            </div>
+                                                            <div className="w-full py-3 px-3 flex items-center justify-center">
+                                                                <span className="text-[14px] text-[#1A1A1A] font-bold whitespace-nowrap">{timing.hours}</span>
+                                                            </div>
                                                         </div>
                                                     ))}
                                                 </div>
