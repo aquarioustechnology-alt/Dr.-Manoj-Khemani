@@ -183,31 +183,52 @@ export default function Testimonials() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                             </div>
-                            <div className="bg-white text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '3 1 0%' }}>
+                            <a
+                                href="https://www.google.com/search?q=dr.+manoj+kumar+khemani&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIPCAMQLhgnGK8BGMcBGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIPCAYQLhgnGK8BGMcBGOoCMgkIBxAjGCcY6gLSAQs0OTUzNjA3ajBqN6gCCLACAfEFVHcvRVIDzVI&sourceid=chrome&ie=UTF-8"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-white text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center transition-transform hover:scale-[1.02]"
+                                style={{ flex: '3 1 0%' }}
+                            >
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="inline-flex items-center justify-center w-10 h-10 shrink-0">
+                                    <div className="inline-flex items-center justify-center w-8 h-8 shrink-0">
                                         <img src="/homepage/Google icon.png" alt="Google" className="w-full h-full object-contain" />
                                     </div>
                                     <div className="flex -space-x-2">
-                                        <img src="/homepage/Dr Image 15.webp" alt="Patient" className="w-9 h-9 rounded-full object-cover border-2 border-white" />
-                                        <img src="/homepage/Dr Image 16.webp" alt="Patient" className="w-9 h-9 rounded-full object-cover border-2 border-white" />
-                                        <img src="/homepage/Dr Image 18.webp" alt="Patient" className="w-9 h-9 rounded-full object-cover border-2 border-white" />
+                                        {[1, 2, 3, 4].map((num) => (
+                                            <img
+                                                key={num}
+                                                src={`/homepage/img ${num}.webp`}
+                                                alt="Patient"
+                                                className="w-9 h-9 rounded-full object-cover border-2 border-white"
+                                            />
+                                        ))}
                                     </div>
                                 </div>
-                                <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">4.9</h3>
+                                <div className="flex items-center gap-2 mb-1">
+                                    <h3 className="text-4xl lg:text-5xl font-extrabold tracking-tight">4.9</h3>
+                                    <Star className="text-yellow-400 fill-yellow-400 shrink-0" size={24} />
+                                    <span className="text-sm font-semibold text-gray-500 whitespace-nowrap">(595 Reviews)</span>
+                                </div>
                                 <p className="text-base font-medium opacity-60">Google Ratings</p>
-                            </div>
+                            </a>
                         </div>
 
                         {/* Right Sub-Column */}
                         <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal-right min-h-0">
-                            <div className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '3 1 0%' }}>
+                            <a
+                                href="https://www.practo.com/kolkata/doctor/dr-manoj-kumar-khemani-orthopedist-1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center transition-transform hover:scale-[1.02]"
+                                style={{ flex: '3 1 0%' }}
+                            >
                                 <div className="w-14 h-14 rounded-full border border-black/15 flex items-center justify-center mb-3 overflow-hidden bg-white/10">
                                     <img src="/homepage/Practo icon.png" alt="Practo" className="w-full h-full object-contain" />
                                 </div>
-                                <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">25K+</h3>
-                                <p className="text-base font-medium opacity-70">Happy Patients</p>
-                            </div>
+                                <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">33</h3>
+                                <p className="text-base font-medium opacity-70">Patients Reviews</p>
+                            </a>
                             <div className="relative rounded-[18px] overflow-hidden group shadow-xl min-h-0" style={{ flex: '7 1 0%' }}>
                                 <img
                                     src="/homepage/Dr Image 18.webp"
