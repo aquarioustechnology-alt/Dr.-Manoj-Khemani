@@ -58,6 +58,7 @@ export default function CTASection() {
                 { day: 'Sat', hours: '10 AM – 3 PM' }
             ],
             image: '/homepage/Healing touch clinic.webp',
+            logo: '/homepage/main clinic logo.webp',
             label: 'Kolkata'
         },
         {
@@ -69,7 +70,8 @@ export default function CTASection() {
                 { day: 'Tue', hours: '4 PM – 6 PM' },
                 { day: 'Thu', hours: '4 PM – 6 PM' }
             ],
-            image: '/homepage/Healing touch clinic 2.webp',
+            image: '/homepage/Manipal (AMRI) Hospital, Salt Lake.webp',
+            logo: '/homepage/manipal logo.webp',
             label: 'Salt Lake'
         },
         {
@@ -81,7 +83,8 @@ export default function CTASection() {
                 { day: 'Wed', hours: '4 PM – 6 PM' },
                 { day: 'Fri', hours: '4 PM – 6 PM' }
             ],
-            image: '/homepage/Healing touch clinic 3.webp',
+            image: '/homepage/Manipal (AMRI) Hospital, Mukundapur.webp',
+            logo: '/homepage/manipal logo.webp',
             label: 'Mukundapur'
         }
     ]
@@ -115,24 +118,54 @@ export default function CTASection() {
                                     {/* Clinic Item */}
                                     <div
                                         className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${isActive
-                                            ? 'bg-white rounded-2xl shadow-lg shadow-gray-200/50 -mx-2 lg:-mx-4 mb-3'
-                                            : 'border-b border-gray-200'
+                                            ? 'bg-white rounded-[20px] shadow-lg shadow-gray-200/50 -mx-2 lg:-mx-4 mb-3'
+                                            : 'border-b border-gray-200 hover:bg-white/40'
                                             }`}
                                         onClick={() => setActiveClinic(index)}
                                     >
                                         {/* Header Row */}
                                         <div className={`flex items-center justify-between gap-4 transition-all duration-300 ${isActive ? 'px-6 lg:px-8 pt-7 pb-3' : 'py-6 px-2'
                                             }`}>
-                                            <h3 className={`transition-colors duration-200 ${isActive ? 'text-2xl lg:text-[28px] font-bold text-[#1A1A1A]' : 'text-lg lg:text-xl font-semibold text-[#1A1A1A]/70 hover:text-[#1A1A1A]'
-                                                }`}>
-                                                {clinic.name}
-                                            </h3>
-                                            {/* Timing badge visible on inactive */}
-                                            {!isActive && (
-                                                <span className="text-xs text-gray-400 font-medium shrink-0 hidden sm:block">
-                                                    {clinic.timings.map(t => t.day).join(' · ')}
-                                                </span>
-                                            )}
+                                            <div className="flex items-center gap-4">
+                                                <div className={`w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center p-2 transition-all duration-300 ${isActive ? 'scale-110 shadow-sm' : ''}`}>
+                                                    <img src={clinic.logo} alt={clinic.name} className="w-full h-full object-contain" />
+                                                </div>
+                                                <h3 className={`transition-colors duration-200 text-[#1A1A1A] ${isActive ? 'text-xl lg:text-2xl font-bold' : 'text-lg lg:text-xl font-semibold'
+                                                    }`}>
+                                                    {clinic.name}
+                                                </h3>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                {/* Action Icons visible on active */}
+                                                {isActive && (
+                                                    <div className="flex gap-2">
+                                                        <a
+                                                            href={clinic.mapLink}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            onClick={(e) => e.stopPropagation()}
+                                                            className="w-10 h-10 rounded-full bg-leaf-500 flex items-center justify-center text-white hover:bg-leaf-600 transition-all shadow-md shadow-leaf-500/20"
+                                                            title="View on Map"
+                                                        >
+                                                            <MapPin size={18} strokeWidth={2.5} />
+                                                        </a>
+                                                        <a
+                                                            href={`tel:${clinic.phone.replace(/[^0-9+]/g, '')}`}
+                                                            onClick={(e) => e.stopPropagation()}
+                                                            className="w-10 h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center text-white hover:bg-[#333] transition-all shadow-md shadow-black/10"
+                                                            title="Call Now"
+                                                        >
+                                                            <Phone size={18} strokeWidth={2.5} />
+                                                        </a>
+                                                    </div>
+                                                )}
+                                                {/* Timing badge visible on inactive */}
+                                                {!isActive && (
+                                                    <span className="text-xs text-gray-400 font-medium shrink-0 hidden sm:block">
+                                                        {clinic.timings.map(t => t.day).join(' · ')}
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
 
                                         {/* Expandable Content */}
@@ -140,49 +173,27 @@ export default function CTASection() {
                                             }`}>
                                             <div className="px-6 lg:px-8 pb-7">
                                                 {/* Address */}
-                                                <p className="text-[15px] text-gray-500 leading-relaxed mb-1.5">
+                                                <p className="text-[15px] text-gray-500 leading-relaxed mb-1.5 pl-16">
                                                     {clinic.address}
                                                 </p>
 
                                                 {/* Phone */}
-                                                <p className="text-[15px] text-[#1A1A1A] font-semibold tracking-tight mb-4">
+                                                <p className="text-[15px] text-[#1A1A1A] font-semibold tracking-tight mb-6 pl-16">
                                                     {clinic.phone}
                                                 </p>
 
-                                                {/* OPD Timings - Prominent */}
-                                                <div className="flex flex-wrap items-center gap-2 mb-5">
+                                                {/* OPD Timings - Prominent Square Design */}
+                                                <div className="flex flex-wrap lg:flex-nowrap items-center gap-3 pl-16">
                                                     {clinic.timings.map((timing, idx) => (
                                                         <div
                                                             key={idx}
-                                                            className="inline-flex items-center gap-3 px-4 py-2.5 bg-leaf-50 border border-leaf-200/60 rounded-xl"
+                                                            className="flex flex-col items-center justify-center min-w-[100px] p-3 bg-white border border-gray-100 rounded-2xl shadow-sm group hover:border-leaf-200 transition-colors"
                                                         >
-                                                            <span className="text-[15px] font-bold text-[#1A1A1A]">{timing.day}</span>
-                                                            <span className="w-px h-4 bg-gray-300"></span>
-                                                            <span className="text-[15px] text-[#1A1A1A] font-semibold">{timing.hours}</span>
+                                                            <span className="text-[13px] font-bold text-[#1A1A1A] uppercase tracking-wider mb-2">{timing.day}</span>
+                                                            <div className="w-full h-px bg-gray-100 mb-2"></div>
+                                                            <span className="text-[14px] text-[#1A1A1A] font-bold whitespace-nowrap">{timing.hours}</span>
                                                         </div>
                                                     ))}
-                                                </div>
-
-                                                {/* Action Icons */}
-                                                <div className="flex gap-2.5">
-                                                    <a
-                                                        href={clinic.mapLink}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        onClick={(e) => e.stopPropagation()}
-                                                        className="w-10 h-10 rounded-full bg-leaf-500 flex items-center justify-center text-white hover:bg-leaf-600 transition-colors"
-                                                        title="View on Map"
-                                                    >
-                                                        <MapPin size={18} strokeWidth={2} />
-                                                    </a>
-                                                    <a
-                                                        href={`tel:${clinic.phone.replace(/[^0-9+]/g, '')}`}
-                                                        onClick={(e) => e.stopPropagation()}
-                                                        className="w-10 h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center text-white hover:bg-[#333] transition-colors"
-                                                        title="Call Now"
-                                                    >
-                                                        <Phone size={18} strokeWidth={2} />
-                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -200,7 +211,9 @@ export default function CTASection() {
                                     key={index}
                                     src={clinic.image}
                                     alt={clinic.name}
-                                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${activeClinic === index ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${activeClinic === index
+                                        ? 'opacity-100 scale-100 z-10'
+                                        : 'opacity-0 scale-105 z-0'
                                         }`}
                                 />
                             ))}
