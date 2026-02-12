@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Play, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
@@ -43,6 +44,18 @@ export default function VideoSection() {
 
     const videosPerView = 2
     const maxIndex = videoData.length - videosPerView
+
+    // Body scroll lock
+    useEffect(() => {
+        if (selectedVideo) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [selectedVideo])
 
     useEffect(() => {
         if (!sectionRef.current) return
@@ -154,7 +167,10 @@ export default function VideoSection() {
                                         </div>
 
                                         {/* Content Below Card */}
-                                        <div className="mt-6 space-y-2 px-1">
+                                        <div
+                                            className="mt-6 space-y-2 px-1 cursor-pointer"
+                                            onClick={() => setSelectedVideo(video.id)}
+                                        >
                                             <h3 className="text-xl lg:text-2xl font-bold text-[#1A1A1A] group-hover:text-leaf-600 transition-colors duration-300 leading-tight">
                                                 {video.title}
                                             </h3>
@@ -171,29 +187,44 @@ export default function VideoSection() {
             </div>
 
             {/* Lightbox / Video Modal */}
-            {selectedVideo && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-10 animate-in fade-in duration-300">
-                    <div
-                        className="absolute inset-0 bg-black/95 backdrop-blur-sm shadow-2xl"
-                        onClick={() => setSelectedVideo(null)}
-                    />
-                    <div className="relative w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-500 ring-1 ring-white/10">
-                        <button
+            <AnimatePresence>
+                {selectedVideo && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-10"
+                    >
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-black/95 backdrop-blur-sm"
                             onClick={() => setSelectedVideo(null)}
-                            className="absolute top-4 right-4 z-10 w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-colors backdrop-blur-md"
-                        >
-                            <X size={24} />
-                        </button>
-                        <iframe
-                            src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
-                            className="w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
                         />
-                    </div>
-                </div>
-            )}
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                            className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+                        >
+                            <button
+                                onClick={() => setSelectedVideo(null)}
+                                className="absolute top-4 right-4 z-10 w-10 h-10 lg:w-12 lg:h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-colors backdrop-blur-md"
+                            >
+                                <X size={24} />
+                            </button>
+                            <iframe
+                                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
+                                className="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     )
 }
-
