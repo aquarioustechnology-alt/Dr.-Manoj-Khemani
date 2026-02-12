@@ -190,8 +190,8 @@ export default function Testimonials() {
                         {/* Right Sub-Column */}
                         <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal min-h-0">
                             <div className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center" style={{ flex: '3 1 0%' }}>
-                                <div className="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center mb-3">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 9.05v-.1"></path><path d="M16 9.05v-.1"></path><path d="M7.5 15a5.5 5.5 0 0 0 9 0"></path></svg>
+                                <div className="w-14 h-14 rounded-full border border-black/15 flex items-center justify-center mb-3 overflow-hidden bg-white/10">
+                                    <img src="/homepage/Practo icon.png" alt="Practo" className="w-full h-full object-contain" />
                                 </div>
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">25K+</h3>
                                 <p className="text-base font-medium opacity-70">Happy Patients</p>
