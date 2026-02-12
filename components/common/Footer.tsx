@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import { useAppointment } from '@/context/AppointmentContext'
 
 const quickLinks = [
     { href: '/about', label: 'About Dr. Khemani' },
@@ -29,6 +32,7 @@ const appointments = [
 ]
 
 export default function Footer() {
+    const { openModal } = useAppointment()
     return (
         <footer className="bg-[#1A1A1A] text-white pt-20 relative z-20">
             {/* Main Footer Content */}
@@ -148,7 +152,7 @@ export default function Footer() {
                                     </div>
                                     <div className="pt-2">
                                         <Button
-                                            href="/contact"
+                                            onClick={openModal}
                                             className="!pl-1 !pr-5 !py-1 !h-12 shadow-xl shadow-leaf-900/10"
                                             iconClassName="!w-9 !h-9 !text-leaf-600"
                                         >

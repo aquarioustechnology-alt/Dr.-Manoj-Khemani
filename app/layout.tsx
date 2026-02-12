@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 }
 
 import FloatingActions from '@/components/common/FloatingActions'
+import { AppointmentProvider } from '@/context/AppointmentContext'
 
 export default function RootLayout({
   children,
@@ -20,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased font-sans">
-        {children}
-        <FloatingActions />
+        <AppointmentProvider>
+          {children}
+          <FloatingActions />
+        </AppointmentProvider>
       </body>
     </html>
   )

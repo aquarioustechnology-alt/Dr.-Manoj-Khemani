@@ -5,12 +5,14 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Phone, MapPin } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import { useAppointment } from '@/context/AppointmentContext'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
 }
 
 export default function CTASection() {
+    const { openModal } = useAppointment()
     const [activeClinic, setActiveClinic] = useState(0)
     const sectionRef = useRef<HTMLElement>(null)
 
@@ -265,7 +267,7 @@ export default function CTASection() {
                                 <p className="text-white/60 text-sm leading-relaxed mb-7">
                                     State-of-the-art facilities equipped with modern medical technology for the best treatment outcomes.
                                 </p>
-                                <Button href="/contact" className="!bg-leaf-500 hover:!bg-leaf-600 !text-white !border-none text-sm font-bold">
+                                <Button onClick={openModal} className="!bg-leaf-500 hover:!bg-leaf-600 !text-white !border-none text-sm font-bold">
                                     Book a Visit Now
                                 </Button>
                             </div>

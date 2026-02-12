@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ChevronLeft, ChevronRight, Award } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import { useAppointment } from '@/context/AppointmentContext'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
@@ -44,6 +45,7 @@ const achievements = [
 ]
 
 export default function Achievements() {
+    const { openModal } = useAppointment()
     const sectionRef = useRef<HTMLElement>(null)
     const carouselRef = useRef<HTMLDivElement>(null)
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -202,7 +204,7 @@ export default function Achievements() {
                 {/* Bottom CTA Button */}
                 <div className="flex justify-center achievement-reveal">
                     <Button
-                        href="/contact"
+                        onClick={openModal}
                         className="!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
                         iconClassName="!text-[#95BF1B] group-hover:!text-white"
                     >

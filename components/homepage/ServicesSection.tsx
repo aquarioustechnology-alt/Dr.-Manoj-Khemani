@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import { useAppointment } from '@/context/AppointmentContext'
 
 
 if (typeof window !== 'undefined') {
@@ -48,6 +49,7 @@ const services = [
 ]
 
 export default function ServicesSection() {
+    const { openModal } = useAppointment()
     const [activeTab, setActiveTab] = useState(services[0])
     const sectionRef = useRef<HTMLElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
@@ -170,15 +172,15 @@ export default function ServicesSection() {
                         </div>
 
                         <div className="shrink-0">
-                            <Link
-                                href="/contact"
+                            <button
+                                onClick={openModal}
                                 className="group relative flex items-center gap-3 text-black hover:text-leaf-600 transition-colors duration-300 pb-2"
                             >
                                 <span className="text-lg lg:text-xl font-bold">Book Consultation</span>
                                 <ArrowRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-2 transition-transform" />
                                 {/* Bottom Bold Line */}
                                 <div className="absolute bottom-0 left-0 w-full h-[3px] bg-black group-hover:bg-leaf-600 transition-colors duration-300"></div>
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Phone, Calendar, X, Send, ChevronDown, Check } from 'lucide-react'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
+import { useAppointment } from '@/context/AppointmentContext'
 
 // Clinic Data sourced from CTASection
 const clinics = [
@@ -57,7 +60,7 @@ function CustomSelect({ label, options, value, onChange, placeholder, icon: Icon
                         ${isOpen ? 'border-leaf-500 ring-2 ring-leaf-500/20 bg-white' : 'border-gray-100 hover:border-leaf-200 hover:bg-white'}
                     `}
                 >
-                    <span className={`text-sm font-medium truncat ${value ? 'text-[#1A1A1A]' : 'text-gray-400'}`}>
+                    <span className={`text-sm font-medium truncate ${value ? 'text-[#1A1A1A]' : 'text-gray-400'}`}>
                         {value || placeholder}
                     </span>
                     <ChevronDown
@@ -95,13 +98,14 @@ function CustomSelect({ label, options, value, onChange, placeholder, icon: Icon
 }
 
 export default function FloatingActions() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const { isModalOpen, toggleModal, closeModal } = useAppointment()
     const [scrolled, setScrolled] = useState(false)
 
     // Form State
     const [loading, setLoading] = useState(false)
     const [selectedClinic, setSelectedClinic] = useState('')
     const [selectedTime, setSelectedTime] = useState('')
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
     // Derived Time Options
     const timeOptions = selectedClinic
@@ -116,26 +120,39 @@ export default function FloatingActions() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen)
-        if (!isModalOpen) {
-            document.body.style.overflow = 'hidden'
-        } else {
-            document.body.style.overflow = 'unset'
-        }
-    }
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setLoading(true)
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1500))
         setLoading(false)
-        toggleModal()
+        closeModal()
     }
 
     return (
         <>
+            <style jsx global>{`
+                .react-datepicker-wrapper {
+                    width: 100%;
+                }
+                .react-datepicker {
+                    font-family: inherit;
+                    border: 1px solid #f1f5f9;
+                    border-radius: 1rem;
+                    shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+                    overflow: hidden;
+                }
+                .react-datepicker__header {
+                    background-color: #f8fafc;
+                    border-bottom: 1px solid #f1f5f9;
+                }
+                .react-datepicker__day--selected {
+                    background-color: #A8CA3D !important;
+                }
+                .react-datepicker__day:hover {
+                    background-color: #f1f8e9 !important;
+                }
+            `}</style>
             {/* Floating Buttons Container */}
             <div className={`fixed bottom-8 right-8 z-[100] flex flex-col gap-4 transition-all duration-500 transform ${scrolled ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}>
 
@@ -163,7 +180,7 @@ export default function FloatingActions() {
                 <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 lg:p-6 animate-in fade-in duration-300">
                     <div
                         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                        onClick={toggleModal}
+                        onClick={closeModal}
                     />
 
                     {/* Modal Content - Adjusted Width */}
@@ -192,7 +209,7 @@ export default function FloatingActions() {
                         {/* Right Side: Form (Expanded width) */}
                         <div className="flex-1 p-8 lg:p-10 overflow-y-auto">
                             <button
-                                onClick={toggleModal}
+                                onClick={closeModal}
                                 className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors z-30"
                             >
                                 <X className="w-6 h-6 text-gray-400" />
@@ -227,8 +244,8 @@ export default function FloatingActions() {
                                         />
                                     </div>
 
-                                    {/* Row 2: Email (Full Width) */}
-                                    <div className="space-y-2 md:col-span-2">
+                                    {/* Row 2: Email Address and Select Clinic */}
+                                    <div className="space-y-2">
                                         <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">Email Address</label>
                                         <input
                                             type="email"
@@ -236,8 +253,6 @@ export default function FloatingActions() {
                                             className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 transition-all text-sm font-medium placeholder:text-gray-400"
                                         />
                                     </div>
-
-                                    {/* Row 3: Clinic & Time */}
                                     <CustomSelect
                                         label="Select Clinic"
                                         placeholder="Choose Clinic Location"
@@ -248,6 +263,22 @@ export default function FloatingActions() {
                                         }}
                                         options={clinics.map(c => c.name)}
                                     />
+
+                                    {/* Row 3: Select Date and Consultation Time */}
+                                    <div className="space-y-2">
+                                        <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">Select Date</label>
+                                        <div className="relative">
+                                            <DatePicker
+                                                selected={selectedDate}
+                                                onChange={(date: Date | null) => setSelectedDate(date)}
+                                                placeholderText="Choose Appointment Date"
+                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 transition-all text-sm font-medium placeholder:text-gray-400"
+                                                dateFormat="MMMM d, yyyy"
+                                                minDate={new Date()}
+                                            />
+                                            <Calendar className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+                                        </div>
+                                    </div>
                                     <CustomSelect
                                         label="Consultation Time"
                                         placeholder={selectedClinic ? "Select Preferred Time" : "Select Clinic First"}

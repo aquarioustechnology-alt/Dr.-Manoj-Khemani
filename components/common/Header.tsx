@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, ChevronDown, Phone, Calendar, Bone, Activity, Accessibility, HelpingHand, Snowflake, Link as LinkIcon, ShieldPlus } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import { useAppointment } from '@/context/AppointmentContext'
 
 const navLinks = [
     { href: '/', label: 'Home' },
@@ -27,6 +28,7 @@ const navLinks = [
 ]
 
 export default function Header() {
+    const { openModal } = useAppointment()
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -123,7 +125,7 @@ export default function Header() {
                             </span>
                         </a>
                         <Button
-                            href="/contact"
+                            onClick={openModal}
                             className="!h-[48px] !text-[15px] !font-semibold !bg-[#EC1D26] hover:!bg-[#EC1D26]/90 !pl-1 !pr-5"
                             icon={Calendar}
                             iconClassName="!text-[#EC1D26] group-hover:!text-white !w-9 !h-9"
@@ -199,8 +201,10 @@ export default function Header() {
                     {/* Mobile CTA */}
                     <div className="p-6 bg-gray-50">
                         <Button
-                            href="/contact"
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={() => {
+                                setIsMobileMenuOpen(false)
+                                openModal()
+                            }}
                             className="w-full !h-[60px]"
                         >
                             Book An Appointment

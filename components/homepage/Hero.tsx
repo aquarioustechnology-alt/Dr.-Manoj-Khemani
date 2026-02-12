@@ -7,6 +7,8 @@ import Button from '@/components/ui/Button'
 import Link from 'next/link'
 import { Phone, Play, Star, X, ArrowUpRight } from 'lucide-react'
 
+import { useAppointment } from '@/context/AppointmentContext'
+
 gsap.registerPlugin(ScrollTrigger)
 
 const HERO_IMAGES = [
@@ -17,6 +19,7 @@ const HERO_IMAGES = [
 ]
 
 export default function Hero() {
+    const { openModal } = useAppointment()
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
     const [isVideoOpen, setIsVideoOpen] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -93,7 +96,7 @@ export default function Hero() {
 
                             <div className="hero-content-item flex flex-wrap gap-4 justify-start">
                                 <Button
-                                    href="/contact"
+                                    onClick={openModal}
                                     className="w-full sm:w-auto !h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
                                     iconClassName="!text-[#95BF1B] group-hover:!text-white"
                                 >
