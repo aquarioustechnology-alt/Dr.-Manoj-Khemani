@@ -96,26 +96,28 @@ export default function VideoSection() {
                         </p>
 
                         {/* Navigation Arrows */}
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-3">
                             <button
                                 onClick={goPrev}
                                 disabled={currentIndex === 0}
-                                className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 ${currentIndex === 0
-                                        ? 'border-gray-100 text-gray-300 cursor-not-allowed'
-                                        : 'border-gray-200 text-gray-900 hover:bg-leaf-500 hover:border-leaf-500 hover:text-white shadow-sm'
+                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-transparent ${currentIndex === 0
+                                    ? 'text-gray-300 cursor-not-allowed'
+                                    : 'text-[#1A1A1A] hover:bg-leaf-500 hover:!border-leaf-500 hover:text-white'
                                     }`}
+                                style={{ border: currentIndex === 0 ? '1.5px solid #e5e7eb' : '1.5px solid rgba(0,0,0,0.8)' }}
                             >
-                                <ChevronLeft size={24} />
+                                <ChevronLeft size={20} />
                             </button>
                             <button
                                 onClick={goNext}
                                 disabled={currentIndex >= maxIndex}
-                                className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 ${currentIndex >= maxIndex
-                                        ? 'border-gray-100 text-gray-300 cursor-not-allowed'
-                                        : 'border-gray-200 text-gray-900 hover:bg-leaf-500 hover:border-leaf-500 hover:text-white shadow-sm'
+                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-transparent ${currentIndex >= maxIndex
+                                    ? 'text-gray-300 cursor-not-allowed'
+                                    : 'text-[#1A1A1A] hover:bg-leaf-500 hover:!border-leaf-500 hover:text-white'
                                     }`}
+                                style={{ border: currentIndex >= maxIndex ? '1.5px solid #e5e7eb' : '1.5px solid rgba(0,0,0,0.8)' }}
                             >
-                                <ChevronRight size={24} />
+                                <ChevronRight size={20} />
                             </button>
                         </div>
                     </div>
@@ -128,40 +130,35 @@ export default function VideoSection() {
                                 style={{ transform: `translateX(-${currentIndex * 50}%)` }}
                             >
                                 {videoData.map((video) => (
-                                    <div key={video.id} className="w-full md:w-1/2 flex-shrink-0 px-3 lg:px-4 text-left">
+                                    <div key={video.id} className="w-full md:w-1/2 flex-shrink-0 px-3 lg:px-4 text-left group">
                                         <div
                                             onClick={() => setSelectedVideo(video.id)}
-                                            className="relative aspect-[16/10] rounded-[2rem] overflow-hidden group cursor-pointer shadow-2xl shadow-gray-200/50"
+                                            className="relative aspect-[4/3.1] rounded-[15px] overflow-hidden cursor-pointer shadow-xl shadow-gray-200/40 bg-gray-100"
                                         >
                                             {/* Thumbnail */}
                                             <img
-                                                src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                                                src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                                                 alt={video.title}
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                className="w-full h-full object-cover transition-transform duration-700 scale-110 group-hover:scale-125"
                                             />
 
                                             {/* Overlay */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:via-black/40 transition-all duration-500" />
+                                            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500" />
 
                                             {/* Play Icon */}
                                             <div className="absolute inset-0 flex items-center justify-center">
-                                                <div className="w-16 h-16 lg:w-20 lg:h-20 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-leaf-500 group-hover:border-leaf-500 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-leaf-500/50">
-                                                    <Play size={32} className="text-white fill-white ml-1 transition-transform duration-300 group-hover:scale-110" />
+                                                <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/30 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-leaf-500 group-hover:border-leaf-500 group-hover:scale-110">
+                                                    <Play size={24} className="text-white fill-white ml-1" />
                                                 </div>
                                             </div>
-
-                                            {/* Content Overlay */}
-                                            <div className="absolute bottom-6 left-6 right-6">
-                                                <span className="inline-block px-3 py-1 bg-leaf-500/90 text-white text-[10px] font-bold uppercase tracking-wider rounded-lg mb-3">
-                                                    {video.subtitle}
-                                                </span>
-                                                <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
-                                                    {video.title}
-                                                </h3>
-                                            </div>
                                         </div>
-                                        <div className="mt-6 px-4">
-                                            <p className="text-gray-500 text-sm leading-relaxed font-medium line-clamp-2 italic">
+
+                                        {/* Content Below Card */}
+                                        <div className="mt-6 space-y-2 px-1">
+                                            <h3 className="text-xl lg:text-2xl font-bold text-[#1A1A1A] group-hover:text-leaf-600 transition-colors duration-300 leading-tight">
+                                                {video.title}
+                                            </h3>
+                                            <p className="text-gray-500 text-sm leading-relaxed font-medium italic">
                                                 &quot;{video.description}&quot;
                                             </p>
                                         </div>
