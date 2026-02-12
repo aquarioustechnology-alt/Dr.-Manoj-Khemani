@@ -68,9 +68,20 @@ export default function Achievements() {
         return () => ctx.revert()
     }, [])
 
+    // Auto-Carousel Logic
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide()
+        }, 4000) // Change slide every 4 seconds
+
+        return () => clearInterval(interval)
+    }, [currentIndex]) // Restart timer on index change
+
     const nextSlide = () => {
         if (currentIndex < achievements.length - 3) {
             setCurrentIndex(prev => prev + 1)
+        } else {
+            setCurrentIndex(0) // Loop back to start for auto-play effect
         }
     }
 
@@ -132,22 +143,33 @@ export default function Achievements() {
                     </div>
                 </div>
 
-                {/* Carousel Section */}
-                <div className="relative achievement-reveal">
+                {/* Carousel Section - Continuous Scroll */}
+                <div className="relative achievement-reveal w-full overflow-hidden">
+                    <style jsx>{`
+                        @keyframes scroll {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-50%); }
+                        }
+                        .animate-scroll {
+                            display: flex;
+                            width: max-content;
+                            animation: scroll 80s linear infinite;
+                        }
+                        .animate-scroll:hover {
+                            animation-play-state: paused;
+                        }
+                    `}</style>
 
-                    {/* Slides Container */}
-                    <div className="overflow-visible mb-16 lg:mb-20">
+                    <div className="overflow-hidden mb-16 lg:mb-20 mask-gradient-sides">
                         <div
-                            ref={carouselRef}
-                            className="flex gap-6 lg:gap-8 transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                            style={{ transform: `translateX(calc(-${currentIndex * (100 / 3.03)}%))` }}
+                            className="animate-scroll gap-6 lg:gap-8"
                         >
-                            {achievements.map((item) => (
+                            {[...achievements, ...achievements].map((item, index) => (
                                 <div
-                                    key={item.id}
-                                    className="min-w-[85%] sm:min-w-[45%] lg:min-w-[31.5%] group"
+                                    key={`${item.id}-${index}`}
+                                    className="w-[300px] sm:w-[350px] lg:w-[400px] flex-shrink-0 group"
                                 >
-                                    <div className="relative aspect-[3/2] rounded-[2rem] overflow-hidden mb-8 border border-white/5 bg-white/5">
+                                    <div className="relative aspect-[3/2] rounded-[22px] overflow-hidden mb-8 border border-white/5 bg-white/5">
                                         <img
                                             src={item.image}
                                             alt={item.title}
@@ -160,6 +182,8 @@ export default function Achievements() {
                                             <Award size={24} />
                                         </div>
                                     </div>
+
+                                    {/* Content Below Image (Preserved Design) */}
                                     <div className="text-center px-4">
                                         <h4 className="text-xl lg:text-2xl font-bold mb-4 text-white group-hover:text-leaf-400 transition-colors">
                                             {item.title}

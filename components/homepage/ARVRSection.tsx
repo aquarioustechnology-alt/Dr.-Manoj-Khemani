@@ -138,10 +138,10 @@ export default function ARVRSection() {
                                 Next-Gen Surgical Precision
                             </div>
                             <h2 className="arv-heading text-4xl sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.05] font-bold text-[#1A1A1A] tracking-tight mb-8">
-                                Kolkata's First <span className="text-leaf-500">AR-Guided</span> Knee Replacement Surgery
+                                Kolkata's First <span className="text-leaf-500">AR VR Guided</span> Knee Replacement Surgery
                             </h2>
                             <p className="arv-paragraph text-[15px] text-gray-600 leading-relaxed font-medium">
-                                Experience the future of orthopaedics with Dr. Manoj Khemani, a pioneer in integrating AR technology for knee replacement. This advanced technology provides real-time 3D surgical guidance, ensuring unparalleled accuracy in implant positioning and joint alignment, leading to faster recovery and better long-term outcomes.
+                                Dr. Manoj Khemani has redefined orthopedic excellence by performing Kolkata's First AR & VR Guided Knee Replacement, marking a historic milestone in the city's medical landscape. By pioneering this futuristic technology, he offers patients unprecedented precision—utilizing real-time 3D visualization for exact implant placement. This is not just surgery; it's a revolutionary leap forward, ensuring faster recovery, superior joint alignment, and success rates previously unimagined in the region.
                             </p>
                         </div>
 
