@@ -73,7 +73,7 @@ export default function Footer() {
                                             +(91) 8697449191
                                         </a>
                                         <a href="https://wa.me/918820250803" className="text-white/70 hover:text-leaf-400 transition-colors text-[15px] flex items-center gap-2">
-                                            +(91) 8820250803 <span className="text-[11px] px-2 py-0.5 bg-green-500/10 text-green-500 rounded-full border border-green-500/20 font-bold">WhatsApp</span>
+                                            +(91) 8820250803 <span className="text-[11px] px-2 py-0.5 bg-green-500/10 text-white rounded-full border border-green-500/20 font-bold">WhatsApp</span>
                                         </a>
                                     </div>
                                 </div>
