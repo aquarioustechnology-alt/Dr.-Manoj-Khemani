@@ -236,13 +236,13 @@ export default function Blogs() {
                                         {/* Content */}
                                         <div className="p-6 pb-8 flex flex-col flex-1">
                                             {/* Date & Read Time */}
-                                            <div className="flex items-center gap-4 text-[#E53935] text-sm mb-3">
+                                            <div className="flex items-center gap-2.5 text-gray-500 text-sm mb-3">
                                                 <div className="flex items-center gap-1.5 font-medium">
                                                     <Calendar size={14} />
                                                     <span>{blog.date}</span>
                                                 </div>
                                                 <div className="w-1 h-1 rounded-full bg-gray-300"></div>
-                                                <div className="flex items-center gap-1.5 font-medium text-gray-500">
+                                                <div className="flex items-center gap-1.5 font-medium">
                                                     <Clock size={14} />
                                                     <span>{blog.readTime}</span>
                                                 </div>

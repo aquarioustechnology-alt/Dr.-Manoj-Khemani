@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Play, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { Play, ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 if (typeof window !== 'undefined') {
@@ -40,10 +41,15 @@ const videoData = [
 export default function VideoSection() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
+    const [mounted, setMounted] = useState(false)
     const sectionRef = useRef<HTMLElement>(null)
 
     const videosPerView = 2
     const maxIndex = videoData.length - videosPerView
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     // Body scroll lock
     useEffect(() => {
@@ -90,12 +96,52 @@ export default function VideoSection() {
     const goNext = () => setCurrentIndex(prev => Math.min(prev + 1, maxIndex))
     const goPrev = () => setCurrentIndex(prev => Math.max(prev - 1, 0))
 
+    const Modal = () => {
+        if (!mounted) return null
+        return createPortal(
+            <AnimatePresence>
+                {selectedVideo && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[999] flex items-center justify-center p-0 md:p-10 lg:p-20"
+                    >
+                        {/* Pure Black Opacity Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-black/90 backdrop-blur-[2px] cursor-pointer"
+                            onClick={() => setSelectedVideo(null)}
+                        />
+
+                        {/* Video Container - Nothing else inside */}
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            className="relative w-full max-w-6xl aspect-video z-10"
+                        >
+                            <iframe
+                                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0`}
+                                className="w-full h-full border-0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>,
+            document.body
+        )
+    }
+
     return (
         <section ref={sectionRef} className="py-24 lg:py-32 bg-white relative overflow-hidden z-20">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-                    {/* Left Side: Content */}
                     <div className="lg:col-span-4 video-reveal-left">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-gray-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
@@ -108,7 +154,6 @@ export default function VideoSection() {
                             Experience Dr. Khemani&apos;s expertise through real patient journeys, surgical insights, and life-changing recoveries.
                         </p>
 
-                        {/* Navigation Arrows */}
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={goPrev}
@@ -135,7 +180,6 @@ export default function VideoSection() {
                         </div>
                     </div>
 
-                    {/* Right Side: Carousel */}
                     <div className="lg:col-span-8 video-reveal-right">
                         <div className="relative overflow-hidden">
                             <div
@@ -148,17 +192,12 @@ export default function VideoSection() {
                                             onClick={() => setSelectedVideo(video.id)}
                                             className="relative aspect-[4/3.1] rounded-[15px] overflow-hidden cursor-pointer shadow-xl shadow-gray-200/40 bg-gray-100"
                                         >
-                                            {/* Thumbnail */}
                                             <img
                                                 src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                                                 alt={video.title}
                                                 className="w-full h-full object-cover transition-transform duration-700 scale-110 group-hover:scale-125"
                                             />
-
-                                            {/* Overlay */}
                                             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500" />
-
-                                            {/* Play Icon */}
                                             <div className="absolute inset-0 flex items-center justify-center">
                                                 <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/30 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-leaf-500 group-hover:border-leaf-500 group-hover:scale-110">
                                                     <Play size={24} className="text-white fill-white ml-1" />
@@ -166,7 +205,6 @@ export default function VideoSection() {
                                             </div>
                                         </div>
 
-                                        {/* Content Below Card */}
                                         <div
                                             className="mt-6 space-y-2 px-1 cursor-pointer"
                                             onClick={() => setSelectedVideo(video.id)}
@@ -186,45 +224,7 @@ export default function VideoSection() {
                 </div>
             </div>
 
-            {/* Lightbox / Video Modal */}
-            <AnimatePresence>
-                {selectedVideo && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-10"
-                    >
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/95 backdrop-blur-sm"
-                            onClick={() => setSelectedVideo(null)}
-                        />
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                            className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10"
-                        >
-                            <button
-                                onClick={() => setSelectedVideo(null)}
-                                className="absolute top-4 right-4 z-10 w-10 h-10 lg:w-12 lg:h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-colors backdrop-blur-md"
-                            >
-                                <X size={24} />
-                            </button>
-                            <iframe
-                                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
-                                className="w-full h-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            />
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <Modal />
         </section>
     )
 }
