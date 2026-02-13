@@ -50,17 +50,17 @@ function CustomSelect({ label, options, value, onChange, placeholder, icon: Icon
     }, [])
 
     return (
-        <div className="space-y-2" ref={containerRef}>
-            <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">{label}</label>
+        <div className="space-y-1.5" ref={containerRef}>
+            <label className="text-[12px] font-semibold text-[#1A1A1A] uppercase tracking-wider ml-1">{label}</label>
             <div className="relative">
                 <button
                     type="button"
                     onClick={() => setIsOpen(!isOpen)}
-                    className={`w-full px-5 py-3.5 bg-gray-50 border rounded-xl flex items-center justify-between transition-all duration-300 group
-                        ${isOpen ? 'border-leaf-500 ring-2 ring-leaf-500/20 bg-white' : 'border-gray-100 hover:border-leaf-200 hover:bg-white'}
+                    className={`w-full h-[46px] px-5 bg-gray-50 border border-solid rounded-xl flex items-center justify-between transition-all duration-300 group
+                        ${isOpen ? 'border-leaf-500 ring-2 ring-leaf-500/20 bg-white' : 'border-gray-200/60 hover:border-leaf-400 hover:bg-white'}
                     `}
                 >
-                    <span className={`text-sm font-medium truncate ${value ? 'text-[#1A1A1A]' : 'text-gray-400'}`}>
+                    <span className={`text-[13px] font-normal truncate ${value ? 'text-[#1A1A1A]' : 'text-gray-400'}`}>
                         {value || placeholder}
                     </span>
                     <ChevronDown
@@ -84,7 +84,7 @@ function CustomSelect({ label, options, value, onChange, placeholder, icon: Icon
                                     onChange(option)
                                     setIsOpen(false)
                                 }}
-                                className="w-full text-left px-5 py-2.5 text-sm font-medium text-gray-600 hover:bg-leaf-50 hover:text-leaf-700 transition-colors flex items-center justify-between group"
+                                className="w-full text-left px-5 py-2.5 text-[13px] font-normal text-gray-600 hover:bg-leaf-50 hover:text-leaf-700 transition-colors flex items-center justify-between group"
                             >
                                 <span>{option}</span>
                                 {value === option && <Check size={16} className="text-leaf-500" />}
@@ -207,7 +207,7 @@ export default function FloatingActions() {
                         </div>
 
                         {/* Right Side: Form (Expanded width) */}
-                        <div className="flex-1 p-8 lg:p-10 overflow-y-auto">
+                        <div className="flex-1 p-6 lg:p-8 overflow-y-auto">
                             <button
                                 onClick={closeModal}
                                 className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors z-30"
@@ -215,42 +215,42 @@ export default function FloatingActions() {
                                 <X className="w-6 h-6 text-gray-400" />
                             </button>
 
-                            <div className="mb-8">
-                                <h2 className="text-3xl lg:text-4xl font-bold text-[#1A1A1A] leading-[1.15] mb-3">
+                            <div className="mb-4 lg:px-6">
+                                <h2 className="text-3xl lg:text-4xl font-bold text-[#1A1A1A] leading-[1.15] mb-2">
                                     Don’t put up with pain! <span className="text-leaf-500">Make an appointment</span>
                                 </h2>
                                 <p className="text-sm text-gray-500 font-medium leading-relaxed">
-                                    Please fill out the form below and we&apos;ll get back to you shortly to confirm your consultation.
+                                    Please fill out the form below and we&apos;ll get back to you shortly.
                                 </p>
                             </div>
 
-                            <form className="space-y-6" onSubmit={handleSubmit}>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <form className="space-y-4 lg:px-6 max-w-3xl mx-auto" onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {/* Row 1: Name & Phone */}
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">Full Name</label>
+                                    <div className="space-y-1.5">
+                                        <label className="text-[12px] font-semibold text-[#1A1A1A] uppercase tracking-wider ml-1">Full Name</label>
                                         <input
                                             type="text"
                                             placeholder="Your Name"
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 transition-all text-sm font-medium placeholder:text-gray-400"
+                                            className="w-full h-[46px] px-5 bg-gray-50 border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 hover:border-leaf-400 hover:bg-white transition-all text-[13px] font-normal text-[#1A1A1A] placeholder:text-gray-400 placeholder:text-[13px] placeholder:font-normal"
                                         />
                                     </div>
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">Phone Number</label>
+                                    <div className="space-y-1.5">
+                                        <label className="text-[12px] font-semibold text-[#1A1A1A] uppercase tracking-wider ml-1">Phone Number</label>
                                         <input
                                             type="tel"
                                             placeholder="+91 00000 00000"
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 transition-all text-sm font-medium placeholder:text-gray-400"
+                                            className="w-full h-[46px] px-5 bg-gray-50 border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 hover:border-leaf-400 hover:bg-white transition-all text-[13px] font-normal text-[#1A1A1A] placeholder:text-gray-400 placeholder:text-[13px] placeholder:font-normal"
                                         />
                                     </div>
 
                                     {/* Row 2: Email Address and Select Clinic */}
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">Email Address</label>
+                                    <div className="space-y-1.5">
+                                        <label className="text-[12px] font-semibold text-[#1A1A1A] uppercase tracking-wider ml-1">Email Address</label>
                                         <input
                                             type="email"
                                             placeholder="Your Email"
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 transition-all text-sm font-medium placeholder:text-gray-400"
+                                            className="w-full h-[46px] px-5 bg-gray-50 border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 hover:border-leaf-400 hover:bg-white transition-all text-[13px] font-normal text-[#1A1A1A] placeholder:text-gray-400 placeholder:text-[13px] placeholder:font-normal"
                                         />
                                     </div>
                                     <CustomSelect
@@ -265,14 +265,14 @@ export default function FloatingActions() {
                                     />
 
                                     {/* Row 3: Select Date and Consultation Time */}
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">Select Date</label>
+                                    <div className="space-y-1.5">
+                                        <label className="text-[12px] font-semibold text-[#1A1A1A] uppercase tracking-wider ml-1">Select Date</label>
                                         <div className="relative">
                                             <DatePicker
                                                 selected={selectedDate}
                                                 onChange={(date: Date | null) => setSelectedDate(date)}
                                                 placeholderText="Choose Appointment Date"
-                                                className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 transition-all text-sm font-medium placeholder:text-gray-400"
+                                                className="w-full h-[46px] px-5 bg-gray-50 border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 hover:border-leaf-400 hover:bg-white transition-all text-[13px] font-normal text-[#1A1A1A] placeholder:text-gray-400 placeholder:text-[13px] placeholder:font-normal"
                                                 dateFormat="MMMM d, yyyy"
                                                 minDate={new Date()}
                                             />
@@ -288,12 +288,12 @@ export default function FloatingActions() {
                                     />
 
                                     {/* Row 4: Message (Full Width) */}
-                                    <div className="space-y-2 md:col-span-2">
-                                        <label className="text-xs font-medium text-[#1A1A1A] uppercase tracking-wide ml-1">Your Message</label>
+                                    <div className="space-y-1.5 md:col-span-2">
+                                        <label className="text-[12px] font-semibold text-[#1A1A1A] uppercase tracking-wider ml-1">Your Message</label>
                                         <textarea
-                                            rows={3}
+                                            rows={2}
                                             placeholder="Briefly describe your condition..."
-                                            className="w-full px-5 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 transition-all text-sm font-medium resize-none shadow-sm placeholder:text-gray-400"
+                                            className="w-full px-5 py-3 bg-gray-50 border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 hover:border-leaf-400 hover:bg-white transition-all text-[13px] font-normal text-[#1A1A1A] resize-none shadow-sm placeholder:text-gray-400 placeholder:text-[13px] placeholder:font-normal"
                                         ></textarea>
                                     </div>
                                 </div>

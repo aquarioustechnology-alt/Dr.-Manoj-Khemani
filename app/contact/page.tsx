@@ -70,7 +70,7 @@ export default function ContactPage() {
             <div className="grid lg:grid-cols-2 gap-16">
               {/* Contact Form */}
               <div>
-                <h2 className="text-2xl font-display font-bold text-text-primary mb-6">
+                <h2 className="text-2xl font-display font-bold text-text-primary mb-4">
                   Book an Appointment
                 </h2>
 
@@ -87,29 +87,29 @@ export default function ContactPage() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
+                        <label className="block text-[12px] font-semibold text-text-secondary uppercase tracking-wider mb-1 px-1">
                           Full Name *
                         </label>
                         <input
                           type="text"
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200/60 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all font-normal text-text-primary text-[13px] placeholder:text-[13px] placeholder:font-normal"
                           placeholder="Your name"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
+                        <label className="block text-[12px] font-semibold text-text-secondary uppercase tracking-wider mb-1 px-1">
                           Phone Number *
                         </label>
                         <input
                           type="tel"
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200/60 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all font-normal text-text-primary text-[13px] placeholder:text-[13px] placeholder:font-normal"
                           placeholder="Your phone"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -118,25 +118,25 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-text-secondary mb-2">
+                      <label className="block text-[12px] font-semibold text-text-secondary uppercase tracking-wider mb-1 px-1">
                         Email Address
                       </label>
                       <input
                         type="email"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200/60 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all font-normal text-text-primary text-[13px] placeholder:text-[13px] placeholder:font-normal"
                         placeholder="Your email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       />
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
+                        <label className="block text-[12px] font-semibold text-text-secondary uppercase tracking-wider mb-1 px-1">
                           Service Required
                         </label>
                         <select
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200/60 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all bg-white font-normal text-text-primary text-[13px]"
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         >
@@ -149,12 +149,12 @@ export default function ContactPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-text-secondary mb-2">
+                        <label className="block text-[12px] font-semibold text-text-secondary uppercase tracking-wider mb-1 px-1">
                           Preferred Date
                         </label>
                         <input
                           type="date"
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200/60 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all font-normal text-text-primary text-[13px]"
                           value={formData.date}
                           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                         />
@@ -162,12 +162,12 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-text-secondary mb-2">
+                      <label className="block text-[12px] font-semibold text-text-secondary uppercase tracking-wider mb-1 px-1">
                         Message / Symptoms
                       </label>
                       <textarea
-                        rows={4}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all resize-none"
+                        rows={2}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200/60 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-200 outline-none transition-all resize-none font-normal text-text-primary text-[13px] placeholder:text-[13px] placeholder:font-normal"
                         placeholder="Briefly describe your condition or symptoms"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
