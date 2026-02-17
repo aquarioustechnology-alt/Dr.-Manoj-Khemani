@@ -154,7 +154,7 @@ export default function FloatingActions() {
                 }
             `}</style>
             {/* Floating Buttons Container */}
-            <div className={`fixed bottom-8 right-8 z-[100] flex flex-col gap-4 transition-all duration-500 transform ${scrolled ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`}>
+            <div className={`fixed bottom-8 right-8 z-[100] flex flex-col gap-4 transition-all duration-500 transform ${scrolled ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none max-lg:translate-y-0 max-lg:opacity-100 max-lg:pointer-events-auto'}`}>
 
                 {/* Call Button */}
                 <a

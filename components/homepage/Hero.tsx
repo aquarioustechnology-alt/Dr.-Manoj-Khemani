@@ -77,8 +77,8 @@ export default function Hero() {
     }, [])
 
     return (
-        <section className={`sticky top-0 z-0 w-full bg-[#f8faf5] transition-all duration-300 overflow-hidden ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
-            <div ref={contentRef} className="relative min-h-[600px] md:min-h-[650px] lg:min-h-[700px]">
+        <section className={`relative lg:sticky top-0 z-0 w-full bg-[#f8faf5] transition-all duration-300 overflow-hidden ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
+            <div ref={contentRef} className="relative min-h-[600px] md:min-h-[650px] lg:min-h-[700px] flex flex-col lg:block">
 
                 {/* Right Side - Doctor Image (absolute, flush top-right, 200px bottom-left curve) */}
                 <div
@@ -116,7 +116,7 @@ export default function Hero() {
                 </div>
 
                 {/* Mobile / Tablet Image */}
-                <div className="lg:hidden relative w-full h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden" style={{ borderRadius: '0 0 0 80px' }}>
+                <div className="lg:hidden relative w-[92%] mx-auto h-[300px] sm:h-[400px] md:h-[450px] rounded-[30px] overflow-hidden order-2 lg:order-none mb-8 lg:mb-0">
                     {HERO_IMAGES.map((img, index) => (
                         <div
                             key={index}
@@ -142,11 +142,55 @@ export default function Hero() {
                             />
                         ))}
                     </div>
+
+                    {/* Mobile Reviews Overlay - Scaled up for Tablets */}
+                    <div className="absolute bottom-4 left-4 z-40 max-w-[85%] sm:max-w-md">
+                        <div className="flex flex-col bg-white/95 backdrop-blur-sm border border-white/20 rounded-[16px] overflow-hidden shadow-lg transition-all w-fit scale-90 origin-bottom-left sm:scale-125 md:scale-135">
+                            <a
+                                href="https://www.google.com/search?q=Dr.+Manoj+Khemani"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col gap-2 px-3 py-2.5 border-b border-gray-100/50 hover:bg-white/50 transition-all group/review"
+                            >
+                                <div className="flex -space-x-2">
+                                    {[
+                                        "/images/homepage/img 1.webp",
+                                        "/images/homepage/img 2.webp",
+                                        "/images/homepage/img 3.webp",
+                                        "/images/homepage/img 4.webp"
+                                    ].map((url, i) => (
+                                        <div key={i} className="w-7 h-7 rounded-full border-[1.5px] border-white overflow-hidden relative shrink-0 aspect-square" style={{ zIndex: 10 - i }}>
+                                            <img src={url} alt="Patient" className="object-cover w-full h-full" />
+                                        </div>
+                                    ))}
+                                    <div className="w-7 h-7 rounded-full border-[1.5px] border-white bg-[#95BF1B] flex items-center justify-center relative shrink-0 z-0">
+                                        <span className="text-white text-[8px] font-bold leading-none">2k+</span>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col items-start gap-0.5">
+                                    <div className="flex gap-0.5">
+                                        {[1, 2, 3, 4, 5].map((_, i) => (
+                                            <Star key={i} size={12} className="fill-[#F59E0B] text-[#F59E0B]" />
+                                        ))}
+                                    </div>
+                                    <span className="text-text-primary font-bold text-[10px] tracking-wide leading-tight">Trusted by 20k+ Patients</span>
+                                </div>
+                            </a>
+                            <Link
+                                href="#pain-free-path"
+                                className="hidden sm:flex items-center justify-between gap-3 px-3 py-2.5 sm:px-4 hover:bg-leaf-50/50 transition-all group/cta border-t border-gray-100/50"
+                            >
+                                <span className="text-text-primary text-[10px] sm:text-xs font-medium">Visit Healing Touch Clinic</span>
+                                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:rotate-90 transition-transform duration-300">
+                                    <ArrowRight size={13} />
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Left Side Content */}
-                <div className="relative z-10 max-w-7.5xl mx-auto px-3 lg:px-5 pt-[180px] pb-[90px]">
-                    <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-[55%] xl:max-w-[56%] 2xl:max-w-[58%]">
+                <div className="relative z-10 max-w-7.5xl mx-auto px-3 lg:px-5 pt-44 lg:pt-[180px] pb-8 lg:pb-[90px] order-1 lg:order-none flex flex-col items-center lg:block lg:text-left text-center">
+                    <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-[55%] xl:max-w-[56%] 2xl:max-w-[58%] w-full">
                         {/* Badge */}
                         <div className="hero-content-item mb-4 sm:mb-5">
                             <span className="inline-block py-1.5 px-4 border border-leaf-200 rounded-full bg-leaf-50 text-leaf-700 text-xs sm:text-sm font-semibold tracking-wider uppercase">
@@ -155,15 +199,15 @@ export default function Hero() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="hero-content-item text-[32px] sm:text-[42px] md:text-[50px] lg:text-[56px] xl:text-[68px] 2xl:text-[80px] font-bold text-text-primary mb-4 sm:mb-6 leading-[1.05]">
+                        <h1 className="hero-content-item text-[32px] sm:text-[42px] md:text-[50px] lg:text-[56px] xl:text-[68px] 2xl:text-[80px] font-bold text-text-primary mb-4 sm:mb-6 leading-[1.05] mx-auto lg:mx-0">
                             Kolkata’s Trusted Robotic Joint Replacement Expert, <span className="text-leaf-500 2xl:whitespace-nowrap">Dr. Manoj Khemani</span>
                         </h1>
 
-                        <p className="hero-content-item text-sm sm:text-base lg:text-lg text-black mb-8 sm:mb-10 max-w-md lg:max-w-xl leading-relaxed">
+                        <p className="hero-content-item text-sm sm:text-base lg:text-lg text-black mb-8 sm:mb-10 max-w-md lg:max-w-xl leading-relaxed mx-auto lg:mx-0">
                             Delivering precision-driven robotic joint replacement, trauma surgery, and arthroscopic care with a focus on long-term mobility and safe recovery.
                         </p>
 
-                        <div className="hero-content-item flex flex-wrap gap-3 sm:gap-4 justify-start">
+                        <div className="hero-content-item flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
                             <Button
                                 onClick={openModal}
                                 className="w-full sm:w-auto !h-[50px] sm:!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
@@ -174,7 +218,7 @@ export default function Hero() {
 
                             <button
                                 onClick={() => setIsVideoOpen(true)}
-                                className="w-full sm:w-auto group inline-flex items-center justify-center sm:justify-start gap-3 pl-1 pr-6 py-1.5 bg-white text-text-primary rounded-full font-medium text-sm transition-all hover:bg-leaf-50"
+                                className="w-full sm:w-auto group inline-flex items-center justify-start gap-3 pl-1 pr-6 py-1.5 bg-white text-text-primary rounded-full font-medium text-sm transition-all hover:bg-leaf-50"
                                 style={{ border: '1px solid #95BF1B' }}
                             >
                                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-leaf-100 flex items-center justify-center group-hover:bg-leaf-500 group-hover:text-white transition-colors text-leaf-600">
@@ -252,50 +296,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Google Reviews - Mobile / Tablet */}
-                <div className="hero-content-item lg:hidden px-3 pb-8">
-                    <div className="flex flex-col bg-white border border-gray-100 rounded-[20px] overflow-hidden shadow-lg transition-all w-fit max-w-[300px] sm:max-w-md">
-                        <a
-                            href="https://www.google.com/search?q=Dr.+Manoj+Khemani"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex flex-col gap-3 px-4 py-3 border-b border-gray-100 hover:bg-leaf-50/50 transition-all group/review"
-                        >
-                            <div className="flex -space-x-2.5">
-                                {[
-                                    "/images/homepage/img 1.webp",
-                                    "/images/homepage/img 2.webp",
-                                    "/images/homepage/img 3.webp",
-                                    "/images/homepage/img 4.webp"
-                                ].map((url, i) => (
-                                    <div key={i} className="w-8 h-8 rounded-full border-[1.5px] border-white overflow-hidden relative shrink-0 aspect-square" style={{ zIndex: 10 - i }}>
-                                        <img src={url} alt="Patient" className="object-cover w-full h-full" />
-                                    </div>
-                                ))}
-                                <div className="w-8 h-8 rounded-full border-[1.5px] border-white bg-[#95BF1B] flex items-center justify-center relative shrink-0 z-0">
-                                    <span className="text-white text-[9px] font-bold leading-none">2k+</span>
-                                </div>
-                            </div>
-                            <div className="flex flex-col items-start gap-1">
-                                <div className="flex gap-0.5">
-                                    {[1, 2, 3, 4, 5].map((_, i) => (
-                                        <Star key={i} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />
-                                    ))}
-                                </div>
-                                <span className="text-text-primary font-medium text-[10px] sm:text-xs tracking-wide">Trusted by 20,000+ Patients</span>
-                            </div>
-                        </a>
-                        <Link
-                            href="#pain-free-path"
-                            className="flex items-center justify-between gap-3 px-4 py-2.5 hover:bg-leaf-50/50 transition-all group/cta"
-                        >
-                            <span className="text-text-primary text-xs sm:text-sm font-medium">Visit Healing Touch Clinic</span>
-                            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:rotate-90 transition-transform duration-300">
-                                <ArrowRight size={13} />
-                            </div>
-                        </Link>
-                    </div>
-                </div>
+
             </div>
 
             {/* Video Modal */}

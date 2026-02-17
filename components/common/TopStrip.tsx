@@ -1,6 +1,6 @@
 export default function TopStrip() {
     return (
-        <div className="w-full h-[31px] bg-[#1c1917] text-white flex items-center justify-center z-[60] fixed top-0 left-0">
+        <div className="w-full h-auto min-h-[31px] md:h-[31px] py-1 md:py-0 bg-[#1c1917] text-white flex items-center justify-center z-[60] fixed top-0 left-0">
             <div className="max-w-7.5xl mx-auto flex items-center justify-center text-[11px] sm:text-xs font-medium tracking-wider uppercase text-center">
                 <p>
                     <span className="text-leaf-400 font-bold">Robotic Joint Replacement</span>
