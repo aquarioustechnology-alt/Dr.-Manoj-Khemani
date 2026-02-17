@@ -210,21 +210,21 @@ export default function Hero() {
                         <div className="hero-content-item flex flex-nowrap gap-2 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto">
                             <Button
                                 onClick={openModal}
-                                className="flex-1 sm:flex-none w-auto !h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B] px-1 sm:px-6 text-[11px] sm:text-base whitespace-nowrap"
+                                className="flex-1 sm:flex-none w-0 sm:w-auto !h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B] !pl-1 !pr-2 sm:!pr-6 whitespace-nowrap"
                                 iconClassName="!text-[#95BF1B] group-hover:!text-white"
                             >
-                                Schedule Appointment
+                                <span className="text-[11px] sm:text-base">Schedule Appointment</span>
                             </Button>
 
                             <button
                                 onClick={() => setIsVideoOpen(true)}
-                                className="flex-1 sm:flex-none w-auto group inline-flex items-center justify-start gap-2 sm:gap-3 pl-1 pr-3 sm:pr-6 py-1.5 bg-white text-text-primary rounded-full font-medium text-[11px] sm:text-sm transition-all hover:bg-leaf-50 h-[56px]"
+                                className="flex-1 sm:flex-none w-0 sm:w-auto group inline-flex items-center justify-start gap-2 sm:gap-3 pl-1 pr-2 sm:pr-6 py-1.5 bg-white text-text-primary rounded-full font-medium transition-all hover:bg-leaf-50 h-[56px]"
                                 style={{ border: '1px solid #95BF1B' }}
                             >
                                 <div className="w-11 h-11 sm:w-11 sm:h-11 rounded-full bg-leaf-100 flex items-center justify-center group-hover:bg-leaf-500 group-hover:text-white transition-colors text-leaf-600 shrink-0">
                                     <Play size={20} className="fill-current" />
                                 </div>
-                                <span className="whitespace-nowrap">Watch Video</span>
+                                <span className="whitespace-nowrap overflow-hidden text-ellipsis text-[11px] sm:text-sm">Watch Video</span>
                             </button>
                         </div>
                     </div>

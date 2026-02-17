@@ -171,7 +171,7 @@ export default function FloatingActions() {
             </div>
 
             {/* Side Sticky Buttons Container */}
-            <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[90] flex flex-col gap-3 items-end">
+            <div className="fixed right-0 top-[60%] sm:top-1/2 -translate-y-1/2 z-[90] flex flex-col gap-3 items-end">
 
                 {/* Book Appointment Button */}
                 <button
