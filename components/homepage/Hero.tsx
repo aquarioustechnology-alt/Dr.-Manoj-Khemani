@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
 import Link from 'next/link'
-import { Phone, Play, Star, X, ArrowUpRight, Bone, Activity, Cpu } from 'lucide-react'
+import { Phone, Play, Star, X, ArrowRight, Bone, Activity, Cpu } from 'lucide-react'
 
 import { useAppointment } from '@/context/AppointmentContext'
 
@@ -156,7 +156,7 @@ export default function Hero() {
 
                         {/* Heading */}
                         <h1 className="hero-content-item text-[32px] sm:text-[42px] md:text-[50px] lg:text-[56px] xl:text-[68px] 2xl:text-[80px] font-bold text-text-primary mb-4 sm:mb-6 leading-[1.05]">
-                            Redefining Robotic Joint Care with <span className="text-leaf-500 2xl:whitespace-nowrap">Dr. Manoj Khemani</span>
+                            Kolkata’s Trusted Robotic Joint Replacement Expert, <span className="text-leaf-500 2xl:whitespace-nowrap">Dr. Manoj Khemani</span>
                         </h1>
 
                         <p className="hero-content-item text-sm sm:text-base lg:text-lg text-black mb-8 sm:mb-10 max-w-md lg:max-w-xl leading-relaxed">
@@ -241,12 +241,12 @@ export default function Hero() {
                             </div>
                         </a>
                         <Link
-                            href="/contact"
+                            href="#pain-free-path"
                             className="flex items-center justify-between gap-3 px-5 py-2.5 hover:bg-leaf-50/50 transition-all group/cta"
                         >
                             <span className="text-text-primary text-sm font-medium">Visit Healing Touch Clinic</span>
-                            <div className="w-7 h-7 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:translate-x-1 transition-transform">
-                                <ArrowUpRight size={14} />
+                            <div className="w-7 h-7 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:rotate-90 transition-transform duration-300">
+                                <ArrowRight size={14} />
                             </div>
                         </Link>
                     </div>
@@ -286,12 +286,12 @@ export default function Hero() {
                             </div>
                         </a>
                         <Link
-                            href="/contact"
+                            href="#pain-free-path"
                             className="flex items-center justify-between gap-3 px-4 py-2.5 hover:bg-leaf-50/50 transition-all group/cta"
                         >
                             <span className="text-text-primary text-xs sm:text-sm font-medium">Visit Healing Touch Clinic</span>
-                            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:translate-x-1 transition-transform">
-                                <ArrowUpRight size={13} />
+                            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-leaf-500 flex items-center justify-center text-white shrink-0 aspect-square group-hover:rotate-90 transition-transform duration-300">
+                                <ArrowRight size={13} />
                             </div>
                         </Link>
                     </div>

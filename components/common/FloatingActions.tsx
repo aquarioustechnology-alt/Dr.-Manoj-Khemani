@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Phone, Calendar, X, Send, ChevronDown, Check } from 'lucide-react'
+import { Phone, Calendar, X, Send, ChevronDown, Check, ArrowUp } from 'lucide-react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import { useAppointment } from '@/context/AppointmentContext'
@@ -172,6 +172,15 @@ export default function FloatingActions() {
                     title="Book Appointment"
                 >
                     <Calendar className="w-6 h-6" />
+                </button>
+
+                {/* Scroll To Top Button */}
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="w-14 h-14 bg-white text-leaf-500 border border-leaf-100 rounded-full flex items-center justify-center shadow-xl hover:scale-110 hover:bg-leaf-50 transition-all duration-300 group"
+                    title="Scroll to Top"
+                >
+                    <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />
                 </button>
             </div>
 

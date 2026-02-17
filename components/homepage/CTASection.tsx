@@ -123,7 +123,7 @@ export default function CTASection() {
     }, [activeClinic])
 
     return (
-        <section ref={sectionRef} className="pt-[80px] pb-24 lg:pb-32 bg-[#f7faf2] relative overflow-hidden z-20">
+        <section id="pain-free-path" ref={sectionRef} className="pt-[80px] pb-24 lg:pb-32 bg-[#f7faf2] relative overflow-hidden z-20">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8 relative">
 
                 {/* Header - Centered */}
