@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Milestone, Zap } from 'lucide-react'
+import { Crosshair, ScanLine, HeartPulse, ShieldCheck } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 if (typeof window !== 'undefined') {
@@ -12,7 +12,6 @@ if (typeof window !== 'undefined') {
 
 export default function ARVRSection() {
     const sectionRef = useRef<HTMLElement>(null)
-    const [activeCard, setActiveCard] = useState(0)
 
     useEffect(() => {
         if (!sectionRef.current) return
@@ -116,14 +115,14 @@ export default function ARVRSection() {
                     <div className="arv-image-reveal relative h-full">
                         <div className="relative rounded-[2rem] overflow-hidden h-full">
                             <img
-                                src="/images/homepage/AR VR image.png"
+                                src="/images/homepage/Dr Image 12-Picsart-AiImageEnhancer.webp"
                                 alt="AR-Guided Knee Replacement Surgery by Dr. Manoj Khemani"
                                 className="w-full h-full object-cover"
                             />
                             {/* Button at bottom-left of image */}
                             <div className="arv-btn absolute bottom-6 left-6 z-20">
                                 <Button href="/treatments/ar-knee-replacement">
-                                    Know About AR Technology
+                                    Know More
                                 </Button>
                             </div>
                         </div>
@@ -138,50 +137,57 @@ export default function ARVRSection() {
                                 Next-Gen Surgical Precision
                             </div>
                             <h2 className="arv-heading text-4xl sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.05] font-bold text-[#1A1A1A] tracking-tight mb-8">
-                                Kolkata's First <span className="text-leaf-500">AR VR Guided</span> Knee Replacement Surgery
+                                For the First Time in Kolkata, Dr. Khemani Introduces <span className="text-leaf-500">Robotic Joint Replacement</span>
                             </h2>
                             <p className="arv-paragraph text-[15px] text-gray-600 leading-relaxed font-medium">
-                                Dr. Manoj Khemani has redefined orthopedic excellence by performing Kolkata's First AR & VR Guided Knee Replacement, marking a historic milestone in the city's medical landscape. By pioneering this futuristic technology, he offers patients unprecedented precision—utilizing real-time 3D visualization for exact implant placement. This is not just surgery; it's a revolutionary leap forward, ensuring faster recovery, superior joint alignment, and success rates previously unimagined in the region.
+                                Dr. Manoj Khemani introduced robotic joint replacement technology in Kolkata, setting a new benchmark in orthopaedic surgery. With this advanced system, he delivers greater surgical precision, better joint alignment, and faster recovery outcomes — giving patients access to next-generation joint care right here in the city.
                             </p>
                         </div>
 
                         {/* Cards — Side by Side */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            {/* Card 1 */}
-                            <div
-                                onMouseEnter={() => setActiveCard(0)}
-                                className={`arv-card flex flex-col items-start gap-4 p-6 rounded-[20px] border transition-all duration-300 cursor-pointer ${activeCard === 0
-                                    ? 'bg-leaf-500 border-transparent'
-                                    : 'bg-white border-gray-200'
-                                    }`}
-                            >
-                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all ${activeCard === 0 ? 'bg-white/20 text-white' : 'bg-leaf-50 text-leaf-600'
-                                    }`}>
-                                    <Milestone size={24} />
-                                </div>
-                                <h4 className={`text-lg font-bold transition-colors ${activeCard === 0 ? 'text-white' : 'text-gray-900'}`}>High-Precision Execution</h4>
-                                <p className={`text-[14px] leading-relaxed font-medium transition-colors ${activeCard === 0 ? 'text-white/90' : 'text-gray-600'}`}>
-                                    AR-assisted guidance enables real-time 3D mapping of your anatomy, ensuring implants are placed with sub-millimeter precision.
-                                </p>
-                            </div>
+                        {/* Features Heading */}
+                        <h3 className="arv-anim-item text-2xl font-bold text-gray-900 mt-1 mb-2">
+                            Why Robotic Joint Replacement Is Better
+                        </h3>
 
-                            {/* Card 2 */}
-                            <div
-                                onMouseEnter={() => setActiveCard(1)}
-                                className={`arv-card flex flex-col items-start gap-4 p-6 rounded-[20px] border transition-all duration-300 cursor-pointer ${activeCard === 1
-                                    ? 'bg-leaf-500 border-transparent'
-                                    : 'bg-white border-gray-200'
-                                    }`}
-                            >
-                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all ${activeCard === 1 ? 'bg-white/20 text-white' : 'bg-leaf-50 text-leaf-600'
-                                    }`}>
-                                    <Zap size={24} />
+                        {/* Features Grid - 2x2 */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8">
+                            {[
+                                {
+                                    icon: <Crosshair size={20} />,
+                                    title: "Precise Implant Alignment",
+                                    desc: "Robotic guidance ensures precise implant positioning for optimal joint balance."
+                                },
+                                {
+                                    icon: <ScanLine size={20} />,
+                                    title: "Sub-Millimetre Accuracy",
+                                    desc: "Advanced tech enables precise, anatomy-tailored implant fitting."
+                                },
+                                {
+                                    icon: <HeartPulse size={20} />,
+                                    title: "Less Tissue Damage, Less Pain",
+                                    desc: "Minimal tissue disturbance ensures less pain and faster recovery."
+                                },
+                                {
+                                    icon: <ShieldCheck size={20} />,
+                                    title: "Longer Implant Life",
+                                    desc: "Superior alignment boosts implant performance and durability."
+                                }
+                            ].map((item, index) => (
+                                <div key={index} className="arv-card flex flex-col items-start bg-white group">
+                                    <div className="flex items-center gap-3 mb-1">
+                                        <div className="w-10 h-10 rounded-[9px] bg-leaf-50 border border-leaf-100 flex items-center justify-center text-leaf-600 shrink-0 group-hover:bg-leaf-500 group-hover:text-white transition-colors duration-300">
+                                            {item.icon}
+                                        </div>
+                                        <h4 className="text-[17px] font-bold text-gray-900 leading-tight">
+                                            {item.title}
+                                        </h4>
+                                    </div>
+                                    <p className="text-[13px] text-black font-normal leading-relaxed pl-[calc(2.5rem+0.75rem)]">
+                                        {item.desc}
+                                    </p>
                                 </div>
-                                <h4 className={`text-lg font-bold transition-colors ${activeCard === 1 ? 'text-white' : 'text-gray-900'}`}>Intelligence-Backed Care</h4>
-                                <p className={`text-[14px] leading-relaxed font-medium transition-colors ${activeCard === 1 ? 'text-white/90' : 'text-gray-600'}`}>
-                                    The system provides real-time intraoperative visualization, helping Dr. Khemani make data-driven decisions for superior joint stability.
-                                </p>
-                            </div>
+                            ))}
                         </div>
 
                     </div>

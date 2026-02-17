@@ -15,6 +15,14 @@ if (typeof window !== 'undefined') {
 
 const services = [
     {
+        id: 'robotic',
+        title: 'Robotic Joint Replacement',
+        heading: 'Advanced Robotic Joint Replacement Solutions',
+        description: 'Precision-driven robotic assistance for accurate implant positioning and long-term joint performance.',
+        image: '/images/homepage/AR VR image.png',
+        link: '/services/robotic-joint-replacement',
+    },
+    {
         id: 'knee',
         title: 'Knee Replacement',
         heading: 'Advanced Knee Replacement & Surgical Solutions',
@@ -94,7 +102,8 @@ export default function ServicesSection() {
                         Our Services
                     </div>
                     <h2 className="services-header-item text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight whitespace-nowrap">
-                        Orthopedic <span className="text-leaf-500">Care</span>
+                        Most Trusted Orthopaedic <br className="hidden sm:block" />
+                        <span className="text-leaf-500">Care in Kolkata</span>
                     </h2>
                 </div>
 
