@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Award, UserCheck, Activity, PlusSquare, Dumbbell, Move, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, Award, UserCheck, Activity, PlusSquare, Dumbbell, Move, CheckCircle2, Cpu } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 if (typeof window !== 'undefined') {
@@ -62,10 +62,10 @@ export default function AboutPreview() {
                                 # Specialized Treatments
                             </div>
                             {[
-                                { icon: <Activity size={20} />, text: "Knee Replacement", link: "/knee-replacement" },
-                                { icon: <PlusSquare size={20} />, text: "Arthritis Treatment", link: "/arthritis-treatment" },
-                                { icon: <Dumbbell size={20} />, text: "Sports Injuries / ACL", link: "/sports-injuries" },
-                                { icon: <Move size={20} />, text: "Joint Pain & Mobility Issues", link: "/joint-pain" }
+                                { icon: <Cpu size={20} />, text: "Robotic Joint Replacement Surgery", link: "/services/robotic-joint-replacement" },
+                                { icon: <Activity size={20} />, text: "Knee Replacement", link: "/services/knee-replacement" },
+                                { icon: <PlusSquare size={20} />, text: "Arthritis Treatment", link: "/services/arthritis-treatment" },
+                                { icon: <Dumbbell size={20} />, text: "Sports Injuries / ACL", link: "/services/sports-injuries" }
                             ].map((item, index) => (
                                 <Link key={index} href={item.link} className="group flex items-center gap-4 p-3 -ml-3 rounded-2xl transition-all hover:bg-white hover:shadow-xl hover:shadow-gray-200/50 border border-transparent hover:border-gray-50">
                                     <div className="w-12 h-12 shrink-0 rounded-full bg-leaf-600 text-white flex items-center justify-center transition-transform group-hover:scale-110">
@@ -91,6 +91,7 @@ export default function AboutPreview() {
                                     <div className="bg-white/95 backdrop-blur-md p-6 rounded-[20px] shadow-2xl border border-white/50 w-fit animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col gap-6">
                                         <div className="flex flex-col gap-1.5">
                                             <h4 className="text-gray-900 font-bold text-[22px] leading-tight">Dr. Manoj Kumar Khemani</h4>
+                                            <p className="text-leaf-600 font-bold text-[14px] leading-tight mt-0.5">Robotic Joint Replacement & Orthopaedic Surgeon</p>
                                             <p className="text-black font-medium text-[14px] leading-tight mt-1">MS in Orthopedics, Texila American University</p>
                                             <p className="text-black font-medium text-[14px] leading-tight text-opacity-80">Mch. Ortho degree, University of Seychelles</p>
                                         </div>
@@ -112,20 +113,20 @@ export default function AboutPreview() {
                         <div>
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-white text-gray-600 text-xs font-semibold tracking-widest uppercase mb-6 about-top-content">
                                 <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
-                                About Dr. Khemani
+                                ABOUT DR. MANOJ KHEMANI
                             </div>
                             <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight about-top-content mb-8">
-                                Precision-Led <br /> Orthopaedic Care, <br />
-                                <span className="text-leaf-500">Backed by Experience.</span>
+                                One of Kolkata’s Best <br />
+                                <span className="text-leaf-500">Orthopaedic Surgeons</span>
                             </h2>
                             <div className="text-[15px] text-gray-600 leading-relaxed about-top-content mb-10 font-medium">
-                                <span className="font-bold text-black border-b-2 border-leaf-200">Dr. Manoj Kumar Khemani</span> is a senior Orthopaedic Surgeon based in Kolkata, India, with <span className="font-bold text-black underline decoration-leaf-300 decoration-2 underline-offset-4">over 20 years of clinical experience</span> in Joint Replacement, Trauma & Fracture Surgery, and Arthroscopy. He is known for his <span className="font-bold text-black underline decoration-leaf-300 decoration-2 underline-offset-4">expertise in knee and hip joint replacement</span>, complex fracture management, and minimally invasive arthroscopic procedures. Dr. Khemani is among the early adopters of <span className="font-bold text-black border-b-2 border-leaf-200">Augmented Reality (AR)–assisted knee replacement technology</span> in India, focusing on precision, alignment, and long-term mobility outcomes.
+                                <span className="font-bold text-black border-b-2 border-leaf-200">Dr. Manoj Khemani</span> stands among Kolkata’s leading robotic joint replacement surgeons, bringing AI-assisted precision and advanced surgical technology to knee and hip replacement care. He has <span className="font-bold text-black underline decoration-leaf-300 decoration-2 underline-offset-4">over 20 years of clinical experience</span> in Joint Replacement, Trauma & Fracture Surgery, and Arthroscopy. Dr. Khemani is among the early adopters of <span className="font-bold text-black border-b-2 border-leaf-200">Augmented Reality (AR)–assisted knee replacement technology</span> in India, focusing on precision, alignment, and long-term mobility outcomes.
                             </div>
 
                             {/* Membership Card */}
                             <div className="about-bottom-col bg-white rounded-[2rem] p-8 shadow-xl shadow-gray-100/50 border border-gray-100">
                                 <h4 className="text-[22px] font-bold text-gray-900 mb-6 font-display">
-                                    Professional Memberships
+                                    Professional Leadership & Affiliations
                                 </h4>
                                 <ul className="space-y-2.5">
                                     {[
