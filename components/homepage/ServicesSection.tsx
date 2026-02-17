@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, ArrowUpRight, ChevronRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ChevronRight, ChevronDown } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { useAppointment } from '@/context/AppointmentContext'
 
@@ -59,6 +59,7 @@ const services = [
 export default function ServicesSection() {
     const { openModal } = useAppointment()
     const [activeTab, setActiveTab] = useState(services[0])
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const sectionRef = useRef<HTMLElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
 
@@ -101,10 +102,53 @@ export default function ServicesSection() {
                         <span className="w-2 h-2 rounded-full bg-[#EC1D24]"></span>
                         Our Services
                     </div>
-                    <h2 className="services-header-item text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight whitespace-nowrap">
-                        Most Trusted Orthopaedic <br className="hidden sm:block" />
+                    <h2 className="services-header-item text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight whitespace-normal lg:whitespace-nowrap">
+                        Most Trusted Orthopaedic <br className="hidden lg:block" />
                         <span className="text-leaf-500">Care in Kolkata</span>
                     </h2>
+                </div>
+
+                {/* Mobile/Tablet Custom Dropdown */}
+                <div className="lg:hidden w-full mb-6 relative z-50">
+                    <button
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className="w-full bg-white border border-gray-200 text-gray-900 text-lg font-bold rounded-2xl px-6 py-4 shadow-lg flex items-center justify-between group active:scale-[0.99] transition-all"
+                    >
+                        <span className="truncate">{activeTab.title}</span>
+                        <ChevronDown
+                            size={24}
+                            className={`text-leaf-600 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                        />
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    <div
+                        className={`absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 origin-top transform ${isDropdownOpen
+                                ? 'opacity-100 translate-y-0 scale-100 visible'
+                                : 'opacity-0 -translate-y-4 scale-95 invisible'
+                            }`}
+                    >
+                        <div className="max-h-[300px] overflow-y-auto py-2">
+                            {services.map((service) => (
+                                <button
+                                    key={service.id}
+                                    onClick={() => {
+                                        setActiveTab(service)
+                                        setIsDropdownOpen(false)
+                                    }}
+                                    className={`w-full text-left px-6 py-3 text-[15px] font-medium transition-colors flex items-center justify-between ${activeTab.id === service.id
+                                            ? 'bg-leaf-50 text-leaf-700 font-bold'
+                                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                        }`}
+                                >
+                                    {service.title}
+                                    {activeTab.id === service.id && (
+                                        <div className="w-2 h-2 rounded-full bg-leaf-500"></div>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 {/* Main Interactive Section */}
@@ -131,8 +175,8 @@ export default function ServicesSection() {
 
                     {/* Content Layer */}
                     <div className="relative z-20 h-full w-full flex flex-col justify-end lg:flex-row">
-                        {/* Tab Navigation (Stacked Vertical Pills - Bottom Left) */}
-                        <div className="lg:absolute lg:bottom-12 lg:left-12 p-8 lg:p-0 flex flex-col gap-3 items-start">
+                        {/* Tab Navigation (Stacked Vertical Pills - Bottom Left) - Desktop Only */}
+                        <div className="hidden lg:flex lg:absolute lg:bottom-12 lg:left-12 p-0 flex-col gap-3 items-start">
                             {services.map((service) => (
                                 <button
                                     key={service.id}

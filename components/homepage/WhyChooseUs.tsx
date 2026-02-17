@@ -138,7 +138,7 @@ export default function WhyChooseUs() {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
 
                     {/* Left Column: Auto-Sliding Image Gallery (Moved from Right) */}
-                    <div className="why-content relative lg:order-1 h-full">
+                    <div className="why-content relative order-2 lg:order-1 h-full">
                         <div className="relative h-full min-h-[450px] rounded-[20px] overflow-hidden shadow-2xl">
                             {doctorImages.map((img, index) => (
                                 <div
@@ -181,7 +181,7 @@ export default function WhyChooseUs() {
                     </div>
 
                     {/* Right Column: Content (Moved from Left) */}
-                    <div className="lg:order-2">
+                    <div className="order-1 lg:order-2">
                         {/* Badge */}
                         <div className="why-content inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-white text-gray-600 text-xs font-semibold tracking-widest uppercase mb-6">
                             <span className="w-2 h-2 rounded-full bg-[#EC1D24]"></span>
@@ -214,13 +214,13 @@ export default function WhyChooseUs() {
                         </ul>
 
                         {/* Stats Row with Counter Animation */}
-                        <div className="why-content flex flex-wrap gap-8 lg:gap-12">
+                        <div className="why-content flex flex-nowrap sm:flex-wrap gap-2 sm:gap-8 lg:gap-12 justify-between lg:justify-start">
                             {stats.map((stat, index) => (
-                                <div key={index} className="text-left">
-                                    <span className="block text-4xl lg:text-5xl font-extrabold text-[#1A1A1A]">
+                                <div key={index} className="text-center sm:text-left flex-1 sm:flex-none">
+                                    <span className="block text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#1A1A1A]">
                                         {counts[index]}{stat.suffix}
                                     </span>
-                                    <span className="text-sm text-gray-500 font-medium">{stat.label}</span>
+                                    <span className="text-[10px] sm:text-sm text-gray-500 font-medium whitespace-nowrap">{stat.label}</span>
                                 </div>
                             ))}
                         </div>

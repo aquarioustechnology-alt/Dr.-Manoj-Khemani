@@ -205,8 +205,8 @@ export default function Achievements() {
                 <div className="flex justify-center achievement-reveal">
                     <Button
                         onClick={openModal}
-                        className="!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
-                        iconClassName="!text-[#95BF1B] group-hover:!text-white"
+                        className="!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B] w-full sm:w-auto justify-center sm:justify-start !relative pl-14 sm:pl-1"
+                        iconClassName="!text-[#95BF1B] group-hover:!text-white !absolute !left-1.5 sm:!static"
                     >
                         Schedule a Consultation
                     </Button>

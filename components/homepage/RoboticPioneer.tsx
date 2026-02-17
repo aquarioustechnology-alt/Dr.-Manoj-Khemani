@@ -92,13 +92,17 @@ export default function RoboticPioneer() {
                         Dr. Manoj Khemani, Best Joint replacement surgeon based in Kolkata with experience of more than 2,000+ joint replacement surgeries in last 22+ years.
                     </p>
 
-                    <div className="rp-header-item flex flex-wrap justify-center gap-4">
-                        <Button href="/services/robotic-joint-replacement" className="bg-leaf-500 hover:bg-leaf-600 border-none text-white shadow-xl shadow-leaf-200/50">
+                    <div className="rp-header-item flex flex-wrap justify-center gap-4 w-full sm:w-auto">
+                        <Button
+                            href="/services/robotic-joint-replacement"
+                            className="bg-leaf-500 hover:bg-leaf-600 border-none text-white shadow-xl shadow-leaf-200/50 w-full sm:w-auto justify-center sm:justify-start !relative pl-14 sm:pl-1 min-h-[52px] sm:min-h-0"
+                            iconClassName="!absolute !left-1.5 sm:!static text-leaf-500"
+                        >
                             Explore Technology
                         </Button>
                         <Link
                             href="/about"
-                            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-gray-200 text-gray-900 font-bold hover:bg-gray-50 transition-colors text-sm"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white border border-gray-200 text-gray-900 font-bold hover:bg-gray-50 transition-colors text-sm w-full sm:w-auto"
                         >
                             Meet Dr. Khemani
                             <ArrowRight size={18} />

@@ -30,6 +30,19 @@ export default function ARVRSection() {
                 clearProps: 'all',
             })
 
+            // Mobile Image Animation
+            gsap.from('.arv-image-reveal-mobile', {
+                scrollTrigger: {
+                    trigger: '.arv-image-reveal-mobile',
+                    start: 'top 85%',
+                },
+                scale: 0.85,
+                opacity: 0,
+                duration: 1.4,
+                ease: 'power4.out',
+                clearProps: 'all',
+            })
+
             // Badge pill
             gsap.from('.arv-badge', {
                 scrollTrigger: {
@@ -111,8 +124,8 @@ export default function ARVRSection() {
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
 
-                    {/* Left Column: Image — covers the entire div */}
-                    <div className="arv-image-reveal relative h-full">
+                    {/* Left Column: Image — covers the entire div (Hidden on Mobile/Tablet) */}
+                    <div className="arv-image-reveal relative h-full hidden lg:block">
                         <div className="relative rounded-[2rem] overflow-hidden h-full">
                             <img
                                 src="/images/homepage/Dr Image 12-Picsart-AiImageEnhancer.webp"
@@ -142,6 +155,21 @@ export default function ARVRSection() {
                             <p className="arv-paragraph text-[15px] text-gray-600 leading-relaxed font-medium">
                                 Dr. Manoj Khemani introduced robotic joint replacement technology in Kolkata, setting a new benchmark in orthopaedic surgery. With this advanced system, he delivers greater surgical precision, better joint alignment, and faster recovery outcomes — giving patients access to next-generation joint care right here in the city.
                             </p>
+                        </div>
+
+                        {/* Mobile Image (Visible only on Mobile/Tablet) */}
+                        <div className="arv-image-reveal-mobile relative w-full h-[400px] rounded-[2rem] overflow-hidden mb-2 block lg:hidden">
+                            <img
+                                src="/images/homepage/Dr Image 12-Picsart-AiImageEnhancer.webp"
+                                alt="AR-Guided Knee Replacement Surgery by Dr. Manoj Khemani"
+                                className="w-full h-full object-cover"
+                            />
+                            {/* Button at bottom-left of image */}
+                            <div className="absolute bottom-6 left-6 z-20">
+                                <Button href="/treatments/ar-knee-replacement">
+                                    Know More
+                                </Button>
+                            </div>
                         </div>
 
                         {/* Cards — Side by Side */}
