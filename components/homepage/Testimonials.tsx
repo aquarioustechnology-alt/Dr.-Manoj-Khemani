@@ -236,8 +236,14 @@ export default function Testimonials() {
                                 className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center transition-transform hover:scale-[1.02]"
                                 style={{ flex: '3 1 0%' }}
                             >
-                                <div className="w-14 h-14 rounded-full border border-black/15 flex items-center justify-center mb-3 overflow-hidden bg-white/10">
-                                    <img src="/images/homepage/Practo icon.png" alt="Practo" className="w-full h-full object-contain" />
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-14 h-14 rounded-full border border-black/15 flex items-center justify-center overflow-hidden bg-white/10 shrink-0">
+                                        <img src="/images/homepage/Practo icon.png" alt="Practo" className="w-full h-full object-contain" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-base font-bold leading-tight">See Reviews</span>
+                                        <span className="text-sm font-medium opacity-80">at Practo</span>
+                                    </div>
                                 </div>
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">33</h3>
                                 <p className="text-base font-medium opacity-70">Patients Reviews</p>
