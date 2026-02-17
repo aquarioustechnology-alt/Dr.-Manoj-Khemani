@@ -200,7 +200,7 @@ export default function Testimonials() {
                                         {[1, 2, 3, 4].map((num) => (
                                             <img
                                                 key={num}
-                                                src={`/homepage/img ${num}.webp`}
+                                                src={`/images/homepage/img ${num}.webp`}
                                                 alt="Patient"
                                                 className="w-9 h-9 rounded-full object-cover border-2 border-white"
                                             />

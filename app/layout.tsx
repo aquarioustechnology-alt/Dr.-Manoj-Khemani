@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import FloatingActions from '@/components/common/FloatingActions'
 import { AppointmentProvider } from '@/context/AppointmentContext'
+import TopStrip from '@/components/common/TopStrip'
 
 export const metadata: Metadata = {
   title: 'Dr. Manoj Khemani | Orthopedic Surgeon Kolkata',
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased font-sans">
         <AppointmentProvider>
+          <TopStrip />
           {children}
           <FloatingActions />
         </AppointmentProvider>

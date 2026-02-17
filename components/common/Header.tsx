@@ -44,7 +44,7 @@ export default function Header() {
         <>
             <header
                 className={`z-50 transition-[width,max-width,border-radius,background-color,box-shadow,border-color] duration-500 ease-in-out ${isScrolled
-                    ? 'fixed top-0 left-0 right-0 w-full bg-white/95 backdrop-blur-xl shadow-md py-3'
+                    ? 'fixed top-[31px] left-0 right-0 w-full bg-white/95 backdrop-blur-xl shadow-md py-3'
                     : 'absolute top-[31px] left-0 right-0 mx-auto w-[calc(100%-30px)] max-w-7.5xl rounded-full bg-white/90 backdrop-blur-lg shadow-xl shadow-leaf-900/5 border border-white/50 py-3'
                     }`}
                 style={{ backfaceVisibility: 'hidden', perspective: 1000 }}

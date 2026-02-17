@@ -12,12 +12,12 @@ if (typeof window !== 'undefined') {
 }
 
 const instagramPosts = [
-    { id: 1, image: '/homepage/Dr Image 1.webp', likes: '245', comments: '12' },
-    { id: 2, image: '/homepage/Dr Image 2.webp', likes: '189', comments: '8' },
-    { id: 3, image: '/homepage/Dr Image 3.webp', likes: '312', comments: '24' },
-    { id: 4, image: '/homepage/Dr Image 5.webp', likes: '278', comments: '15' },
-    { id: 5, image: '/homepage/Dr Image 6.webp', likes: '421', comments: '32' },
-    { id: 6, image: '/homepage/Dr Image 7.webp', likes: '156', comments: '5' },
+    { id: 1, image: '/images/homepage/Dr Image 1.webp', likes: '245', comments: '12' },
+    { id: 2, image: '/images/homepage/Dr Image 2.webp', likes: '189', comments: '8' },
+    { id: 3, image: '/images/homepage/Dr Image 3.webp', likes: '312', comments: '24' },
+    { id: 4, image: '/images/homepage/Dr Image 5.webp', likes: '278', comments: '15' },
+    { id: 5, image: '/images/homepage/Dr Image 6.webp', likes: '421', comments: '32' },
+    { id: 6, image: '/images/homepage/Dr Image 7.webp', likes: '156', comments: '5' },
 ]
 
 export default function SocialMedia() {

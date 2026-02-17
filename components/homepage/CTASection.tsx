@@ -59,8 +59,8 @@ export default function CTASection() {
                 { day: 'Fri', hours: '10 AM – 3 PM' },
                 { day: 'Sat', hours: '10 AM – 3 PM' }
             ],
-            image: '/homepage/Healing touch clinic.webp',
-            logo: '/homepage/main clinic logo.webp',
+            image: '/images/homepage/Healing touch clinic.webp',
+            logo: '/images/homepage/main clinic logo.webp',
             label: 'Kolkata'
         },
         {
@@ -72,8 +72,8 @@ export default function CTASection() {
                 { day: 'Tue', hours: '4 PM – 6 PM' },
                 { day: 'Thu', hours: '4 PM – 6 PM' }
             ],
-            image: '/homepage/Manipal (AMRI) Hospital, Salt Lake.webp',
-            logo: '/homepage/manipal logo.webp',
+            image: '/images/homepage/Manipal (AMRI) Hospital, Salt Lake.webp',
+            logo: '/images/homepage/manipal logo.webp',
             label: 'Salt Lake'
         },
         {
@@ -85,8 +85,8 @@ export default function CTASection() {
                 { day: 'Wed', hours: '4 PM – 6 PM' },
                 { day: 'Fri', hours: '4 PM – 6 PM' }
             ],
-            image: '/homepage/Manipal (AMRI) Hospital, Mukundapur.webp',
-            logo: '/homepage/manipal logo.webp',
+            image: '/images/homepage/Manipal (AMRI) Hospital, Mukundapur.webp',
+            logo: '/images/homepage/manipal logo.webp',
             label: 'Mukundapur'
         }
     ]

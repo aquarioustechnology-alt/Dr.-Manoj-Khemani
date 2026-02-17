@@ -19,7 +19,7 @@ const services = [
         title: 'Knee Replacement',
         heading: 'Advanced Knee Replacement & Surgical Solutions',
         description: 'Empathy-driven care using advanced surgical techniques for faster recovery and long-term joint health.',
-        image: '/homepage/knee-replacement.png',
+        image: '/images/homepage/knee-replacement.png',
         link: '/treatments/knee-replacement',
     },
     {
@@ -27,7 +27,7 @@ const services = [
         title: 'Arthritis Treatment',
         heading: 'Comprehensive Arthritis Pain Management',
         description: 'Focusing on non-surgical treatments first to restore mobility and reduce persistent joint pain effectively.',
-        image: '/homepage/arthritis-treatment.png',
+        image: '/images/homepage/arthritis-treatment.png',
         link: '/treatments/arthritis',
     },
     {
@@ -35,7 +35,7 @@ const services = [
         title: 'Sports Injuries / ACL',
         heading: 'Specialized Sports Injury & ACL Rehabilitation',
         description: 'From ACL reconstruction to rotator cuff repair, getting you back in the game with comprehensive rehabilitation.',
-        image: '/homepage/sports-injury.png',
+        image: '/images/homepage/sports-injury.png',
         link: '/treatments/sports-injuries',
     },
     {
@@ -43,7 +43,7 @@ const services = [
         title: 'Joint Pain & Mobility Issues',
         heading: 'Restoring Mobility & Independence For Life',
         description: 'Improving quality of life by restoring lost mobility and independence through personalized treatment plans.',
-        image: '/homepage/bone-fracture.jpg',
+        image: '/images/homepage/bone-fracture.jpg',
         link: '/treatments/joint-pain',
     },
 ]
