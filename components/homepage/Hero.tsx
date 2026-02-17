@@ -80,18 +80,17 @@ export default function Hero() {
                             {/* Subheading */}
                             <div className="hero-content-item mb-4">
                                 <span className="inline-block py-1 px-3 border border-white/30 rounded-full bg-white/10 backdrop-blur-md text-white/90 text-sm font-medium tracking-wider uppercase">
-                                    Kolkata's Leading Orthopedic Surgeon
+                                    Kolkata's Leading Robotic Orthopaedic Care
                                 </span>
                             </div>
 
                             {/* Heading */}
                             <h1 className="hero-content-item text-[46px] sm:text-[60px] lg:text-[80px] 2xl:text-8xl font-bold text-white mb-6 leading-[1.1] drop-shadow-sm">
-                                Get Back to Life with <span className="text-leaf-400">Dr. Manoj Khemani</span>
+                                Redefining Robotic Joint Care with <span className="text-leaf-400">Dr. Manoj Khemani</span>
                             </h1>
 
                             <p className="hero-content-item text-lg text-gray-200 mb-10 max-w-xl leading-relaxed">
-                                Expert care for joint replacements and fractures.
-                                Personalized treatment plans designed to restore your mobility and freedom.
+                                Delivering precision-driven robotic joint replacement, trauma surgery, and arthroscopic care with a focus on long-term mobility and safe recovery.
                             </p>
 
                             <div className="hero-content-item flex flex-wrap gap-4 justify-start">
