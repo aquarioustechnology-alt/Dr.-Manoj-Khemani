@@ -165,14 +165,7 @@ export default function FloatingActions() {
                     <Phone className="w-6 h-6 group-hover:animate-pulse" />
                 </a>
 
-                {/* Calendar/Appointment Button */}
-                <button
-                    onClick={toggleModal}
-                    className="w-14 h-14 bg-[#EC1D24] text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-all duration-300 group"
-                    title="Book Appointment"
-                >
-                    <Calendar className="w-6 h-6" />
-                </button>
+
 
                 {/* Scroll To Top Button */}
                 <button
@@ -183,6 +176,31 @@ export default function FloatingActions() {
                     <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />
                 </button>
             </div>
+
+            {/* Side Sticky Appointment Button (Vertical) */}
+            <button
+                onClick={toggleModal}
+                className="fixed right-0 top-1/2 -translate-y-1/2 z-[90] bg-black text-white py-6 px-4 rounded-l-[20px] shadow-2xl flex flex-col items-center gap-3 transition-all duration-300 group border-l-[4px] border-[#EC1D24] hover:border-black overflow-hidden"
+            >
+                {/* Background Animation Layer */}
+                <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></div>
+
+                {/* Content Layer (Text First, Icon Second as requested "Icon Down") */}
+                <span
+                    className="relative z-10 font-bold text-[13px] tracking-wide whitespace-nowrap group-hover:text-black transition-colors duration-300"
+                    style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
+                >
+                    Book an Appointment
+                </span>
+
+                <div className="relative z-10 w-5 h-5 shrink-0">
+                    <img
+                        src="/images/homepage/Calendar icon.png"
+                        alt="Calendar"
+                        className="w-full h-full object-contain brightness-0 invert group-hover:brightness-0 group-hover:invert-0 transition-all duration-300"
+                    />
+                </div>
+            </button>
 
             {/* Appointment Modal Overlay */}
             {isModalOpen && (
