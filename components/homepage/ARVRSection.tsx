@@ -116,7 +116,7 @@ export default function ARVRSection() {
                     <div className="arv-image-reveal relative h-full">
                         <div className="relative rounded-[2rem] overflow-hidden h-full">
                             <img
-                                src="/homepage/AR VR image.png"
+                                src="/images/homepage/AR VR image.png"
                                 alt="AR-Guided Knee Replacement Surgery by Dr. Manoj Khemani"
                                 className="w-full h-full object-cover"
                             />

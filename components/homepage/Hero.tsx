@@ -12,10 +12,10 @@ import { useAppointment } from '@/context/AppointmentContext'
 gsap.registerPlugin(ScrollTrigger)
 
 const HERO_IMAGES = [
-    "/homepage/Dr Image 5.webp",
-    "/homepage/Dr Image 6.webp",
-    "/homepage/Dr Image 10.webp",
-    "/homepage/Dr Image 20.webp"
+    "/images/homepage/Dr Image 2.webp",
+    "/images/homepage/Dr Image 6.webp",
+    "/images/homepage/Dr Image 10.webp",
+    "/images/homepage/Dr Image 20.webp"
 ]
 
 export default function Hero() {
@@ -130,10 +130,10 @@ export default function Hero() {
                                     {/* Top: Avatars */}
                                     <div className="flex -space-x-2.5 sm:-space-x-3">
                                         {[
-                                            "/homepage/img 1.webp",
-                                            "/homepage/img 2.webp",
-                                            "/homepage/img 3.webp",
-                                            "/homepage/img 4.webp"
+                                            "/images/homepage/img 1.webp",
+                                            "/images/homepage/img 2.webp",
+                                            "/images/homepage/img 3.webp",
+                                            "/images/homepage/img 4.webp"
                                         ].map((url, i) => (
                                             <div key={i} className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-[1.5px] border-white overflow-hidden relative shrink-0 aspect-square" style={{ zIndex: 10 - i }}>
                                                 <img src={url} alt="Patient" className="object-cover w-full h-full" />
@@ -185,7 +185,7 @@ export default function Hero() {
                         </button>
                         <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
                             <video
-                                src="/homepage/Dr Khemani Video.mp4"
+                                src="/images/homepage/Dr Khemani Video.mp4"
                                 controls
                                 autoPlay
                                 className="w-full h-full object-contain"

@@ -16,31 +16,31 @@ const achievements = [
         id: 1,
         title: "Hands-on Workshop Faculty",
         description: "Leading the <span class='text-[#A6CB3B]'>Advanced Orthopaedic Workshop</span>, training surgeons in the latest AR-guided knee replacement techniques.",
-        image: "/homepage/Achievement 1.jpeg"
+        image: "/images/homepage/Achievement 1.jpeg"
     },
     {
         id: 2,
         title: "Medical Education Keynote",
         description: "Invited as a guest speaker to share insights on <span class='text-[#A6CB3B]'>precision orthopaedics</span> at a renowned medical institution.",
-        image: "/homepage/Achievement 2.jpeg"
+        image: "/images/homepage/Achievement 2.jpeg"
     },
     {
         id: 3,
         title: "Rural Doctors Association",
         description: "Featured speaker at the <span class='text-[#A6CB3B]'>Annual Rural Doctors Conference</span>, discussing accessible healthcare innovation.",
-        image: "/homepage/Achievement 3.jpeg"
+        image: "/images/homepage/Achievement 3.jpeg"
     },
     {
         id: 4,
         title: "National Orthopaedic Summit",
         description: "Sharing clinical expertise on <span class='text-[#A6CB3B]'>complex joint replacements</span> at a major national medical conference.",
-        image: "/homepage/Achievement 4.jpeg"
+        image: "/images/homepage/Achievement 4.jpeg"
     },
     {
         id: 5,
         title: "Surgical Mentorship Program",
         description: "Actively mentoring junior residents and surgeons in the <span class='text-[#A6CB3B]'>mastery of robotic and digital orthopaedics</span>.",
-        image: "/homepage/Achievement 5.jpeg"
+        image: "/images/homepage/Achievement 5.jpeg"
     }
 ]
 

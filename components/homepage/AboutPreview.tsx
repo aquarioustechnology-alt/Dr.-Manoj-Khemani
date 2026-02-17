@@ -80,7 +80,7 @@ export default function AboutPreview() {
                         <div className="about-bottom-col relative h-[500px] lg:h-[700px]">
                             <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white group">
                                 <img
-                                    src="/homepage/Doctor Headshot 2.png"
+                                    src="/images/homepage/Doctor Headshot 2.png"
                                     alt="Dr. Manoj Khemani Portrait"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />

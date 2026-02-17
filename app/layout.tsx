@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import FloatingActions from '@/components/common/FloatingActions'
+import { AppointmentProvider } from '@/context/AppointmentContext'
 
 export const metadata: Metadata = {
   title: 'Dr. Manoj Khemani | Orthopedic Surgeon Kolkata',
@@ -9,9 +11,6 @@ export const metadata: Metadata = {
     icon: '/favicon.png',
   },
 }
-
-import FloatingActions from '@/components/common/FloatingActions'
-import { AppointmentProvider } from '@/context/AppointmentContext'
 
 export default function RootLayout({
   children,

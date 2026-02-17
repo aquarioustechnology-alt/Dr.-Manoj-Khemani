@@ -177,7 +177,7 @@ export default function Testimonials() {
                         <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal-right min-h-0">
                             <div className="relative rounded-[18px] overflow-hidden group shadow-2xl min-h-0" style={{ flex: '7 1 0%' }}>
                                 <img
-                                    src="/homepage/Doctor 25.jpg"
+                                    src="/images/homepage/Doctor 25.jpg"
                                     alt="Doctor Consultation"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
@@ -194,7 +194,7 @@ export default function Testimonials() {
                             >
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="inline-flex items-center justify-center w-8 h-8 shrink-0">
-                                        <img src="/homepage/Google icon.png" alt="Google" className="w-full h-full object-contain" />
+                                        <img src="/images/homepage/Google icon.png" alt="Google" className="w-full h-full object-contain" />
                                     </div>
                                     <div className="flex -space-x-2">
                                         {[1, 2, 3, 4].map((num) => (
@@ -237,14 +237,14 @@ export default function Testimonials() {
                                 style={{ flex: '3 1 0%' }}
                             >
                                 <div className="w-14 h-14 rounded-full border border-black/15 flex items-center justify-center mb-3 overflow-hidden bg-white/10">
-                                    <img src="/homepage/Practo icon.png" alt="Practo" className="w-full h-full object-contain" />
+                                    <img src="/images/homepage/Practo icon.png" alt="Practo" className="w-full h-full object-contain" />
                                 </div>
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">33</h3>
                                 <p className="text-base font-medium opacity-70">Patients Reviews</p>
                             </a>
                             <div className="relative rounded-[18px] overflow-hidden group shadow-xl min-h-0" style={{ flex: '7 1 0%' }}>
                                 <img
-                                    src="/homepage/Dr Image 18.webp"
+                                    src="/images/homepage/Dr Image 18.webp"
                                     alt="Medical Excellence"
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />

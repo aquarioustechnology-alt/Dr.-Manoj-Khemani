@@ -45,7 +45,7 @@ export default function Footer() {
                             <Link href="/" className="inline-block bg-white rounded-xl p-3 shadow-lg group transition-all duration-300 hover:scale-105">
                                 <div className="relative h-12 w-48">
                                     <Image
-                                        src="/homepage/logo.png"
+                                        src="/images/homepage/logo.png"
                                         alt="Dr. Manoj Khemani"
                                         fill
                                         className="object-contain object-left"

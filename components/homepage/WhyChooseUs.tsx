@@ -23,13 +23,13 @@ const trustPoints = [
 ]
 
 const doctorImages = [
-    "/homepage/Dr Image 1.webp",
-    "/homepage/Dr Image 3.webp",
-    "/homepage/Dr Image 7.webp",
-    "/homepage/Dr Image 11.webp",
-    "/homepage/Dr Image 14.webp",
-    "/homepage/Dr Image 17.webp",
-    "/homepage/Dr Image 20.webp",
+    "/images/homepage/Dr Image 1.webp",
+    "/images/homepage/Dr Image 3.webp",
+    "/images/homepage/Dr Image 7.webp",
+    "/images/homepage/Dr Image 11.webp",
+    "/images/homepage/Dr Image 14.webp",
+    "/images/homepage/Dr Image 17.webp",
+    "/images/homepage/Dr Image 20.webp",
 ]
 
 export default function WhyChooseUs() {

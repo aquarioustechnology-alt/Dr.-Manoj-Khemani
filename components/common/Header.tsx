@@ -54,7 +54,7 @@ export default function Header() {
                     <Link href="/" className="flex items-center gap-2 relative z-10">
                         <div className={`relative transition-all duration-300 ${isScrolled ? 'h-10 w-40' : 'h-[52px] w-[190px]'}`}>
                             <Image
-                                src="/homepage/logo.png"
+                                src="/images/homepage/logo.png"
                                 alt="Dr. Manoj Khemani"
                                 fill
                                 className="object-contain object-left"
@@ -154,7 +154,7 @@ export default function Header() {
                     <div className="flex items-center justify-between p-6 border-b border-gray-100">
                         <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="relative h-9 w-40">
                             <Image
-                                src="/homepage/logo.png"
+                                src="/images/homepage/logo.png"
                                 alt="Dr. Manoj Khemani"
                                 fill
                                 className="object-contain object-left"

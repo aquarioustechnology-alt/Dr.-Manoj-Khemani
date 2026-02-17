@@ -190,7 +190,7 @@ export default function FloatingActions() {
                         <div className="hidden lg:block lg:w-[32%] bg-gray-50 relative p-[8px]">
                             <div className="w-full h-full rounded-[1.8rem] overflow-hidden relative">
                                 <img
-                                    src="/homepage/hero_new_2.jpg"
+                                    src="/images/homepage/hero_new_2.jpg"
                                     alt="Medical Care"
                                     className="w-full h-full object-cover"
                                 />
