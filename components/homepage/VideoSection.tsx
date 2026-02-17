@@ -148,7 +148,7 @@ export default function VideoSection() {
                             Patient Stories
                         </div>
                         <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
-                            Understanding Your Treatment <span className="text-leaf-500">Before You Decide</span>
+                            See Advanced Orthopaedic <span className="text-leaf-500">Care in Action</span>
                         </h2>
                         <p className="text-base text-gray-500 leading-relaxed font-medium mb-10 max-w-sm">
                             Experience Dr. Khemani&apos;s expertise through real patient journeys, surgical insights, and life-changing recoveries.

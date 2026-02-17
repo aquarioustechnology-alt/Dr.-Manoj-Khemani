@@ -16,9 +16,9 @@ const stats = [
 ]
 
 const trustPoints = [
-    "AR-Guided Surgical Precision for accurate implant positioning",
-    "Personalized treatment plans tailored to your lifestyle",
-    "Minimally invasive techniques for faster recovery",
+    "AR-VR Guided Surgical Precision for accurate implant positioning",
+    "Robotic Joint Replacement Expertise",
+    "Advanced Trauma & Fracture Management",
     "Comprehensive post-operative care and rehabilitation",
 ]
 
@@ -135,11 +135,11 @@ export default function WhyChooseUs() {
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
 
                 {/* Two Column Layout - Swapped */}
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
 
                     {/* Left Column: Auto-Sliding Image Gallery (Moved from Right) */}
-                    <div className="why-content relative lg:order-1">
-                        <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl">
+                    <div className="why-content relative lg:order-1 h-full">
+                        <div className="relative h-full min-h-[450px] rounded-[20px] overflow-hidden shadow-2xl">
                             {doctorImages.map((img, index) => (
                                 <div
                                     key={index}
@@ -190,8 +190,8 @@ export default function WhyChooseUs() {
 
                         {/* Heading */}
                         <h2 className="why-content text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
-                            Trusted Care, <br />
-                            <span className="text-leaf-500">Proven Results</span>
+                            Why Dr. Khemani is <br />
+                            <span className="text-leaf-500">Most Trusted Amongst Patients</span>
                         </h2>
 
                         {/* Paragraph */}
