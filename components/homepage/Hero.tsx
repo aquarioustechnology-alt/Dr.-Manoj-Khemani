@@ -12,10 +12,10 @@ import { useAppointment } from '@/context/AppointmentContext'
 gsap.registerPlugin(ScrollTrigger)
 
 const HERO_IMAGES = [
-    "/images/homepage/Dr Image 2.webp",
-    "/images/homepage/Dr Image 6.webp",
-    "/images/homepage/Dr Image 10.webp",
-    "/images/homepage/Dr Image 20.webp"
+    "/images/homepage/Dr Image 2-Picsart-AiImageEnhancer.webp",
+    "/images/homepage/Dr Image 20-Picsart-AiImageEnhancer.webp",
+    "/images/homepage/Dr Image 10-Picsart-AiImageEnhancer.webp",
+    "/images/homepage/Dr Image 6-Picsart-AiImageEnhancer.webp"
 ]
 
 export default function Hero() {
@@ -76,7 +76,7 @@ export default function Hero() {
                     <div className="max-w-7.5xl mx-auto w-full flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 lg:gap-0">
 
                         {/* Left Side Content */}
-                        <div className="max-w-3xl text-left">
+                        <div className="max-w-3xl xl:max-w-4xl text-left">
                             {/* Subheading */}
                             <div className="hero-content-item mb-4">
                                 <span className="inline-block py-1 px-3 border border-white/30 rounded-full bg-white/10 backdrop-blur-md text-white/90 text-sm font-medium tracking-wider uppercase">
