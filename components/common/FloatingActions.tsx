@@ -156,14 +156,7 @@ export default function FloatingActions() {
             {/* Floating Buttons Container */}
             <div className={`fixed bottom-8 right-8 z-[100] flex flex-col gap-4 transition-all duration-500 transform ${scrolled ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none max-lg:translate-y-0 max-lg:opacity-100 max-lg:pointer-events-auto'}`}>
 
-                {/* Call Button */}
-                <a
-                    href="tel:+918697449191"
-                    className="w-14 h-14 bg-leaf-500 hover:bg-leaf-600 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-all duration-300 group"
-                    title="Call Now"
-                >
-                    <Phone className="w-6 h-6 group-hover:animate-pulse" />
-                </a>
+
 
 
 
@@ -177,30 +170,39 @@ export default function FloatingActions() {
                 </button>
             </div>
 
-            {/* Side Sticky Appointment Button (Vertical) */}
-            <button
-                onClick={toggleModal}
-                className="fixed right-0 top-1/2 -translate-y-1/2 z-[90] bg-black text-white py-6 px-4 rounded-l-[20px] shadow-2xl flex flex-col items-center gap-3 transition-all duration-300 group border-l-[4px] border-[#EC1D24] hover:border-black overflow-hidden"
-            >
-                {/* Background Animation Layer */}
-                <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></div>
+            {/* Side Sticky Buttons Container */}
+            <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[90] flex flex-col gap-3 items-end">
 
-                {/* Content Layer (Text First, Icon Second as requested "Icon Down") */}
-                <span
-                    className="relative z-10 font-bold text-[13px] tracking-wide whitespace-nowrap group-hover:text-black transition-colors duration-300"
-                    style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
+                {/* Book Appointment Button */}
+                <button
+                    onClick={toggleModal}
+                    className="bg-black text-white py-6 px-4 rounded-l-[20px] shadow-2xl flex flex-col items-center gap-3 transition-all duration-300 group border-l-[4px] border-[#EC1D24] hover:border-black overflow-hidden relative"
                 >
-                    Book an Appointment
-                </span>
+                    <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></div>
+                    <span
+                        className="relative z-10 font-bold text-[13px] tracking-wide whitespace-nowrap group-hover:text-black transition-colors duration-300"
+                        style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
+                    >
+                        Book an Appointment
+                    </span>
+                    <div className="relative z-10 w-5 h-5 shrink-0">
+                        <img
+                            src="/images/homepage/Calendar icon.png"
+                            alt="Calendar"
+                            className="w-full h-full object-contain brightness-0 invert group-hover:brightness-0 group-hover:invert-0 transition-all duration-300"
+                        />
+                    </div>
+                </button>
 
-                <div className="relative z-10 w-5 h-5 shrink-0">
-                    <img
-                        src="/images/homepage/Calendar icon.png"
-                        alt="Calendar"
-                        className="w-full h-full object-contain brightness-0 invert group-hover:brightness-0 group-hover:invert-0 transition-all duration-300"
-                    />
-                </div>
-            </button>
+                {/* Call Button */}
+                <a
+                    href="tel:+918697449191"
+                    className="bg-leaf-500 text-white py-4 px-4 rounded-l-[20px] shadow-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 group overflow-hidden relative"
+                >
+                    <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></div>
+                    <Phone size={24} className="relative z-10 text-white group-hover:text-leaf-500 transition-colors duration-300" />
+                </a>
+            </div>
 
             {/* Appointment Modal Overlay */}
             {isModalOpen && (

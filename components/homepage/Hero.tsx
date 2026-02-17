@@ -145,7 +145,7 @@ export default function Hero() {
 
                     {/* Mobile Reviews Overlay - Scaled up for Tablets */}
                     <div className="absolute bottom-4 left-4 z-40 max-w-[85%] sm:max-w-md">
-                        <div className="flex flex-col bg-white/95 backdrop-blur-sm border border-white/20 rounded-[16px] overflow-hidden shadow-lg transition-all w-fit scale-90 origin-bottom-left sm:scale-125 md:scale-135">
+                        <div className="flex flex-col bg-white/95 backdrop-blur-sm border border-white/20 rounded-[16px] overflow-hidden shadow-lg transition-all w-fit scale-125 origin-bottom-left sm:scale-125 md:scale-135">
                             <a
                                 href="https://www.google.com/search?q=Dr.+Manoj+Khemani"
                                 target="_blank"
@@ -203,14 +203,14 @@ export default function Hero() {
                             Kolkata’s Trusted Robotic Joint Replacement Expert, <span className="text-leaf-500 2xl:whitespace-nowrap">Dr. Manoj Khemani</span>
                         </h1>
 
-                        <p className="hero-content-item text-sm sm:text-base lg:text-lg text-black mb-8 sm:mb-10 max-w-md lg:max-w-xl leading-relaxed mx-auto lg:mx-0">
+                        <p className="hero-content-item text-[15px] sm:text-base lg:text-lg text-black mb-8 sm:mb-10 max-w-md lg:max-w-xl leading-relaxed mx-auto lg:mx-0">
                             Delivering precision-driven robotic joint replacement, trauma surgery, and arthroscopic care with a focus on long-term mobility and safe recovery.
                         </p>
 
-                        <div className="hero-content-item flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+                        <div className="hero-content-item flex flex-nowrap gap-2 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto">
                             <Button
                                 onClick={openModal}
-                                className="w-full sm:w-auto !h-[50px] sm:!h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B]"
+                                className="flex-1 sm:flex-none w-auto !h-[56px] !bg-[#95BF1B] !text-white !font-medium hover:!bg-[#85AF0B] px-1 sm:px-6 text-[11px] sm:text-base whitespace-nowrap"
                                 iconClassName="!text-[#95BF1B] group-hover:!text-white"
                             >
                                 Schedule Appointment
@@ -218,13 +218,13 @@ export default function Hero() {
 
                             <button
                                 onClick={() => setIsVideoOpen(true)}
-                                className="w-full sm:w-auto group inline-flex items-center justify-start gap-3 pl-1 pr-6 py-1.5 bg-white text-text-primary rounded-full font-medium text-sm transition-all hover:bg-leaf-50"
+                                className="flex-1 sm:flex-none w-auto group inline-flex items-center justify-start gap-2 sm:gap-3 pl-1 pr-3 sm:pr-6 py-1.5 bg-white text-text-primary rounded-full font-medium text-[11px] sm:text-sm transition-all hover:bg-leaf-50 h-[56px]"
                                 style={{ border: '1px solid #95BF1B' }}
                             >
-                                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-leaf-100 flex items-center justify-center group-hover:bg-leaf-500 group-hover:text-white transition-colors text-leaf-600">
+                                <div className="w-11 h-11 sm:w-11 sm:h-11 rounded-full bg-leaf-100 flex items-center justify-center group-hover:bg-leaf-500 group-hover:text-white transition-colors text-leaf-600 shrink-0">
                                     <Play size={20} className="fill-current" />
                                 </div>
-                                Watch Video
+                                <span className="whitespace-nowrap">Watch Video</span>
                             </button>
                         </div>
                     </div>
