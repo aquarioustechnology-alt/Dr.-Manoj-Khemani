@@ -54,7 +54,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased font-sans">
+      <body className="antialiased font-sans overflow-x-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
