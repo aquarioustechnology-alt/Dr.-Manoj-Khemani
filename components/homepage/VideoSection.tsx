@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Youtube, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Youtube, ChevronLeft, ChevronRight, MoreVertical } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 if (typeof window !== 'undefined') {
@@ -174,9 +174,29 @@ export default function VideoSection() {
                                                         alt={video.title}
                                                         className="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-115"
                                                     />
+
+                                                    {/* YouTube Style Top Overlay */}
+                                                    <div className="absolute top-0 left-0 right-0 p-3 flex items-start justify-between bg-gradient-to-b from-black/70 via-black/20 to-transparent opacity-100 transition-opacity duration-300 z-10">
+                                                        <div className="flex items-center gap-2.5 overflow-hidden pr-4">
+                                                            <div className="w-9 h-9 rounded-full overflow-hidden border border-white/20 bg-white shrink-0 shadow-lg p-1">
+                                                                <img
+                                                                    src="/images/homepage/main clinic logo.webp"
+                                                                    alt="Heal My Bones"
+                                                                    className="w-full h-full object-contain"
+                                                                />
+                                                            </div>
+                                                            <span className="text-white text-[15px] font-medium truncate drop-shadow-lg leading-tight">
+                                                                {video.title}
+                                                            </span>
+                                                        </div>
+                                                        <div className="text-white p-1 hover:bg-white/10 rounded-full transition-colors shrink-0">
+                                                            <MoreVertical size={20} />
+                                                        </div>
+                                                    </div>
+
                                                     <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-500" />
                                                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                                        <div className="w-16 h-16 lg:w-20 lg:h-20 transition-all duration-300 group-hover:scale-125 drop-shadow-2xl">
+                                                        <div className="w-12 h-12 lg:w-16 lg:h-16 transition-all duration-300 group-hover:scale-125 drop-shadow-2xl">
                                                             <svg viewBox="0 0 24 24" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#FF0000" />
                                                                 <path d="M9.545 15.568l6.273-3.568-6.273-3.568v7.136z" fill="#FFFFFF" />
