@@ -197,7 +197,7 @@ export default function FloatingActions() {
                 {/* Call Button */}
                 <a
                     href="tel:+918697449191"
-                    className="bg-leaf-500 text-white py-4 px-4 rounded-l-[20px] shadow-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 group overflow-hidden relative"
+                    className="bg-leaf-500 text-white w-14 h-14 rounded-l-[20px] shadow-2xl flex items-center justify-center transition-all duration-300 group overflow-hidden relative"
                 >
                     <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></div>
                     <Phone size={24} className="relative z-10 text-white group-hover:text-leaf-500 transition-colors duration-300" />
