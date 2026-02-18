@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react'
+import { useState } from 'react'
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube, ChevronDown } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { useAppointment } from '@/context/AppointmentContext'
 
@@ -25,14 +26,23 @@ const treatments = [
     { href: '/services/frozen-shoulder', label: 'Frozen Shoulder Treatment' },
 ]
 
-const appointments = [
-    { href: '/contact', label: 'Book an Appointment' },
-    { href: '#', label: 'Clinic Schedule' },
-    { href: '#', label: 'Hospital Affiliation' },
-]
-
 export default function Footer() {
     const { openModal } = useAppointment()
+
+    // State for accordions (mobile/tablet only)
+    const [openSections, setOpenSections] = useState({
+        treatments: false,
+        patients: false,
+        clinic: false
+    })
+
+    const toggleSection = (section: keyof typeof openSections) => {
+        setOpenSections(prev => ({
+            ...prev,
+            [section]: !prev[section]
+        }))
+    }
+
     return (
         <footer className="bg-[#1A1A1A] text-white pt-20 relative z-20">
             {/* Main Footer Content */}
@@ -86,14 +96,29 @@ export default function Footer() {
 
                     {/* Columns Wrapper */}
                     <div className="lg:col-span-8">
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
-                            {/* Specialized Treatment */}
-                            <div className="space-y-8">
-                                <div className="relative">
+                        {/* Changed grid-cols-1 sm:grid-cols-3 to lg:grid-cols-3 so tablet stacks vertically */}
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
+
+                            <div className="space-y-4 lg:space-y-8 border-b border-white/5 lg:border-none pb-4 lg:pb-0">
+                                {/* Mobile Header */}
+                                <button
+                                    onClick={() => toggleSection('treatments')}
+                                    className="w-full flex items-center gap-3 lg:hidden group py-2"
+                                >
+                                    <ChevronDown
+                                        className={`text-leaf-500 transition-transform duration-300 ${openSections.treatments ? 'rotate-180' : ''}`}
+                                        size={20}
+                                    />
+                                    <h4 className="text-lg font-bold text-white uppercase tracking-wider">Specialized Treatments</h4>
+                                </button>
+
+                                {/* Desktop Header */}
+                                <div className="hidden lg:block relative">
                                     <h4 className="text-lg font-bold text-white uppercase tracking-wider pb-4 border-b border-white/10">Specialized Treatments</h4>
                                     <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-leaf-500" />
                                 </div>
-                                <ul className="space-y-4">
+
+                                <ul className={`space-y-4 ${openSections.treatments ? 'block' : 'hidden'} lg:block pl-8 lg:pl-0 pt-2 lg:pt-0`}>
                                     {treatments.map((link) => (
                                         <li key={link.label}>
                                             <Link
@@ -107,13 +132,26 @@ export default function Footer() {
                                 </ul>
                             </div>
 
-                            {/* Patients Corner */}
-                            <div className="space-y-8">
-                                <div className="relative">
+                            <div className="space-y-4 lg:space-y-8 border-b border-white/5 lg:border-none pb-4 lg:pb-0">
+                                {/* Mobile Header */}
+                                <button
+                                    onClick={() => toggleSection('patients')}
+                                    className="w-full flex items-center gap-3 lg:hidden group py-2"
+                                >
+                                    <ChevronDown
+                                        className={`text-leaf-500 transition-transform duration-300 ${openSections.patients ? 'rotate-180' : ''}`}
+                                        size={20}
+                                    />
+                                    <h4 className="text-lg font-bold text-white uppercase tracking-wider">Patients Corner</h4>
+                                </button>
+
+                                {/* Desktop Header */}
+                                <div className="hidden lg:block relative">
                                     <h4 className="text-lg font-bold text-white uppercase tracking-wider pb-4 border-b border-white/10">Patients Corner</h4>
                                     <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-leaf-500" />
                                 </div>
-                                <ul className="space-y-4">
+
+                                <ul className={`space-y-4 ${openSections.patients ? 'block' : 'hidden'} lg:block pl-8 lg:pl-0 pt-2 lg:pt-0`}>
                                     {quickLinks.map((link) => (
                                         <li key={link.label}>
                                             <Link
@@ -127,13 +165,26 @@ export default function Footer() {
                                 </ul>
                             </div>
 
-                            {/* Visit Clinic */}
-                            <div className="space-y-8">
-                                <div className="relative">
+                            <div className="space-y-4 lg:space-y-8 border-b border-white/5 lg:border-none pb-4 lg:pb-0">
+                                {/* Mobile Header */}
+                                <button
+                                    onClick={() => toggleSection('clinic')}
+                                    className="w-full flex items-center gap-3 lg:hidden group py-2"
+                                >
+                                    <ChevronDown
+                                        className={`text-leaf-500 transition-transform duration-300 ${openSections.clinic ? 'rotate-180' : ''}`}
+                                        size={20}
+                                    />
+                                    <h4 className="text-lg font-bold text-white uppercase tracking-wider">Visit Clinic</h4>
+                                </button>
+
+                                {/* Desktop Header */}
+                                <div className="hidden lg:block relative">
                                     <h4 className="text-lg font-bold text-white uppercase tracking-wider pb-4 border-b border-white/10">Visit Clinic</h4>
                                     <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-leaf-500" />
                                 </div>
-                                <div className="space-y-6">
+
+                                <div className={`space-y-6 ${openSections.clinic ? 'block' : 'hidden'} lg:block pl-8 lg:pl-0 pt-2 lg:pt-0`}>
                                     <div className="flex items-start gap-3 group">
                                         <MapPin size={18} className="text-leaf-500 mt-1 shrink-0" />
                                         <p className="text-white/60 text-[14px] leading-relaxed">
@@ -171,7 +222,7 @@ export default function Footer() {
                 <div className="max-w-7.5xl mx-auto px-6 lg:px-8 py-8">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <p className="text-white/40 text-[13px] font-medium tracking-wide leading-relaxed text-center md:text-left">
-                            &copy; {new Date().getFullYear()} <span className="text-white/60">Dr. Manoj Khemani - All Rights Reserved.</span> Designed by <a href="#" className="text-leaf-500/80 hover:text-leaf-500 hover:underline">Aquarious Technology</a>
+                            &copy; {new Date().getFullYear()} <span className="text-white/60">Dr. Manoj Khemani - All Rights Reserved.</span> <span className="whitespace-nowrap">Designed by <a href="#" className="text-leaf-500/80 hover:text-leaf-500 hover:underline">Aquarious Technology</a></span>
                         </p>
                         <div className="flex items-center gap-8">
                             <Link href="#" className="text-white/30 hover:text-leaf-500 text-[13px] font-bold transition-colors">
