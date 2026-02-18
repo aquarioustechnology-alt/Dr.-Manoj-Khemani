@@ -37,7 +37,7 @@ const faqItems = [
     },
     {
         question: 'Who is the best orthopedic doctor in Kolkata?',
-        answer: 'Dr. Manoj Kumar Khemani is one of the best orthopedic surgeons in Kolkata, India. He has vast experience treating innumerable orthopedic cases over the last 20+ years. He is a highly reputed name, trusted for a wide range of bone and joint-related problems. One of the key reasons is his commitment to provide high-quality treatment at an affordable cost.',
+        answer: 'Dr. Manoj Kumar Khemani is one of the best orthopedic surgeons in Kolkata, India. He has vast experience treating innumerable orthopedic cases over the last 24+ years. He is a highly reputed name, trusted for a wide range of bone and joint-related problems. One of the key reasons is his commitment to provide high-quality treatment at an affordable cost.',
     },
     {
         question: 'Are orthopedic treatments covered under health insurance?',

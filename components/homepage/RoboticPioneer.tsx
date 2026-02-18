@@ -89,7 +89,7 @@ export default function RoboticPioneer() {
                     </h2>
 
                     <p className="rp-header-item text-lg text-black italic leading-relaxed max-w-3xl mx-auto mb-10">
-                        Dr. Manoj Khemani, recognized as the Best Knee Replacement Surgeon in Kolkata, leverages advanced AR-VR technology to ensure 100% precision in every surgery. With over 22 years of expertise and 2,000+ successful joint replacements, his pioneering approach minimizes recovery time and maximizes implant longevity, offering patients a life-changing return to mobility.
+                        Dr. Manoj Khemani, recognized as the Best Knee Replacement Surgeon in Kolkata, leverages advanced AR-VR technology to ensure 100% precision in every surgery. With over 24+ years of expertise and 5,000+ successful joint replacements, his pioneering approach minimizes recovery time and maximizes implant longevity, offering patients a life-changing return to mobility.
                     </p>
 
                     <div className="rp-header-item flex flex-wrap justify-center gap-4 w-full sm:w-auto">

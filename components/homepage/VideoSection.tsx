@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Play, ChevronLeft, ChevronRight } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { Youtube, ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
@@ -40,8 +40,7 @@ const videoData = [
 
 export default function VideoSection() {
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
-    const [mounted, setMounted] = useState(false)
+    const [playingVideoId, setPlayingVideoId] = useState<string | null>(null)
     const [isSmallDevice, setIsSmallDevice] = useState(false)
     const sectionRef = useRef<HTMLElement>(null)
 
@@ -67,21 +66,7 @@ export default function VideoSection() {
         }
     }, [maxIndex, currentIndex])
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
 
-    // Body scroll lock
-    useEffect(() => {
-        if (selectedVideo) {
-            document.body.style.overflow = 'hidden'
-        } else {
-            document.body.style.overflow = 'unset'
-        }
-        return () => {
-            document.body.style.overflow = 'unset'
-        }
-    }, [selectedVideo])
 
     useEffect(() => {
         if (!sectionRef.current) return
@@ -116,46 +101,7 @@ export default function VideoSection() {
     const goNext = () => setCurrentIndex(prev => Math.min(prev + 1, maxIndex))
     const goPrev = () => setCurrentIndex(prev => Math.max(prev - 1, 0))
 
-    const Modal = () => {
-        if (!mounted) return null
-        return createPortal(
-            <AnimatePresence>
-                {selectedVideo && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[999] flex items-center justify-center p-0 md:p-10 lg:p-20"
-                    >
-                        {/* Pure Black Opacity Backdrop */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/90 backdrop-blur-[2px] cursor-pointer"
-                            onClick={() => setSelectedVideo(null)}
-                        />
 
-                        {/* Video Container - Nothing else inside */}
-                        <motion.div
-                            initial={{ scale: 0.95, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            className="relative w-full max-w-6xl aspect-video z-10"
-                        >
-                            <iframe
-                                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0`}
-                                className="w-full h-full border-0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            />
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>,
-            document.body
-        )
-    }
 
     return (
         <section ref={sectionRef} className="py-24 lg:py-32 bg-white relative overflow-hidden z-20">
@@ -209,30 +155,41 @@ export default function VideoSection() {
                                 {videoData.map((video) => (
                                     <div key={video.id} className="w-full md:w-1/2 flex-shrink-0 px-3 lg:px-4 text-left group">
                                         <div
-                                            onClick={() => setSelectedVideo(video.id)}
-                                            className="relative aspect-[4/3.1] rounded-[15px] overflow-hidden cursor-pointer shadow-xl shadow-gray-200/40 bg-gray-100 img-glass"
+                                            className="relative aspect-[4/3.1] rounded-[15px] overflow-hidden cursor-pointer shadow-xl shadow-gray-200/40 bg-black img-glass"
                                         >
-                                            <img
-                                                src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                                                alt={video.title}
-                                                className="w-full h-full object-cover transition-transform duration-700 scale-110 group-hover:scale-125"
-                                            />
-                                            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500" />
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/30 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-leaf-500 group-hover:border-leaf-500 group-hover:scale-110">
-                                                    <Play size={24} className="text-white fill-white ml-1" />
+                                            {playingVideoId === video.id ? (
+                                                <iframe
+                                                    src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`}
+                                                    className="w-full h-full border-0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                />
+                                            ) : (
+                                                <div
+                                                    className="relative w-full h-full"
+                                                    onClick={() => setPlayingVideoId(video.id)}
+                                                >
+                                                    <img
+                                                        src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                                                        alt={video.title}
+                                                        className="w-full h-full object-cover transition-transform duration-700 scale-105 group-hover:scale-115"
+                                                    />
+                                                    <div className="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-all duration-500" />
+                                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                                        <div className="w-16 h-16 lg:w-20 lg:h-20 transition-all duration-300 group-hover:scale-125 drop-shadow-2xl">
+                                                            <svg viewBox="0 0 24 24" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#FF0000" />
+                                                                <path d="M9.545 15.568l6.273-3.568-6.273-3.568v7.136z" fill="#FFFFFF" />
+                                                            </svg>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            )}
                                         </div>
 
                                         <div
                                             className="mt-6 space-y-2 px-1 cursor-pointer"
-                                            onClick={() => setSelectedVideo(video.id)}
-                                        // Keep text alignment left within the card as per design commonly used, 
-                                        // or user asked for "everything center aligned"? 
-                                        // User said: "sub content below heading all should be center aligned". 
-                                        // This likely refers to the left column description.
-                                        // The video cards usually keep their internal alignment. Leaving cards as text-left.
+                                            onClick={() => setPlayingVideoId(video.id)}
                                         >
                                             <h3 className="text-xl lg:text-2xl font-bold text-[#1A1A1A] group-hover:text-leaf-600 transition-colors duration-300 leading-tight">
                                                 {video.title}
@@ -275,7 +232,7 @@ export default function VideoSection() {
                 </div>
             </div>
 
-            <Modal />
+
         </section>
     )
 }

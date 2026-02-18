@@ -10,8 +10,8 @@ if (typeof window !== 'undefined') {
 }
 
 const stats = [
-    { value: 20, suffix: '+', label: 'Years of Experience' },
-    { value: 2, suffix: 'k+', label: 'Successful Surgeries' }, // Dynamic value will override
+    { value: 24, suffix: '+', label: 'Years of Experience' },
+    { value: 5, suffix: 'k+', label: 'Successful Surgeries' }, // Dynamic value will override
     { value: 98, suffix: '%', label: 'Patient Satisfaction' },
 ]
 
@@ -48,12 +48,12 @@ export default function WhyChooseUs() {
 
     // Calculate dynamic stats
     const calculateStats = () => {
-        const startYear = 2004 // Base year for experience
+        const startYear = 2002 // Base year for experience to reflect 24+ years
         const years = new Date().getFullYear() - startYear
 
         // For Surgeries, user requested "2k+". Keeping it simple/static 2 for now to match strict request, 
         // as incrementing "2" by "1" daily would result in "3k+", "4k+" which is wrong scale.
-        const surgeries = 2
+        const surgeries = 5
 
         return [years, surgeries, 98]
     }

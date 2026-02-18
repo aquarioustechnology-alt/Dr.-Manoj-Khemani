@@ -112,7 +112,7 @@ export default function Footer() {
                                 {/* Mobile Header */}
                                 <button
                                     onClick={() => toggleSection('treatments')}
-                                    className="w-full flex items-center gap-3 lg:hidden group py-2"
+                                    className="w-full flex items-center gap-3 lg:hidden group py-2 before:hidden"
                                 >
                                     <ChevronDown
                                         className={`text-leaf-500 transition-transform duration-300 ${openSections.treatments ? 'rotate-180' : ''}`}
@@ -145,7 +145,7 @@ export default function Footer() {
                                 {/* Mobile Header */}
                                 <button
                                     onClick={() => toggleSection('patients')}
-                                    className="w-full flex items-center gap-3 lg:hidden group py-2"
+                                    className="w-full flex items-center gap-3 lg:hidden group py-2 before:hidden"
                                 >
                                     <ChevronDown
                                         className={`text-leaf-500 transition-transform duration-300 ${openSections.patients ? 'rotate-180' : ''}`}
@@ -178,7 +178,7 @@ export default function Footer() {
                                 {/* Mobile Header */}
                                 <button
                                     onClick={() => toggleSection('clinic')}
-                                    className="w-full flex items-center gap-3 lg:hidden group py-2"
+                                    className="w-full flex items-center gap-3 lg:hidden group py-2 before:hidden"
                                 >
                                     <ChevronDown
                                         className={`text-leaf-500 transition-transform duration-300 ${openSections.clinic ? 'rotate-180' : ''}`}
