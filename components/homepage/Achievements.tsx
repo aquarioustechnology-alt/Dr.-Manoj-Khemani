@@ -171,7 +171,7 @@ export default function Achievements() {
                                     key={`${item.id}-${index}`}
                                     className="w-[300px] sm:w-[350px] lg:w-[400px] flex-shrink-0 group"
                                 >
-                                    <div className="relative aspect-[3/2] rounded-[22px] overflow-hidden mb-8 border border-white/5 bg-white/5">
+                                    <div className="relative aspect-[3/2] rounded-[22px] overflow-hidden mb-8 border border-white/5 bg-white/5 img-glass">
                                         <img
                                             src={item.image}
                                             alt={item.title}

@@ -126,7 +126,7 @@ export default function ARVRSection() {
 
                     {/* Left Column: Image — covers the entire div (Hidden on Mobile/Tablet) */}
                     <div className="arv-image-reveal relative h-full hidden lg:block">
-                        <div className="relative rounded-[2rem] overflow-hidden h-full">
+                        <div className="relative rounded-[2rem] overflow-hidden h-full img-glass">
                             <img
                                 src="/images/homepage/Dr Image 12-Picsart-AiImageEnhancer.webp"
                                 alt="AR-Guided Knee Replacement Surgery by Dr. Manoj Khemani"
@@ -158,7 +158,7 @@ export default function ARVRSection() {
                         </div>
 
                         {/* Mobile Image (Visible only on Mobile/Tablet) */}
-                        <div className="arv-image-reveal-mobile relative w-full h-[400px] rounded-[2rem] overflow-hidden mb-2 block lg:hidden">
+                        <div className="arv-image-reveal-mobile relative w-full h-[400px] rounded-[2rem] overflow-hidden mb-2 block lg:hidden img-glass">
                             <img
                                 src="/images/homepage/Dr Image 12-Picsart-AiImageEnhancer.webp"
                                 alt="AR-Guided Knee Replacement Surgery by Dr. Manoj Khemani"

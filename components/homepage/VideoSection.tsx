@@ -210,7 +210,7 @@ export default function VideoSection() {
                                     <div key={video.id} className="w-full md:w-1/2 flex-shrink-0 px-3 lg:px-4 text-left group">
                                         <div
                                             onClick={() => setSelectedVideo(video.id)}
-                                            className="relative aspect-[4/3.1] rounded-[15px] overflow-hidden cursor-pointer shadow-xl shadow-gray-200/40 bg-gray-100"
+                                            className="relative aspect-[4/3.1] rounded-[15px] overflow-hidden cursor-pointer shadow-xl shadow-gray-200/40 bg-gray-100 img-glass"
                                         >
                                             <img
                                                 src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}

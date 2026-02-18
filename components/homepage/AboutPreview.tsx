@@ -78,7 +78,7 @@ export default function AboutPreview() {
 
                         {/* Beside: Doctor Image (Reverted height) */}
                         <div className="about-bottom-col relative h-[600px] sm:h-[650px] lg:h-[700px]">
-                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white group">
+                            <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white group img-glass">
                                 <img
                                     src="/images/homepage/Doctor Headshot 2.png"
                                     alt="Dr. Manoj Khemani Portrait"

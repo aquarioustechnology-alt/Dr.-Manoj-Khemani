@@ -115,7 +115,7 @@ export default function RoboticPioneer() {
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="rp-card group relative flex-1 aspect-square md:aspect-auto md:min-h-0 md:hover:flex-[1.5] transition-[flex-grow] duration-500 ease-out cursor-pointer rounded-[25px] overflow-hidden"
+                            className="rp-card group relative flex-1 aspect-square md:aspect-auto md:min-h-0 md:hover:flex-[1.5] transition-[flex-grow] duration-500 ease-out cursor-pointer rounded-[25px] overflow-hidden img-glass"
                         >
                             <img
                                 src={feature.image}

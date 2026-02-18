@@ -124,8 +124,8 @@ export default function ServicesSection() {
                     {/* Dropdown Menu */}
                     <div
                         className={`absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-300 origin-top transform ${isDropdownOpen
-                                ? 'opacity-100 translate-y-0 scale-100 visible'
-                                : 'opacity-0 -translate-y-4 scale-95 invisible'
+                            ? 'opacity-100 translate-y-0 scale-100 visible'
+                            : 'opacity-0 -translate-y-4 scale-95 invisible'
                             }`}
                     >
                         <div className="max-h-[300px] overflow-y-auto py-2">
@@ -137,8 +137,8 @@ export default function ServicesSection() {
                                         setIsDropdownOpen(false)
                                     }}
                                     className={`w-full text-left px-6 py-3 text-[15px] font-medium transition-colors flex items-center justify-between ${activeTab.id === service.id
-                                            ? 'bg-leaf-50 text-leaf-700 font-bold'
-                                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                        ? 'bg-leaf-50 text-leaf-700 font-bold'
+                                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                         }`}
                                 >
                                     {service.title}
@@ -152,7 +152,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Main Interactive Section */}
-                <div className="relative w-full aspect-[21/8] min-h-[450px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
+                <div className="relative w-full aspect-[21/8] min-h-[450px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900 img-glass">
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 w-full h-full">
                         <img

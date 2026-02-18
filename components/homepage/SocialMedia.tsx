@@ -116,7 +116,7 @@ export default function SocialMedia() {
                                     href="https://www.instagram.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group relative block aspect-square rounded-2xl overflow-hidden bg-gray-200 w-full h-full"
+                                    className="group relative block aspect-square rounded-2xl overflow-hidden bg-gray-200 w-full h-full img-glass"
                                 >
                                     <Image
                                         src={post.image}

@@ -139,7 +139,7 @@ export default function WhyChooseUs() {
 
                     {/* Left Column: Auto-Sliding Image Gallery (Moved from Right) */}
                     <div className="why-content relative order-2 lg:order-1 h-full">
-                        <div className="relative h-full min-h-[450px] rounded-[20px] overflow-hidden shadow-2xl">
+                        <div className="relative h-full min-h-[450px] rounded-[20px] overflow-hidden shadow-2xl img-glass">
                             {doctorImages.map((img, index) => (
                                 <div
                                     key={index}

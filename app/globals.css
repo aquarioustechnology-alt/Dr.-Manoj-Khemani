@@ -240,7 +240,6 @@ a[class*="bg-leaf"]>* {
 
 /* Glass Shine Image Effect */
 .img-glass {
-  position: relative;
   overflow: hidden;
 }
 

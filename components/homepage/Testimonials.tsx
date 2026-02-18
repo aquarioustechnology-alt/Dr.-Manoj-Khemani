@@ -175,7 +175,7 @@ export default function Testimonials() {
                     <div className="lg:col-span-5 grid grid-cols-2 gap-3 lg:gap-4">
                         {/* Left Sub-Column */}
                         <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal-right min-h-0">
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl min-h-0 aspect-square lg:aspect-auto lg:flex-[7_1_0%]" >
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl min-h-0 aspect-square lg:aspect-auto lg:flex-[7_1_0%] img-glass" >
                                 <img
                                     src="/images/homepage/Doctor 25.jpg"
                                     alt="Doctor Consultation"
@@ -246,7 +246,7 @@ export default function Testimonials() {
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">33</h3>
                                 <p className="text-base font-medium opacity-70">Patients Reviews</p>
                             </a>
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl min-h-0 aspect-square lg:aspect-auto lg:flex-[7_1_0%]" >
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl min-h-0 aspect-square lg:aspect-auto lg:flex-[7_1_0%] img-glass" >
                                 <img
                                     src="/images/homepage/Dr Image 18.webp"
                                     alt="Medical Excellence"

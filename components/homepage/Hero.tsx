@@ -82,7 +82,7 @@ export default function Hero() {
 
                 {/* Right Side - Doctor Image (absolute, flush top-right, 200px bottom-left curve) */}
                 <div
-                    className="hero-image-shape hidden lg:block absolute top-0 right-0 w-[42%] xl:w-[40%] 2xl:w-[38%] h-[85%] overflow-hidden z-0"
+                    className="hero-image-shape hidden lg:block absolute top-0 right-0 w-[42%] xl:w-[40%] 2xl:w-[38%] h-[85%] overflow-hidden z-0 img-glass"
                     style={{ borderRadius: '0 0 0 200px' }}
                 >
                     {HERO_IMAGES.map((img, index) => (
@@ -116,7 +116,7 @@ export default function Hero() {
                 </div>
 
                 {/* Mobile / Tablet Image */}
-                <div className="lg:hidden relative w-[92%] mx-auto h-[300px] sm:h-[400px] md:h-[450px] rounded-[30px] overflow-hidden order-2 lg:order-none mb-8 lg:mb-0">
+                <div className="lg:hidden relative w-[92%] mx-auto h-[300px] sm:h-[400px] md:h-[450px] rounded-[30px] overflow-hidden order-2 lg:order-none mb-8 lg:mb-0 img-glass">
                     {HERO_IMAGES.map((img, index) => (
                         <div
                             key={index}
