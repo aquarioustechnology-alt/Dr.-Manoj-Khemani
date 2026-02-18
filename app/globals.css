@@ -118,20 +118,21 @@ button {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-soft);
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-leaf-300);
-  border-radius: 4px;
+  background: var(--color-leaf);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-leaf-400);
+  background: var(--color-leaf-dark);
 }
 
 /* Selection color */
