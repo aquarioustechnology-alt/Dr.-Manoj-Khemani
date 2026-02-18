@@ -79,7 +79,7 @@ export default function AboutHero() {
                         </h1>
 
                         {/* Credentials List */}
-                        <div className="hero-credentials flex flex-col gap-1 mb-8 lg:border-l-4 lg:border-red-500 lg:pl-6 py-1 border-none pl-0">
+                        <div className="hero-credentials flex flex-col gap-1 mb-8 border-l-0 lg:border-l-4 lg:border-red-500 lg:pl-6 py-1 pl-0">
                             <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1">Robotic Joint Replacement & Orthopaedic Surgeon</h3>
                             <p className="text-gray-600 font-medium text-lg">MS in Orthopedics, Texila American University</p>
                             <p className="text-gray-600 font-medium text-lg">Mch. Ortho degree, University of Seychelles</p>
