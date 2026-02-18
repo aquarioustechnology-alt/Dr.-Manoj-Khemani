@@ -2,7 +2,7 @@ import Header from '@/components/common/Header'
 import Footer from '@/components/common/Footer'
 import AboutHero from '@/components/about doctor/Hero'
 import AboutBio from '@/components/about doctor/AboutBio'
-import MissionVision from '@/components/about doctor/MissionVision'
+import EducationJourney from '@/components/about doctor/EducationJourney'
 import ExpertiseAndAffiliations from '@/components/about doctor/Expertise'
 import Affiliations from '@/components/about doctor/Affiliations'
 import CTA from '@/components/about doctor/CTA'
@@ -20,7 +20,7 @@ export default function AboutPage() {
         <AboutHero />
         <AboutBio />
         <Affiliations />
-        <MissionVision />
+        <EducationJourney />
         <ExpertiseAndAffiliations />
         <CTA />
       </main>
