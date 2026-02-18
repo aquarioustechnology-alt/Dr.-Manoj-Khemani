@@ -175,7 +175,7 @@ export default function Testimonials() {
                     <div className="lg:col-span-5 grid grid-cols-2 gap-3 lg:gap-4">
                         {/* Left Sub-Column */}
                         <div className="flex flex-col gap-3 lg:gap-4 testimonial-reveal-right min-h-0">
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl min-h-0" style={{ flex: '7 1 0%' }}>
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-2xl min-h-0 aspect-square lg:aspect-auto lg:flex-[7_1_0%]" >
                                 <img
                                     src="/images/homepage/Doctor 25.jpg"
                                     alt="Doctor Consultation"
@@ -189,8 +189,7 @@ export default function Testimonials() {
                                 href="https://www.google.com/search?q=dr.+manoj+kumar+khemani&oq=&gs_lcrp=EgZjaHJvbWUqCQgAECMYJxjqAjIJCAAQIxgnGOoCMgkIARAjGCcY6gIyCQgCECMYJxjqAjIPCAMQLhgnGK8BGMcBGOoCMgkIBBAjGCcY6gIyCQgFECMYJxjqAjIPCAYQLhgnGK8BGMcBGOoCMgkIBxAjGCcY6gLSAQs0OTUzNjA3ajBqN6gCCLACAfEFVHcvRVIDzVI&sourceid=chrome&ie=UTF-8"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-white text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center transition-transform hover:scale-[1.02]"
-                                style={{ flex: '3 1 0%' }}
+                                className="bg-white text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center transition-transform hover:scale-[1.02] aspect-square lg:aspect-auto lg:flex-[3_1_0%]"
                             >
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="inline-flex items-center justify-center w-8 h-8 shrink-0">
@@ -233,8 +232,7 @@ export default function Testimonials() {
                                 href="https://www.practo.com/kolkata/doctor/dr-manoj-kumar-khemani-orthopedist-1"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center transition-transform hover:scale-[1.02]"
-                                style={{ flex: '3 1 0%' }}
+                                className="bg-[#A6CB3B] text-[#1c1917] rounded-[18px] p-6 lg:p-8 flex flex-col justify-center transition-transform hover:scale-[1.02] aspect-square lg:aspect-auto lg:flex-[3_1_0%]"
                             >
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="w-14 h-14 rounded-full border border-black/15 flex items-center justify-center overflow-hidden bg-white/10 shrink-0">
@@ -248,7 +246,7 @@ export default function Testimonials() {
                                 <h3 className="text-4xl lg:text-5xl font-extrabold mb-1 tracking-tight">33</h3>
                                 <p className="text-base font-medium opacity-70">Patients Reviews</p>
                             </a>
-                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl min-h-0" style={{ flex: '7 1 0%' }}>
+                            <div className="relative rounded-[18px] overflow-hidden group shadow-xl min-h-0 aspect-square lg:aspect-auto lg:flex-[7_1_0%]" >
                                 <img
                                     src="/images/homepage/Dr Image 18.webp"
                                     alt="Medical Excellence"
