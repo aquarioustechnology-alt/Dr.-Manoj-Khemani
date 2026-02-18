@@ -124,7 +124,7 @@ export default function AboutHero() {
 
                     {/* Right Image Section */}
                     <div className="hero-image relative lg:h-[650px] flex items-end justify-center lg:justify-end mt-8 lg:mt-0">
-                        <div className="relative w-full max-w-md lg:max-w-[500px] aspect-[4/5] rounded-3xl overflow-hidden border-[6px] border-white bg-white shadow-2xl">
+                        <div className="relative w-full max-w-md lg:max-w-[500px] aspect-[4/5] rounded-3xl overflow-hidden border-[6px] border-white bg-white shadow-2xl img-glass">
                             <img
                                 src="/images/homepage/Doctor Headshot 2.png"
                                 alt="Dr. Manoj Khemani - Leading Orthopedic Surgeon"

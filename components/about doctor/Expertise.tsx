@@ -110,7 +110,7 @@ export default function ExpertiseAndAffiliations() {
 
                     {/* Right Column: Image Slider */}
                     <div className="relative">
-                        <div className="relative h-[500px] lg:h-[600px] w-full overflow-hidden shadow-2xl"
+                        <div className="relative h-[500px] lg:h-[600px] w-full overflow-hidden shadow-2xl img-glass"
                             style={{ borderRadius: '10px 80px 10px 10px' }}>
 
                             {sliderImages.map((src, index) => (

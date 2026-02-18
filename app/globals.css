@@ -237,3 +237,39 @@ a[class*="bg-leaf"]>* {
   position: relative;
   z-index: 2;
 }
+
+/* Glass Shine Image Effect */
+.img-glass {
+  position: relative !important;
+  overflow: hidden !important;
+  display: block !important;
+}
+
+.img-glass img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.img-glass:hover img {
+  transform: scale(1.1) !important;
+}
+
+.img-glass::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 200% !important;
+  height: 0% !important;
+  left: 50% !important;
+  top: 50% !important;
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translate(-50%, -50%) rotate(-45deg) !important;
+  z-index: 20 !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+}
+
+.img-glass:hover::after {
+  height: 250% !important;
+  transition: all 0.6s linear !important;
+  background-color: transparent !important;
+  opacity: 0 !important;
+}

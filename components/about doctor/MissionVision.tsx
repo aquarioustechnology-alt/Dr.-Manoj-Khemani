@@ -94,7 +94,7 @@ export default function MissionVision() {
                             </svg>
                         </div>
 
-                        <div className="relative w-full h-full rounded-t-[100px] rounded-b-3xl overflow-hidden border-4 border-white bg-leaf-50">
+                        <div className="relative w-full h-full rounded-t-[100px] rounded-b-3xl overflow-hidden border-4 border-white bg-leaf-50 img-glass">
                             <Image
                                 src="/images/homepage/Dr image 37.webp"
                                 alt="Dr. Manoj Khemani Vision"
@@ -130,8 +130,8 @@ export default function MissionVision() {
                                     onMouseEnter={() => setHoveredIndex(index)}
                                     onMouseLeave={() => setHoveredIndex(null)}
                                     className={`mv-card group relative p-7 rounded-2xl border transition-all duration-500 cursor-default opacity-0 overflow-hidden ${activeIndex === index
-                                            ? 'border-transparent shadow-xl translate-y-[-4px]'
-                                            : 'bg-white border-gray-100 shadow-sm translate-y-0'
+                                        ? 'border-transparent shadow-xl translate-y-[-4px]'
+                                        : 'bg-white border-gray-100 shadow-sm translate-y-0'
                                         }`}
                                 >
                                     {/* Bottom-to-Top Fill Animation background */}
