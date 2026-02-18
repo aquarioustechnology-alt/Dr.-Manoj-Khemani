@@ -145,7 +145,7 @@ export default function SocialMedia() {
                 {/* CTA Button */}
                 <div className="mt-8 text-center social-reveal-up flex justify-center">
                     <Button
-                        href="https://www.instagram.com/"
+                        href="https://www.instagram.com/healmybones/"
                         className="!bg-black hover:!bg-leaf-600 shadow-xl shadow-gray-200"
                         icon={Instagram}
                         iconClassName="text-black !w-10 !h-10 sm:!w-11 sm:!h-11"

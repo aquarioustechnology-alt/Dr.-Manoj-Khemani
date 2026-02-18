@@ -82,10 +82,17 @@ export default function Footer() {
 
                         {/* Social Icons */}
                         <div className="flex gap-4">
-                            {[Facebook, Instagram, Linkedin, Youtube].map((Icon, index) => (
+                            {[
+                                { Icon: Facebook, href: 'https://www.facebook.com/healmybonesdrmanojkhemani/' },
+                                { Icon: Instagram, href: 'https://www.instagram.com/healmybones/' },
+                                { Icon: Youtube, href: 'https://www.youtube.com/@Healmybones-DrKhemani' },
+                                { Icon: Linkedin, href: 'https://www.linkedin.com/in/dr-manoj-kumar-khemani-162521188/' }
+                            ].map(({ Icon, href }, index) => (
                                 <a
                                     key={index}
-                                    href="#"
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center text-white/50 hover:bg-leaf-500 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-lg border border-white/5"
                                 >
                                     <Icon size={18} />
