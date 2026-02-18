@@ -11,13 +11,15 @@ const quickLinks = [
     { href: '/about', label: 'About Dr. Khemani' },
     { href: '/success-stories', label: 'Success Stories' },
     { href: '/faq', label: 'FAQs' },
+    { href: '/knee-replacement-myths', label: 'Knee Replacement Myths' },
     { href: '/blogs', label: 'Blogs' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/testimonials', label: 'Testimonials' },
 ]
 
 const treatments = [
-    { href: '/services/knee-replacement', label: 'Knee Replacement' },
+    { href: '/services/robotic-joint-replacement', label: 'Robotic Joint Replacement' },
+    { href: '/services/knee-replacement', label: 'AR VR Knee Replacement' },
     { href: '/services/hip-replacement', label: 'Hip Replacement' },
     { href: '/services/fracture-care', label: 'Bone Fracture Treatment' },
     { href: '/services/osteoporosis', label: 'Osteoporosis Treatment' },
@@ -229,7 +231,7 @@ export default function Footer() {
                 <div className="max-w-7.5xl mx-auto px-6 lg:px-8 py-8">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <p className="text-white/40 text-[13px] font-medium tracking-wide leading-relaxed text-center md:text-left">
-                            &copy; {new Date().getFullYear()} <span className="text-white/60">Dr. Manoj Khemani - All Rights Reserved.</span> <span className="whitespace-nowrap">Designed by <a href="#" className="text-leaf-500/80 hover:text-leaf-500 hover:underline">Aquarious Technology</a></span>
+                            &copy; {new Date().getFullYear()} <span className="text-white/60">Dr. Manoj Khemani - All Rights Reserved.</span> <span className="whitespace-nowrap">Designed by <a href="https://www.theaquarious.com/" target="_blank" rel="noopener noreferrer" className="text-leaf-500/80 hover:text-leaf-500 hover:underline">Aquarious Technology</a></span>
                         </p>
                         <div className="flex items-center gap-8">
                             <Link href="#" className="text-white/30 hover:text-leaf-500 text-[13px] font-bold transition-colors">

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown, Phone, Calendar, Bone, Activity, Accessibility, HelpingHand, Snowflake, Link as LinkIcon, ShieldPlus } from 'lucide-react'
+import { Menu, X, ChevronDown, Phone, Calendar, Bone, Activity, Accessibility, HelpingHand, Snowflake, Link as LinkIcon, ShieldPlus, Bot } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { useAppointment } from '@/context/AppointmentContext'
 
@@ -15,7 +15,8 @@ const navLinks = [
         label: 'Treatments',
         isDropdown: true,
         items: [
-            { href: '/services/knee-replacement', label: 'Knee Replacement', icon: Accessibility, description: 'Advanced robotic & traditional surgery' },
+            { href: '/services/robotic-joint-replacement', label: 'Robotic Joint Replacement', icon: Bot, description: 'Precision-driven robotic surgery' },
+            { href: '/services/knee-replacement', label: 'AR VR Knee Replacement', icon: Accessibility, description: 'Advanced robotic & traditional surgery' },
             { href: '/services/hip-replacement', label: 'Hip Replacement', icon: Activity, description: 'Minimally invasive joint restoration' },
             { href: '/services/fracture-care', label: 'Bone Fracture Treatment', icon: Bone, description: 'Complex trauma & fracture management' },
             { href: '/services/osteoporosis', label: 'Osteoporosis Treatment', icon: ShieldPlus, description: 'Bone density preservation & care' },
