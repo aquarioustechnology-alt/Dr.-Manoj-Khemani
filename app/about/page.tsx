@@ -3,6 +3,7 @@ import Footer from '@/components/common/Footer'
 import AboutHero from '@/components/about doctor/Hero'
 import AboutBio from '@/components/about doctor/AboutBio'
 import EducationJourney from '@/components/about doctor/EducationJourney'
+import MissionVision from '@/components/about doctor/MissionVision'
 import FirstCTA from '@/components/about doctor/FirstCTA'
 import ExpertiseAndAffiliations from '@/components/about doctor/Expertise'
 import Affiliations from '@/components/about doctor/Affiliations'
@@ -22,6 +23,7 @@ export default function AboutPage() {
         <AboutBio />
         <Affiliations />
         <EducationJourney />
+        <MissionVision />
         <FirstCTA />
         <ExpertiseAndAffiliations />
         <CTA />
