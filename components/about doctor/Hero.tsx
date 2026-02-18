@@ -96,7 +96,7 @@ export default function AboutHero() {
                                     <div className="w-6 h-6 rounded-full bg-leaf-500 flex items-center justify-center shadow-sm shrink-0">
                                         <CheckCircle2 size={13} className="text-white stroke-[3]" />
                                     </div>
-                                    <span className="font-bold text-gray-700 text-base sm:text-lg tracking-wide">{feature}</span>
+                                    <span className="font-medium text-gray-700 text-sm sm:text-[15px] tracking-wide">{feature}</span>
                                 </div>
                             ))}
                         </div>
