@@ -65,13 +65,13 @@ export default function Footer() {
                                 </div>
                             </Link>
                             <p className="text-white/60 text-[15px] leading-relaxed max-w-sm">
-                                Dr. Manoj Khemani is a senior Orthopedic Surgeon in Kolkata with 22+ years of experience, specializing in advanced joint replacement and sports medicine.
+                                Dr. Manoj Khemani is a senior Orthopedic Surgeon in Kolkata with 24+ years of experience, specializing in advanced joint replacement and sports medicine.
                             </p>
 
                             {/* Stats Badge */}
                             <div className="flex items-center gap-8 pt-2">
                                 <div className="space-y-1">
-                                    <p className="text-4xl font-bold text-leaf-500 tracking-tight">22+</p>
+                                    <p className="text-4xl font-bold text-leaf-500 tracking-tight">24+</p>
                                     <p className="text-[12px] text-white/40 uppercase font-black tracking-widest leading-none">Years Exp.</p>
                                 </div>
                                 <div className="w-px h-10 bg-white/10" />
@@ -247,4 +247,3 @@ export default function Footer() {
         </footer>
     )
 }
-
