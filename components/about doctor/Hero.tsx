@@ -60,8 +60,8 @@ export default function AboutHero() {
     }, [])
 
     return (
-        <section ref={heroRef} className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-to-b from-[#f8faf5] to-white overflow-hidden">
-            <div className="max-w-[85rem] mx-auto px-6 lg:px-8">
+        <section ref={heroRef} className="relative lg:sticky top-0 z-0 pt-32 pb-48 lg:pt-40 lg:pb-24 bg-gradient-to-b from-[#f8faf5] to-white overflow-hidden">
+            <div className="max-w-7.5xl mx-auto px-3 lg:px-5">
                 <div className="grid lg:grid-cols-[1.4fr_0.8fr] gap-12 lg:gap-16 items-start">
 
                     {/* Left Content */}

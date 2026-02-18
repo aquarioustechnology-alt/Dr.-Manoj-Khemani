@@ -5,7 +5,7 @@ import { Phone, Calendar } from 'lucide-react'
 
 export default function CTA() {
     return (
-        <section className="py-20 bg-leaf-900 relative overflow-hidden">
+        <section className="py-20 bg-leaf-900 relative z-20 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/pattern.png')] bg-repeat opacity-20"></div>

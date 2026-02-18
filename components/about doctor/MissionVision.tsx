@@ -31,7 +31,7 @@ export default function MissionVision() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="py-20 bg-gray-50">
+        <section ref={sectionRef} className="py-20 bg-gray-50 relative z-20">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
                 <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                     {/* Mission */}
