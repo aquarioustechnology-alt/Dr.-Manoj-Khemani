@@ -54,6 +54,42 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Physician',
+              'name': 'Dr. Manoj Khemani',
+              'url': 'https://healmybones.com',
+              'image': 'https://healmybones.com/images/homepage/Dr%20Image%202-Picsart-AiImageEnhancer.webp',
+              'telephone': '+918697449191',
+              'address': {
+                '@type': 'PostalAddress',
+                'streetAddress': 'Healing Touch Clinic, 59, Bangur Avenue, Block A',
+                'addressLocality': 'Kolkata',
+                'postalCode': '700055',
+                'addressCountry': 'IN'
+              },
+              'medicalSpecialty': ['Orthopedic Surgery', 'Joint Replacement', 'Sports Medicine'],
+              'priceRange': '₹₹',
+              'openingHoursSpecification': [
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                  'opens': '10:00',
+                  'closes': '20:00'
+                }
+              ],
+              'sameAs': [
+                'https://www.facebook.com/healmybonesdrmanojkhemani/',
+                'https://www.instagram.com/healmybones/',
+                'https://www.youtube.com/@Healmybones-DrKhemani',
+                'https://www.linkedin.com/in/dr-manoj-kumar-khemani-162521188/'
+              ]
+            })
+          }}
+        />
         <AppointmentProvider>
           <TopStrip />
           {children}
