@@ -40,7 +40,7 @@ export default function CustomCursor() {
 
         const onHover = () => {
             gsap.to(cursor, { scale: 0.5, duration: 0.3 })
-            gsap.to(follower, { scale: 2, opacity: 0.4, backgroundColor: '#A8CA3D', duration: 0.3 })
+            gsap.to(follower, { scale: 1.5, opacity: 0.4, backgroundColor: '#A8CA3D', duration: 0.3 })
         }
 
         const onUnhover = () => {
