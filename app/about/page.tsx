@@ -4,6 +4,7 @@ import AboutHero from '@/components/about doctor/Hero'
 import AboutBio from '@/components/about doctor/AboutBio'
 import MissionVision from '@/components/about doctor/MissionVision'
 import ExpertiseAndAffiliations from '@/components/about doctor/Expertise'
+import Affiliations from '@/components/about doctor/Affiliations'
 import CTA from '@/components/about doctor/CTA'
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function AboutPage() {
       <main>
         <AboutHero />
         <AboutBio />
+        <Affiliations />
         <MissionVision />
         <ExpertiseAndAffiliations />
         <CTA />
