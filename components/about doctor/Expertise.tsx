@@ -62,40 +62,40 @@ export default function ExpertiseAndAffiliations() {
     return (
         <section className="py-20 lg:py-24 bg-white relative z-20 overflow-hidden">
             <div ref={containerRef} className="max-w-7.5xl mx-auto px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
 
                     {/* Left Column: Content */}
-                    <div>
+                    <div className="flex flex-col justify-center">
                         {/* Badge */}
-                        <div className="mb-6">
+                        <div className="mb-4">
                             <div className="inline-block px-4 py-1.5 rounded-full border border-leaf-200 bg-leaf-50 text-leaf-600 text-xs font-bold tracking-[0.2em] uppercase">
                                 CLINICAL EXCELLENCE
                             </div>
                         </div>
 
                         {/* Heading */}
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.1] mb-6">
+                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.1] mb-5">
                             Areas of Expertise
                         </h2>
 
-                        <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-xl">
+                        <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
                             Dr. Khemani specializes in a wide spectrum of orthopedic treatments, utilizing cutting-edge technology for superior outcomes.
                         </p>
 
                         {/* Treatment Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                             {treatments.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="expertise-item flex items-center gap-5 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:bg-leaf-600 hover:border-transparent hover:shadow-none group cursor-default opacity-0"
+                                    className="expertise-item flex items-center gap-4 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:bg-leaf-600 hover:border-transparent hover:shadow-none group cursor-default opacity-0"
                                 >
                                     {/* Icon Container */}
-                                    <div className="w-14 h-14 rounded-2xl bg-leaf-50 flex items-center justify-center shrink-0 group-hover:bg-white transition-colors duration-300">
-                                        <item.icon className="w-7 h-7 text-leaf-600 group-hover:text-leaf-600 transition-colors duration-300" strokeWidth={1.5} />
+                                    <div className="w-12 h-12 rounded-xl bg-leaf-50 flex items-center justify-center shrink-0 group-hover:bg-white transition-colors duration-300">
+                                        <item.icon className="w-6 h-6 text-leaf-600 group-hover:text-leaf-600 transition-colors duration-300" strokeWidth={1.5} />
                                     </div>
 
                                     {/* Text Content */}
-                                    <span className="font-bold text-gray-800 text-base group-hover:text-white transition-colors duration-300">
+                                    <span className="font-bold text-gray-800 text-[15px] group-hover:text-white transition-colors duration-300 leading-tight">
                                         {item.label}
                                     </span>
 
