@@ -236,7 +236,7 @@ export default function Blogs() {
                                     <div className="bg-white rounded-[18px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-500 h-full flex flex-col">
 
                                         {/* Image */}
-                                        <div className="relative h-[240px] overflow-hidden img-glass">
+                                        <div className="relative h-[240px] overflow-hidden">
                                             <img
                                                 src={blog.image}
                                                 alt={blog.title}

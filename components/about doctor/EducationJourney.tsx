@@ -51,8 +51,8 @@ export default function EducationJourney() {
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
 
                 {/* Header Section */}
-                <div className="edu-header grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-16">
-                    <div>
+                <div className="edu-header flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-16 mb-16 text-center lg:text-left items-center lg:items-end">
+                    <div className="flex flex-col items-center lg:items-start">
                         <div className="inline-block px-3 py-1 rounded-full border border-leaf-200 bg-leaf-50 text-leaf-600 text-xs font-bold tracking-widest uppercase mb-4">
                             EDUCATION & PROFESSIONAL JOURNEY
                         </div>
@@ -60,7 +60,7 @@ export default function EducationJourney() {
                             Academic Odyssey & <br />Clinical Mastery
                         </h2>
                     </div>
-                    <div className="text-gray-600 text-[15px] leading-relaxed text-justify font-medium">
+                    <div className="text-gray-600 text-[15px] leading-relaxed text-center lg:text-justify font-medium max-w-2xl">
                         Dr. Manoj Kumar Khemani is a leading Consultant Orthopaedic Surgeon with extensive experience in joint replacements, trauma surgeries, and arthroscopy. He believes that a strong foundation in medical education combined with continuous learning and specialized training is key to delivering world-class patient care. His journey reflects a relentless pursuit of excellence in the field of orthopaedics.
                     </div>
                 </div>

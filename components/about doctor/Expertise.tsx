@@ -65,7 +65,7 @@ export default function ExpertiseAndAffiliations() {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
 
                     {/* Left Column: Content */}
-                    <div className="flex flex-col justify-center">
+                    <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
                         {/* Badge */}
                         <div className="mb-4">
                             <div className="inline-block px-4 py-1.5 rounded-full border border-leaf-200 bg-leaf-50 text-leaf-600 text-xs font-bold tracking-[0.2em] uppercase">

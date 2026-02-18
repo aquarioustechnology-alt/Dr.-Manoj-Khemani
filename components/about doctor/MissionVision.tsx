@@ -109,7 +109,7 @@ export default function MissionVision() {
                     {/* Right Side: Content */}
                     <div className="order-1 lg:order-2">
                         {/* Header */}
-                        <div className="mv-header mb-10 opacity-0">
+                        <div className="mv-header mb-10 opacity-0 flex flex-col items-center text-center lg:items-start lg:text-left">
                             <div className="inline-block px-4 py-1.5 rounded-full border border-leaf-200 bg-leaf-50 text-leaf-600 text-xs font-bold tracking-[0.2em] uppercase mb-6">
                                 OUR PHILOSOPHY
                             </div>

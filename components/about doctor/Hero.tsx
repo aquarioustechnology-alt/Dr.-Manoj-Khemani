@@ -60,12 +60,12 @@ export default function AboutHero() {
     }, [])
 
     return (
-        <section ref={heroRef} className="relative lg:sticky top-0 z-0 pt-32 pb-48 lg:pt-40 lg:pb-24 bg-gradient-to-b from-[#f8faf5] to-white overflow-hidden">
-            <div className="max-w-7.5xl mx-auto px-3 lg:px-5">
-                <div className="grid lg:grid-cols-[1.4fr_0.8fr] gap-12 lg:gap-16 items-start">
+        <section ref={heroRef} className="relative lg:sticky top-0 z-0 pt-[160px] pb-24 lg:pt-40 lg:pb-24 bg-gradient-to-b from-[#f8faf5] to-white overflow-hidden">
+            <div className="max-w-7.5xl mx-auto px-4 lg:px-5">
+                <div className="grid lg:grid-cols-[1.4fr_0.8fr] gap-16 lg:gap-16 items-start lg:items-center">
 
                     {/* Left Content */}
-                    <div className="relative z-10 pt-4">
+                    <div className="relative z-10 pt-4 flex flex-col items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
                         {/* Badge */}
                         <div className="hero-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-leaf-50 border border-leaf-200 text-leaf-700 text-xs font-bold uppercase tracking-wider mb-6">
                             <span className="w-2 h-2 rounded-full bg-leaf-500 animate-pulse"></span>
@@ -73,58 +73,58 @@ export default function AboutHero() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="hero-title text-[32px] sm:text-[42px] md:text-[50px] lg:text-[56px] xl:text-[64px] 2xl:text-[74px] font-bold leading-[1.05] mb-6">
+                        <h1 className="hero-title text-[38px] sm:text-[48px] md:text-[54px] lg:text-[56px] xl:text-[64px] 2xl:text-[74px] font-bold leading-[1.1] mb-6">
                             <span className="text-leaf-500">Meet Dr. Manoj Khemani,</span> <br className="hidden lg:block" />
                             <span className="text-gray-900">Leading Orthopaedic Surgeons in Kolkata</span>
                         </h1>
 
                         {/* Credentials List */}
-                        <div className="hero-credentials flex flex-col gap-1 mb-8 border-l-4 border-red-500 pl-6 py-1">
-                            <h3 className="text-xl font-bold text-gray-800 mb-1">Robotic Joint Replacement & Orthopaedic Surgeon</h3>
-                            <p className="text-gray-600 font-medium">MS in Orthopedics, Texila American University</p>
-                            <p className="text-gray-600 font-medium">Mch. Ortho degree, University of Seychelles</p>
+                        <div className="hero-credentials flex flex-col gap-1 mb-8 lg:border-l-4 lg:border-red-500 lg:pl-6 py-1 border-none pl-0">
+                            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1">Robotic Joint Replacement & Orthopaedic Surgeon</h3>
+                            <p className="text-gray-600 font-medium text-lg">MS in Orthopedics, Texila American University</p>
+                            <p className="text-gray-600 font-medium text-lg">Mch. Ortho degree, University of Seychelles</p>
                         </div>
 
                         {/* Feature Pills */}
-                        <div className="hero-features flex flex-col sm:flex-row flex-wrap lg:flex-nowrap gap-x-6 gap-y-3 mb-10">
+                        <div className="hero-features flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-4 mb-10">
                             {[
                                 "High success rates",
                                 "Expert specialists",
                                 "Experienced Surgeon"
                             ].map((feature, idx) => (
-                                <div key={idx} className="flex items-center gap-2 whitespace-nowrap">
+                                <div key={idx} className="flex items-center gap-2.5 whitespace-nowrap">
                                     <div className="w-6 h-6 rounded-full bg-leaf-500 flex items-center justify-center shadow-sm shrink-0">
-                                        <CheckCircle2 size={14} className="text-white stroke-[3]" />
+                                        <CheckCircle2 size={13} className="text-white stroke-[3]" />
                                     </div>
-                                    <span className="font-semibold text-gray-700 text-base tracking-wide">{feature}</span>
+                                    <span className="font-bold text-gray-700 text-base sm:text-lg tracking-wide">{feature}</span>
                                 </div>
                             ))}
                         </div>
 
                         {/* Buttons */}
-                        <div className="hero-actions flex flex-wrap gap-4 items-center">
+                        <div className="hero-actions flex flex-wrap justify-center lg:justify-start gap-4 items-center">
                             <Button
                                 onClick={openModal}
-                                className="!bg-[#95BF1B] hover:!bg-[#85AF0B] text-white !h-[56px] px-8 text-base shadow-lg shadow-leaf-500/30"
+                                className="!bg-[#95BF1B] hover:!bg-[#85AF0B] text-white !h-[58px] px-10 text-base font-bold shadow-lg shadow-leaf-500/30"
                             >
                                 Book a Consultation
                             </Button>
 
                             <button
-                                className="group inline-flex items-center justify-start gap-4 pl-1 pr-6 py-1.5 bg-white text-gray-900 rounded-full font-medium transition-all hover:bg-leaf-50 h-[56px]"
-                                style={{ border: '1px solid #95BF1B' }}
+                                className="group inline-flex items-center justify-start gap-4 pl-1 pr-7 py-1.5 bg-white text-gray-900 rounded-full font-bold transition-all hover:bg-leaf-50 h-[58px]"
+                                style={{ border: '1.5px solid #95BF1B' }}
                             >
                                 <div className="w-11 h-11 rounded-full bg-leaf-100 flex items-center justify-center group-hover:bg-leaf-500 group-hover:text-white transition-colors text-leaf-600 shrink-0">
                                     <Clock size={20} className="stroke-[2.5]" />
                                 </div>
-                                <span className="whitespace-nowrap text-sm font-semibold">Clinic Timings</span>
+                                <span className="whitespace-nowrap text-base">Clinic Timings</span>
                             </button>
                         </div>
                     </div>
 
                     {/* Right Image Section */}
-                    <div className="hero-image relative lg:h-[650px] flex items-end justify-center lg:justify-end mt-8 lg:mt-0">
-                        <div className="relative w-full max-w-md lg:max-w-[500px] aspect-[4/5] rounded-3xl overflow-hidden border-[6px] border-white bg-white shadow-2xl img-glass">
+                    <div className="hero-image relative flex items-center justify-center mt-12 lg:mt-0 order-2 lg:order-2 w-full">
+                        <div className="relative w-full max-w-[420px] lg:max-w-[500px] aspect-[4/5] rounded-[2rem] lg:rounded-3xl overflow-hidden border-[6px] border-white bg-white shadow-2xl img-glass">
                             <img
                                 src="/images/homepage/Doctor Headshot 2.png"
                                 alt="Dr. Manoj Khemani - Leading Orthopedic Surgeon"
