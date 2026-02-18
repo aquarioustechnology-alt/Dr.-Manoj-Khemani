@@ -3,6 +3,7 @@ import './globals.css'
 import FloatingActions from '@/components/common/FloatingActions'
 import { AppointmentProvider } from '@/context/AppointmentContext'
 import TopStrip from '@/components/common/TopStrip'
+import CustomCursor from '@/components/common/CustomCursor'
 
 export const metadata: Metadata = {
   title: 'Dr. Manoj Khemani | Best Orthopedic Surgeon & Robotic Joint Replacement Expert in Kolkata',
@@ -94,6 +95,7 @@ export default function RootLayout({
           <TopStrip />
           {children}
           <FloatingActions />
+          <CustomCursor />
         </AppointmentProvider>
       </body>
     </html>

@@ -1,113 +1,143 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
+import { Bot, Accessibility, Activity, Bone, ShieldPlus, HelpingHand, Link as LinkIcon, Snowflake } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CheckCircle2, Award } from 'lucide-react'
+import { useGSAP } from '@gsap/react'
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
 }
 
-const EXPERTISE = [
-    "Robotic Joint Replacements",
-    "Augmented Reality Knee Replacement",
-    "Arthroscopy (Key-hole Surgery)",
-    "Total Knee Replacement",
-    "Hip Replacement Surgery",
-    "Complex Fracture Treatment",
-    "Sports Injuries Management",
-    "Ligament Repairs (ACL/PCL)",
-    "Minimally Invasive Surgery",
-    "Osteoporosis Treatment"
+const treatments = [
+    { label: 'Robotic Joint Replacement', icon: Bot },
+    { label: 'AR VR Knee Replacement', icon: Accessibility },
+    { label: 'Hip Replacement', icon: Activity },
+    { label: 'Bone Fracture Treatment', icon: Bone },
+    { label: 'Osteoporosis Treatment', icon: ShieldPlus },
+    { label: 'Arthritis Treatment', icon: HelpingHand },
+    { label: 'Ligament Injuries', icon: LinkIcon },
+    { label: 'Frozen Shoulder Treatment', icon: Snowflake },
 ]
 
-const AFFILIATIONS = [
-    "Life Member of Indian Medical Association",
-    "Life Member of Indian Orthopedic Association",
-    "Life Member of West Bengal Orthopaedic Association",
-    "Life Member of Kolkata Arthroscopy & Sports Surgery Society",
-    "Life Member of Trauma Society of India",
-    "Life Member of Indian Arthroplasty Association",
-    "Life Member of Indian Society of Hip & Knee Surgeons",
-    "Life Member of Indian Arthroscopy Society"
+const sliderImages = [
+    "/images/homepage/Dr Image 8-Picsart-AiImageEnhancer.webp",
+    "/images/homepage/Dr Image 6-Picsart-AiImageEnhancer.webp",
+    "/images/homepage/Dr Image 20-Picsart-AiImageEnhancer.webp",
+    "/images/homepage/Dr Image 12-Picsart-AiImageEnhancer.webp"
 ]
 
 export default function ExpertiseAndAffiliations() {
-    const sectionRef = useRef(null)
+    const containerRef = useRef(null)
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+    // Auto-scroll images
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from('.expertise-item', {
-                scrollTrigger: {
-                    trigger: '.expertise-grid',
-                    start: 'top 85%',
-                },
-                y: 20,
-                opacity: 0,
-                duration: 0.5,
-                stagger: 0.1,
-                ease: 'power2.out'
-            })
-
-            gsap.from('.affiliation-item', {
-                scrollTrigger: {
-                    trigger: '.affiliations-list',
-                    start: 'top 85%',
-                },
-                x: -20,
-                opacity: 0,
-                duration: 0.5,
-                stagger: 0.1,
-                ease: 'power2.out'
-            })
-        }, sectionRef)
-
-        return () => ctx.revert()
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % sliderImages.length)
+        }, 3000)
+        return () => clearInterval(interval)
     }, [])
 
-    return (
-        <section ref={sectionRef} className="py-20 lg:py-24 bg-white overflow-hidden relative z-20">
-            <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+    useGSAP(() => {
+        gsap.from('.expertise-item', {
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top 80%',
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out'
+        })
+    }, { scope: containerRef })
 
-                    {/* Expertise Section */}
+    return (
+        <section className="py-20 lg:py-24 bg-white relative z-20 overflow-hidden">
+            <div ref={containerRef} className="max-w-7.5xl mx-auto px-6 lg:px-8">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                    {/* Left Column: Content */}
                     <div>
-                        <div className="mb-8">
-                            <span className="text-leaf-500 font-bold uppercase tracking-widest text-sm">Clinical Excellence</span>
-                            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-3">Areas of Expertise</h2>
+                        {/* Badge */}
+                        <div className="mb-6">
+                            <div className="inline-block px-4 py-1.5 rounded-full border border-leaf-200 bg-leaf-50 text-leaf-600 text-xs font-bold tracking-[0.2em] uppercase">
+                                CLINICAL EXCELLENCE
+                            </div>
                         </div>
-                        <p className="text-gray-600 mb-8 text-lg">
+
+                        {/* Heading */}
+                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.1] mb-6">
+                            Areas of Expertise
+                        </h2>
+
+                        <p className="text-lg text-gray-600 mb-10 leading-relaxed max-w-xl">
                             Dr. Khemani specializes in a wide spectrum of orthopedic treatments, utilizing cutting-edge technology for superior outcomes.
                         </p>
-                        <div className="expertise-grid grid sm:grid-cols-2 gap-4">
-                            {EXPERTISE.map((item, index) => (
-                                <div key={index} className="expertise-item flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-leaf-200 hover:bg-leaf-50 transition-colors group">
-                                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-leaf-500 shadow-sm group-hover:bg-leaf-500 group-hover:text-white transition-colors">
-                                        <CheckCircle2 size={16} />
+
+                        {/* Treatment Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {treatments.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="expertise-item flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-leaf-200 transition-all duration-300 group"
+                                >
+                                    <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 group-hover:bg-leaf-500 group-hover:text-white transition-colors border border-gray-100">
+                                        <item.icon className="w-5 h-5 text-leaf-600 group-hover:text-white transition-colors" />
                                     </div>
-                                    <span className="font-semibold text-gray-800 text-sm md:text-base">{item}</span>
+                                    <span className="font-semibold text-gray-800 text-[15px] group-hover:text-leaf-700 transition-colors">
+                                        {item.label}
+                                    </span>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Affiliations Section */}
+                    {/* Right Column: Image Slider */}
                     <div className="relative">
-                        <div className="absolute inset-0 bg-leaf-50/50 rounded-[3rem] -rotate-3 scale-105 -z-10"></div>
-                        <div className="bg-white rounded-[2.5rem] p-8 lg:p-12 shadow-xl border border-gray-100 h-full">
-                            <div className="mb-8">
-                                <span className="text-leaf-500 font-bold uppercase tracking-widest text-sm">Professional Standing</span>
-                                <h2 className="text-3xl font-bold text-gray-900 mt-3">Memberships & Affiliations</h2>
-                            </div>
-                            <ul className="affiliations-list space-y-4">
-                                {AFFILIATIONS.map((item, index) => (
-                                    <li key={index} className="affiliation-item flex items-start gap-4">
-                                        <Award className="text-leaf-500 shrink-0 mt-1" size={20} />
-                                        <span className="text-gray-700 font-medium text-lg leading-relaxed">{item}</span>
-                                    </li>
+                        <div className="relative h-[500px] lg:h-[600px] w-full overflow-hidden shadow-2xl"
+                            style={{ borderRadius: '10px 80px 10px 10px' }}>
+
+                            {sliderImages.map((src, index) => (
+                                <div
+                                    key={index}
+                                    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                                        }`}
+                                >
+                                    <Image
+                                        src={src}
+                                        alt={`Dr. Manoj Khemani Expertise ${index + 1}`}
+                                        fill
+                                        className="object-cover object-top"
+                                        priority={index === 0}
+                                    />
+                                    {/* Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                </div>
+                            ))}
+
+                            {/* Slider Indicators */}
+                            <div className="absolute bottom-6 left-6 flex gap-2 z-20">
+                                {sliderImages.map((_, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setCurrentImageIndex(index)}
+                                        className={`h-1.5 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'
+                                            }`}
+                                        aria-label={`Go to slide ${index + 1}`}
+                                    />
                                 ))}
-                            </ul>
+                            </div>
+                        </div>
+
+                        {/* Decorative Elements */}
+                        <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-leaf-50 rounded-full blur-3xl opacity-50"></div>
+                        <div className="absolute -z-10 -top-10 -left-10 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+                        <div className="absolute right-[-20px] top-10 pointer-events-none">
+                            <div className="w-3 h-3 bg-leaf-400 rounded-full opacity-60"></div>
                         </div>
                     </div>
 

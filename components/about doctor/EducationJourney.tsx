@@ -47,7 +47,7 @@ export default function EducationJourney() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="py-20 lg:py-24 bg-gray-50 relative z-20 overflow-hidden">
+        <section ref={sectionRef} className="pt-20 lg:pt-24 pb-16 lg:pb-20 bg-gray-50 relative z-20 overflow-hidden">
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
 
                 {/* Header Section */}

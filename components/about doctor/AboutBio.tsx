@@ -60,7 +60,7 @@ export default function AboutBio() {
                         </div>
 
                         {/* Main Image */}
-                        <div className="relative z-10 w-[85%] overflow-hidden">
+                        <div className="relative z-10 w-[85%] overflow-hidden img-shine rounded-3xl">
                             <img
                                 src="/images/homepage/About%20us%20section%20image.png"
                                 alt="Dr. Manoj Khemani"
