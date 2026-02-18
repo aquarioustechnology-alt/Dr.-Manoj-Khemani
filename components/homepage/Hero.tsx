@@ -78,7 +78,7 @@ export default function Hero() {
 
     return (
         <section className={`relative lg:sticky top-0 z-0 w-full bg-[#f8faf5] transition-all duration-300 lg:overflow-visible 2xl:overflow-hidden ${isVideoOpen ? 'z-[60]' : 'z-0'}`}>
-            <div ref={contentRef} className="relative min-h-[600px] md:min-h-[650px] lg:min-h-[720px] xl:min-h-[750px] 2xl:min-h-[850px] flex flex-col lg:block">
+            <div ref={contentRef} className="relative min-h-[600px] md:min-h-[650px] lg:min-h-[600px] xl:min-h-[650px] 2xl:min-h-[850px] flex flex-col lg:block">
 
                 {/* Right Side - Doctor Image (absolute, flush top-right, 200px bottom-left curve) */}
                 <div
@@ -189,7 +189,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="relative z-10 max-w-7.5xl mx-auto px-3 lg:px-5 pt-44 lg:pt-[160px] xl:pt-[170px] 2xl:pt-[180px] pb-8 lg:pb-[40px] xl:pb-[50px] 2xl:pb-[90px] order-1 lg:order-none flex flex-col items-center lg:block lg:text-left text-center">
+                <div className="relative z-10 max-w-7.5xl mx-auto px-3 lg:px-5 pt-44 lg:pt-[105px] xl:pt-[115px] 2xl:pt-[180px] pb-8 lg:pb-[30px] xl:pb-[40px] 2xl:pb-[90px] order-1 lg:order-none flex flex-col items-center lg:block lg:text-left text-center">
                     <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-[55%] xl:max-w-[58%] 2xl:max-w-[58%] w-full">
                         {/* Badge */}
                         <div className="hero-content-item mb-4 sm:mb-5">
@@ -199,7 +199,7 @@ export default function Hero() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="hero-content-item text-[32px] sm:text-[42px] md:text-[50px] lg:text-[38px] xl:text-[46px] 2xl:text-[80px] font-bold text-text-primary mb-3 sm:mb-6 leading-[1.05] mx-auto lg:mx-0">
+                        <h1 className="hero-content-item text-[32px] sm:text-[42px] md:text-[50px] lg:text-[32px] xl:text-[38px] 2xl:text-[80px] font-bold text-text-primary mb-2 sm:mb-6 leading-[1.05] mx-auto lg:mx-0">
                             Kolkata’s Leading Robotic Joint Replacement Expert, <span className="text-leaf-500 2xl:whitespace-nowrap">Dr. Manoj Khemani</span>
                         </h1>
 
@@ -231,7 +231,7 @@ export default function Hero() {
                 </div>
 
                 {/* Orthopaedic Badge - Floating above reviews */}
-                <div className="hero-content-item hidden lg:flex absolute bottom-[45%] lg:bottom-[48%] xl:bottom-[45%] 2xl:bottom-[38%] left-[60%] xl:left-[63%] 2xl:left-[60%] z-20 items-center gap-4 bg-white/95 backdrop-blur-sm rounded-[20px] pl-2 pr-8 py-2 shadow-xl ring-1 ring-leaf-200/50 transition-all duration-500">
+                <div className="hero-content-item hidden lg:flex absolute bottom-[48%] lg:bottom-[54%] xl:bottom-[50%] 2xl:bottom-[38%] left-[60%] xl:left-[63%] 2xl:left-[60%] z-20 items-center gap-4 bg-white/95 backdrop-blur-sm rounded-[20px] pl-2 pr-8 py-2 shadow-xl ring-1 ring-leaf-200/50 transition-all duration-500">
                     <div className="w-14 h-14 rounded-[10px] bg-leaf-500 flex items-center justify-center shrink-0 transition-transform duration-500">
                         {(() => {
                             const Icon = BADGE_CONTENT[currentBadgeIndex].icon
@@ -245,7 +245,7 @@ export default function Hero() {
                 </div>
 
                 {/* Google Reviews - Desktop: positioned at bottom-right area near image curve */}
-                <div className="hero-content-item hidden lg:block absolute bottom-[15%] lg:bottom-[18%] xl:bottom-[15%] 2xl:bottom-[10%] left-[60%] xl:left-[63%] 2xl:left-[60%] z-20">
+                <div className="hero-content-item hidden lg:block absolute bottom-[18%] lg:bottom-[22%] xl:bottom-[20%] 2xl:bottom-[10%] left-[60%] xl:left-[63%] 2xl:left-[60%] z-20">
                     <div className="flex flex-col bg-white rounded-[20px] overflow-hidden shadow-2xl transition-all w-fit max-w-[330px] ring-1 ring-leaf-200/60" style={{ boxShadow: '0 8px 40px rgba(149, 191, 27, 0.15), 0 4px 20px rgba(0,0,0,0.08)' }}>
                         {/* Green accent bar */}
                         <div className="h-1 w-full bg-gradient-to-r from-leaf-400 via-leaf-500 to-leaf-400" />
