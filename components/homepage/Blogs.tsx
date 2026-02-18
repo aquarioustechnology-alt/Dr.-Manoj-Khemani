@@ -103,14 +103,38 @@ const blogs = [
     },
 ]
 
-const CARDS_PER_VIEW = 3
+const CARDS_PER_VIEW_DESKTOP = 3
 
 export default function Blogs() {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [cardsPerView, setCardsPerView] = useState(CARDS_PER_VIEW_DESKTOP)
     const sectionRef = useRef<HTMLElement>(null)
     const trackRef = useRef<HTMLDivElement>(null)
 
-    const maxIndex = blogs.length - CARDS_PER_VIEW
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) {
+                setCardsPerView(1)
+            } else if (window.innerWidth < 1024) {
+                setCardsPerView(2)
+            } else {
+                setCardsPerView(CARDS_PER_VIEW_DESKTOP)
+            }
+        }
+
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    const maxIndex = Math.max(0, blogs.length - cardsPerView)
+
+    // Clamp index on resize
+    useEffect(() => {
+        if (currentIndex > maxIndex) {
+            setCurrentIndex(maxIndex)
+        }
+    }, [cardsPerView, maxIndex, currentIndex])
 
     useEffect(() => {
         if (!sectionRef.current) return
@@ -156,8 +180,8 @@ export default function Blogs() {
             <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
 
                 {/* Header */}
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14 blog-reveal-left">
-                    <div>
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-6 lg:mb-14 blog-reveal-left">
+                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-gray-600 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                             Blog & Insights
@@ -167,8 +191,8 @@ export default function Blogs() {
                         </h2>
                     </div>
 
-                    {/* Navigation Arrows */}
-                    <div className="flex items-center gap-3">
+                    {/* Navigation Arrows - Desktop */}
+                    <div className="hidden lg:flex items-center gap-3">
                         <button
                             onClick={goPrev}
                             disabled={currentIndex === 0}
@@ -200,7 +224,7 @@ export default function Blogs() {
                         ref={trackRef}
                         className="flex transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]"
                         style={{
-                            transform: `translateX(-${currentIndex * (100 / CARDS_PER_VIEW)}%)`,
+                            transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
                         }}
                     >
                         {blogs.map((blog) => (
@@ -265,18 +289,47 @@ export default function Blogs() {
                     </div>
                 </div>
 
-                {/* Progress Dots */}
-                <div className="flex items-center justify-center gap-2 mt-10 blog-reveal-right">
-                    {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                {/* Progress Dots / Mobile Arrows */}
+                <div className="flex flex-col items-center justify-center gap-6 mt-10 blog-reveal-right">
+
+                    {/* Centered Arrows for Mobile/Tablet */}
+                    <div className="flex lg:hidden items-center justify-center gap-3">
                         <button
-                            key={i}
-                            onClick={() => setCurrentIndex(i)}
-                            className={`h-1.5 rounded-full transition-all duration-500 ${currentIndex === i
-                                ? 'w-8 bg-leaf-500'
-                                : 'w-3 bg-gray-300 hover:bg-gray-400'
+                            onClick={goPrev}
+                            disabled={currentIndex === 0}
+                            className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-transparent ${currentIndex === 0
+                                ? 'text-gray-300 cursor-not-allowed'
+                                : 'text-[#1A1A1A] hover:bg-leaf-500 hover:!border-leaf-500 hover:text-white'
                                 }`}
-                        />
-                    ))}
+                            style={{ border: currentIndex === 0 ? '1.5px solid #e5e7eb' : '1.5px solid rgba(0,0,0,0.8)' }}
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button
+                            onClick={goNext}
+                            disabled={currentIndex >= maxIndex}
+                            className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-transparent ${currentIndex >= maxIndex
+                                ? 'text-gray-300 cursor-not-allowed'
+                                : 'text-[#1A1A1A] hover:bg-leaf-500 hover:!border-leaf-500 hover:text-white'
+                                }`}
+                            style={{ border: currentIndex >= maxIndex ? '1.5px solid #e5e7eb' : '1.5px solid rgba(0,0,0,0.8)' }}
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+
+                    <div className="flex items-center justify-center gap-2">
+                        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setCurrentIndex(i)}
+                                className={`h-1.5 rounded-full transition-all duration-500 ${currentIndex === i
+                                    ? 'w-8 bg-leaf-500'
+                                    : 'w-3 bg-gray-300 hover:bg-gray-400'
+                                    }`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
