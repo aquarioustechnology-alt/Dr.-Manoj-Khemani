@@ -200,7 +200,7 @@ export default function Hero() {
 
                         {/* Heading */}
                         <h1 className="hero-content-item text-[32px] sm:text-[42px] md:text-[50px] lg:text-[56px] xl:text-[68px] 2xl:text-[80px] font-bold text-text-primary mb-4 sm:mb-6 leading-[1.05] mx-auto lg:mx-0">
-                            Kolkata’s Trusted Robotic Joint Replacement Expert, <span className="text-leaf-500 2xl:whitespace-nowrap">Dr. Manoj Khemani</span>
+                            Kolkata’s Leading Robotic Joint Replacement Expert, <span className="text-leaf-500 2xl:whitespace-nowrap">Dr. Manoj Khemani</span>
                         </h1>
 
                         <p className="hero-content-item text-[15px] sm:text-base lg:text-lg text-black mb-8 sm:mb-10 max-w-md lg:max-w-xl leading-relaxed mx-auto lg:mx-0">

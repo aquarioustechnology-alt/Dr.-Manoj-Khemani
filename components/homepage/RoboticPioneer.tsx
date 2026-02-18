@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
 
 const features = [
     {
-        title: "Sub-Millimetric Precision",
+        title: "Cutting Edge Technology",
         image: "/images/homepage/AR VR machine image.png",
         description: "Achieving accuracy beyond the human eye for perfect alignment."
     },
@@ -85,11 +85,11 @@ export default function RoboticPioneer() {
                     </div>
 
                     <h2 className="rp-header-item text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
-                        He is The <span className="text-leaf-500">Pioneer</span> in AI & Robotic Joint Replacement
+                        He is the one who Introduced <span className="text-leaf-500">AR-VR Knee Replacement Surgery</span>
                     </h2>
 
-                    <p className="rp-header-item text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-10">
-                        Dr. Manoj Khemani, Best Joint replacement surgeon based in Kolkata with experience of more than 2,000+ joint replacement surgeries in last 22+ years.
+                    <p className="rp-header-item text-lg text-black italic leading-relaxed max-w-3xl mx-auto mb-10">
+                        Dr. Manoj Khemani, recognized as the Best Knee Replacement Surgeon in Kolkata, leverages advanced AR-VR technology to ensure 100% precision in every surgery. With over 22 years of expertise and 2,000+ successful joint replacements, his pioneering approach minimizes recovery time and maximizes implant longevity, offering patients a life-changing return to mobility.
                     </p>
 
                     <div className="rp-header-item flex flex-wrap justify-center gap-4 w-full sm:w-auto">

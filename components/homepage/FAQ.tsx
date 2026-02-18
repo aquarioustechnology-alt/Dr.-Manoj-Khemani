@@ -46,7 +46,7 @@ const faqItems = [
 ]
 
 export default function FAQ() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0)
+    const [openIndex, setOpenIndex] = useState<number | null>(null)
     const sectionRef = useRef<HTMLElement>(null)
 
     useEffect(() => {
@@ -148,13 +148,20 @@ export default function FAQ() {
                 </div>
 
                 {/* View All Button - Centered */}
-                <div className="flex justify-center faq-reveal-right">
+                <div className="flex flex-row justify-center gap-3 sm:gap-4 faq-reveal-right">
                     <Button
                         href="/faq"
-                        className="!bg-[#1A1A1A] hover:!bg-[#333] !h-[52px]"
+                        className="!bg-[#1A1A1A] hover:!bg-[#333] !h-[52px] px-4 sm:!pl-1 sm:!pr-6 text-xs sm:text-base whitespace-nowrap"
                         iconClassName="text-black"
                     >
                         View All FAQs
+                    </Button>
+                    <Button
+                        href="/common-myths"
+                        className="!bg-leaf-500 hover:!bg-leaf-600 !h-[52px] px-4 sm:!pl-1 sm:!pr-6 text-xs sm:text-base whitespace-nowrap !text-white"
+                        iconClassName="text-leaf-500"
+                    >
+                        Common Myths
                     </Button>
                 </div>
             </div>

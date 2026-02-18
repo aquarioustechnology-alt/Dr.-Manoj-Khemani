@@ -150,7 +150,7 @@ export default function ARVRSection() {
                                 Next-Gen Surgical Precision
                             </div>
                             <h2 className="arv-heading text-4xl sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.05] font-bold text-[#1A1A1A] tracking-tight mb-8">
-                                For the First Time in Kolkata, Dr. Khemani Introduces <span className="text-leaf-500">Robotic Joint Replacement</span>
+                                Dr. Khemani is a Pioneer and one of the Early Adopters of <span className="text-leaf-500">Robotic Joint Replacement</span>
                             </h2>
                             <p className="arv-paragraph text-[15px] text-gray-600 leading-relaxed font-medium">
                                 Dr. Manoj Khemani introduced robotic joint replacement technology in Kolkata, setting a new benchmark in orthopaedic surgery. With this advanced system, he delivers greater surgical precision, better joint alignment, and faster recovery outcomes — giving patients access to next-generation joint care right here in the city.
