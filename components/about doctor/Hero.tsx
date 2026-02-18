@@ -60,7 +60,7 @@ export default function AboutHero() {
     }, [])
 
     return (
-        <section ref={heroRef} className="relative lg:sticky top-0 z-0 pt-[160px] pb-24 lg:pt-[150px] lg:pb-16 xl:pt-[160px] xl:pb-20 2xl:pt-40 2xl:pb-24 bg-gradient-to-b from-[#f8faf5] to-white lg:overflow-visible 2xl:overflow-hidden">
+        <section ref={heroRef} className="relative lg:sticky top-0 z-0 pt-[160px] pb-24 lg:pt-[170px] lg:pb-16 xl:pt-[170px] xl:pb-20 2xl:pt-[170px] 2xl:pb-24 bg-gradient-to-b from-[#f8faf5] to-white lg:overflow-visible 2xl:overflow-hidden">
             <div className="max-w-7.5xl mx-auto px-4 lg:px-5">
                 <div className="grid lg:grid-cols-[1.4fr_0.8fr] gap-16 lg:gap-16 items-start lg:items-center">
 
@@ -73,16 +73,16 @@ export default function AboutHero() {
                         </div>
 
                         {/* Heading */}
-                        <h1 className="hero-title text-[38px] sm:text-[48px] md:text-[54px] lg:text-[36px] xl:text-[42px] 2xl:text-[74px] font-bold leading-[1.1] mb-4 sm:mb-6">
+                        <h1 className="hero-title text-[38px] sm:text-[48px] md:text-[54px] lg:text-[54px] xl:text-[60px] 2xl:text-[60px] font-bold leading-[1.1] mb-4 sm:mb-6">
                             <span className="text-leaf-500">Meet Dr. Manoj Khemani,</span> <br className="hidden lg:block text-gray-900" />
                             <span className="text-gray-900">Leading Orthopaedic Surgeons in Kolkata</span>
                         </h1>
 
                         {/* Credentials List */}
-                        <div className="hero-credentials flex flex-col gap-1 mb-6 lg:mb-8 border-l-0 lg:border-l-4 lg:border-red-500 lg:pl-6 py-1 pl-0">
+                        <div className="hero-credentials flex flex-col gap-1 mb-4 lg:mb-6 xl:mb-8 border-l-0 lg:border-l-4 lg:border-red-500 lg:pl-6 py-1 pl-0">
                             <h3 className="text-xl lg:text-lg xl:text-xl 2xl:text-2xl font-bold text-gray-800 mb-1">Robotic Joint Replacement & Orthopaedic Surgeon</h3>
-                            <p className="text-gray-600 font-medium text-base xl:text-lg">MS in Orthopedics, Texila American University</p>
-                            <p className="text-gray-600 font-medium text-base xl:text-lg">Mch. Ortho degree, University of Seychelles</p>
+                            <p className="text-gray-600 font-medium text-sm xl:text-lg">MS in Orthopedics, Texila American University</p>
+                            <p className="text-gray-600 font-medium text-sm xl:text-lg">Mch. Ortho degree, University of Seychelles</p>
                         </div>
 
                         {/* Feature Pills */}
@@ -137,7 +137,7 @@ export default function AboutHero() {
                             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
 
                             {/* Floating Stats Cards */}
-                            <div className="absolute bottom-10 left-4 right-4 grid grid-cols-3 gap-3">
+                            <div className="absolute bottom-6 lg:bottom-12 xl:bottom-10 2xl:bottom-10 left-4 right-4 grid grid-cols-3 gap-3">
                                 <div className="stat-card bg-white p-4 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] text-center border border-gray-50 hover:-translate-y-1 transition-transform duration-300">
                                     <div className="text-leaf-500 font-bold text-2xl lg:text-3xl mb-1 flex justify-center">
                                         <AnimatedCounter end={24} suffix="+" />
