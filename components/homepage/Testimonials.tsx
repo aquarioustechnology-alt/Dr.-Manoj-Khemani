@@ -121,7 +121,7 @@ export default function Testimonials() {
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/80 text-[12px] font-bold tracking-[0.2em] uppercase mb-4">
                                 Patient Success Stories
                             </div>
-                            <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold tracking-tight">
+                            <h2 className="text-4xl sm:text-5xl lg:text-[46px] leading-[1.1] font-bold tracking-tight">
                                 Unique Approach To Your <br />
                                 <span className="text-leaf-400">Health Needs</span>
                             </h2>

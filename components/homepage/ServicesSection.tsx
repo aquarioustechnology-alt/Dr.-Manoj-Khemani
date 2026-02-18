@@ -102,7 +102,7 @@ export default function ServicesSection() {
                         <span className="w-2 h-2 rounded-full bg-[#EC1D24]"></span>
                         Our Services
                     </div>
-                    <h2 className="services-header-item text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight whitespace-normal lg:whitespace-nowrap">
+                    <h2 className="services-header-item text-4xl sm:text-5xl lg:text-[3.375rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight whitespace-normal lg:whitespace-nowrap">
                         Most Trusted Orthopaedic <br className="hidden lg:block" />
                         <span className="text-leaf-500">Care in Kolkata</span>
                     </h2>

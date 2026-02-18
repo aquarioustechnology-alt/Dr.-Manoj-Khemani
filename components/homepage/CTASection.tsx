@@ -132,7 +132,7 @@ export default function CTASection() {
                         <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                         Visit Our Clinics
                     </div>
-                    <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight">
+                    <h2 className="text-4xl sm:text-5xl lg:text-[46px] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight">
                         Begin Your Path to <span className="text-leaf-500">Pain-Free Living</span>
                     </h2>
                 </div>

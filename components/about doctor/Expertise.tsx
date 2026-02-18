@@ -74,7 +74,7 @@ export default function ExpertiseAndAffiliations() {
                         </div>
 
                         {/* Heading */}
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.1] mb-5">
+                        <h2 className="text-4xl lg:text-[46px] font-bold text-gray-900 leading-[1.1] mb-5">
                             Areas of Expertise
                         </h2>
 

@@ -56,7 +56,7 @@ export default function EducationJourney() {
                         <div className="inline-block px-3 py-1 rounded-full border border-leaf-200 bg-leaf-50 text-leaf-600 text-xs font-bold tracking-widest uppercase mb-4">
                             EDUCATION & PROFESSIONAL JOURNEY
                         </div>
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.1]">
+                        <h2 className="text-4xl lg:text-[46px] font-bold text-gray-900 leading-[1.1]">
                             Academic Odyssey & <br />Clinical Mastery
                         </h2>
                     </div>

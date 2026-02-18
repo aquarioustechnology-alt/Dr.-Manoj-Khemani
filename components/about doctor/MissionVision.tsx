@@ -113,7 +113,7 @@ export default function MissionVision() {
                             <div className="inline-block px-4 py-1.5 rounded-full border border-leaf-200 bg-leaf-50 text-leaf-600 text-xs font-bold tracking-[0.2em] uppercase mb-6">
                                 OUR PHILOSOPHY
                             </div>
-                            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                            <h2 className="text-4xl lg:text-[46px] font-bold text-gray-900 leading-tight mb-6">
                                 Committed to Your <br />
                                 <span className="text-leaf-600">Mobility & Wellness</span>
                             </h2>

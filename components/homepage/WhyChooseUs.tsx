@@ -189,7 +189,7 @@ export default function WhyChooseUs() {
                         </div>
 
                         {/* Heading */}
-                        <h2 className="why-content text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
+                        <h2 className="why-content text-4xl sm:text-5xl lg:text-[46px] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
                             Why Dr. Khemani is <br />
                             <span className="text-leaf-500">Most Trusted Amongst Patients</span>
                         </h2>

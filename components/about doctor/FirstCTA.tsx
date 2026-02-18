@@ -66,7 +66,7 @@ export default function FirstCTA() {
                     </div>
 
                     {/* Heading */}
-                    <h2 className="cta-content-item text-4xl lg:text-5xl font-bold leading-[1.2] mb-6 text-white">
+                    <h2 className="cta-content-item text-4xl lg:text-[46px] font-bold leading-[1.2] mb-6 text-white">
                         Take the First Step Toward a <br className="hidden lg:block" />
                         <span className="text-leaf-400">Pain-Free Life</span>
                     </h2>

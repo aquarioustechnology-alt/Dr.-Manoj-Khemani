@@ -167,7 +167,7 @@ export default function VideoSection() {
                             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                             Patient Stories
                         </div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
+                        <h2 className="text-4xl sm:text-5xl lg:text-[46px] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
                             See Advanced Orthopaedic <span className="text-leaf-500">Care in Action</span>
                         </h2>
                         <p className="text-base text-gray-500 leading-relaxed font-medium mb-6 lg:mb-10 max-w-sm">

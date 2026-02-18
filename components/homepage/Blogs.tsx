@@ -186,7 +186,7 @@ export default function Blogs() {
                             <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                             Blog & Insights
                         </div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight">
+                        <h2 className="text-4xl sm:text-5xl lg:text-[46px] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight">
                             Latest from <span className="text-leaf-500">Our Blog</span>
                         </h2>
                     </div>

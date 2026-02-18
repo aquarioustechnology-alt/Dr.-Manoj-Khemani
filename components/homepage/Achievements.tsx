@@ -111,7 +111,7 @@ export default function Achievements() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/80 text-[12px] font-bold tracking-[0.2em] uppercase mb-6">
                             Academic & Professional Milestones
                         </div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold tracking-tight">
+                        <h2 className="text-4xl sm:text-5xl lg:text-[3.375rem] leading-[1.1] font-bold tracking-tight">
                             Excellence in Action: <br />
                             <span className="text-leaf-400">Medical Engagements</span>
                         </h2>

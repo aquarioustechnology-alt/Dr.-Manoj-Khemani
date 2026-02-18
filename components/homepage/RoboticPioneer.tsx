@@ -84,7 +84,7 @@ export default function RoboticPioneer() {
                         Robotic Excellence
                     </div>
 
-                    <h2 className="rp-header-item text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
+                    <h2 className="rp-header-item text-4xl sm:text-5xl lg:text-[3.375rem] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight mb-6">
                         He is the one who Introduced <span className="text-leaf-500">AR-VR Knee Replacement Surgery</span>
                     </h2>
 

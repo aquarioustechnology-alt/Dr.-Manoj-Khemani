@@ -115,7 +115,7 @@ export default function AboutPreview() {
                                 <span className="w-2 h-2 rounded-full bg-leaf-500"></span>
                                 ABOUT DR. MANOJ KHEMANI
                             </div>
-                            <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-5xl leading-[1.1] font-bold text-[#1A1A1A] tracking-tight about-top-content mb-8">
+                            <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-[46px] leading-[1.1] font-bold text-[#1A1A1A] tracking-tight about-top-content mb-8">
                                 One of Kolkata’s Best <br />
                                 <span className="text-leaf-500">Orthopaedic Surgeons</span>
                             </h2>

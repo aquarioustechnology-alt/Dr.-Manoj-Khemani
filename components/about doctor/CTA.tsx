@@ -14,7 +14,7 @@ export default function CTA() {
             </div>
 
             <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                <h2 className="text-3xl md:text-5xl lg:text-[46px] font-bold text-white mb-6 leading-tight">
                     Ready to Reclaim Your <span className="text-leaf-400">Active Life?</span>
                 </h2>
                 <p className="text-xl text-leaf-100 mb-10 max-w-2xl mx-auto">

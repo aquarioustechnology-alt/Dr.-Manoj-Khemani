@@ -80,7 +80,7 @@ export default function AboutBio() {
                             ABOUT DR. MANOJ KHEMANI
                         </div>
 
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.1] tracking-tight">
+                        <h2 className="text-4xl lg:text-[46px] font-bold text-gray-900 mb-8 leading-[1.1] tracking-tight">
                             Top Leading Joint Replacement Surgeon in Kolkata
                         </h2>
 

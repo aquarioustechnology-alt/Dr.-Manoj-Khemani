@@ -65,7 +65,7 @@ export default function SocialMedia() {
                         <Instagram size={14} className="text-leaf-500" />
                         Instagram Feed
                     </div>
-                    <h2 className="text-4xl sm:text-5xl font-bold text-[#1A1A1A] tracking-tight mb-4">
+                    <h2 className="text-4xl sm:text-5xl lg:text-[46px] font-bold text-[#1A1A1A] tracking-tight mb-4">
                         Follow <span className="text-leaf-500">@drmanojkhemani</span>
                     </h2>
                     <p className="text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed">

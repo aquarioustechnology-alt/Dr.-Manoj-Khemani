@@ -149,7 +149,7 @@ export default function ARVRSection() {
                                 <span className="w-2 h-2 rounded-full bg-leaf-500 animate-pulse"></span>
                                 Next-Gen Surgical Precision
                             </div>
-                            <h2 className="arv-heading text-4xl sm:text-[2.75rem] lg:text-[3.25rem] leading-[1.05] font-bold text-[#1A1A1A] tracking-tight mb-8">
+                            <h2 className="arv-heading text-4xl sm:text-[2.75rem] lg:text-[3.125rem] leading-[1.05] font-bold text-[#1A1A1A] tracking-tight mb-8">
                                 Dr. Khemani is a Pioneer and one of the Early Adopters of <span className="text-leaf-500">Robotic Joint Replacement</span>
                             </h2>
                             <p className="arv-paragraph text-[15px] text-gray-600 leading-relaxed font-medium">

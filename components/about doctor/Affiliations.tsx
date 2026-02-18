@@ -79,7 +79,7 @@ export default function Affiliations() {
                     <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-white/90 text-xs font-bold tracking-[0.2em] uppercase mb-6">
                         Professional Affiliations
                     </div>
-                    <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
+                    <h2 className="text-3xl lg:text-[34px] xl:text-[46px] font-bold text-white leading-tight">
                         Dr. Khemani's Professional Affiliations
                     </h2>
                 </div>
