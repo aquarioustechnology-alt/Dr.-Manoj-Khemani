@@ -23,10 +23,10 @@ const treatments = [
 ]
 
 const sliderImages = [
-    "/images/homepage/Dr Image 8-Picsart-AiImageEnhancer.webp",
-    "/images/homepage/Dr Image 6-Picsart-AiImageEnhancer.webp",
-    "/images/homepage/Dr Image 20-Picsart-AiImageEnhancer.webp",
-    "/images/homepage/Dr Image 12-Picsart-AiImageEnhancer.webp"
+    "/images/homepage/dr image 39.webp",
+    "/images/homepage/Dr Image 23.webp",
+    "/images/homepage/Dr Image 33.webp",
+    "/images/homepage/Dr Image 34.webp"
 ]
 
 export default function ExpertiseAndAffiliations() {
@@ -42,17 +42,21 @@ export default function ExpertiseAndAffiliations() {
     }, [])
 
     useGSAP(() => {
-        gsap.from('.expertise-item', {
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top 80%',
-            },
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power2.out'
-        })
+        gsap.fromTo('.expertise-item',
+            { opacity: 0, y: 20 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: 'top 85%',
+                    toggleActions: "play none none reverse"
+                }
+            }
+        )
     }, { scope: containerRef })
 
     return (
@@ -83,14 +87,22 @@ export default function ExpertiseAndAffiliations() {
                             {treatments.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="expertise-item flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-leaf-200 transition-all duration-300 group"
+                                    className="expertise-item flex items-center gap-5 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:bg-leaf-600 hover:border-transparent hover:shadow-none group cursor-default opacity-0"
                                 >
-                                    <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 group-hover:bg-leaf-500 group-hover:text-white transition-colors border border-gray-100">
-                                        <item.icon className="w-5 h-5 text-leaf-600 group-hover:text-white transition-colors" />
+                                    {/* Icon Container */}
+                                    <div className="w-14 h-14 rounded-2xl bg-leaf-50 flex items-center justify-center shrink-0 group-hover:bg-white transition-colors duration-300">
+                                        <item.icon className="w-7 h-7 text-leaf-600 group-hover:text-leaf-600 transition-colors duration-300" strokeWidth={1.5} />
                                     </div>
-                                    <span className="font-semibold text-gray-800 text-[15px] group-hover:text-leaf-700 transition-colors">
+
+                                    {/* Text Content */}
+                                    <span className="font-bold text-gray-800 text-base group-hover:text-white transition-colors duration-300">
                                         {item.label}
                                     </span>
+
+                                    {/* Hover Indicator */}
+                                    <div className="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-leaf-500 group-hover:bg-white"></div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
