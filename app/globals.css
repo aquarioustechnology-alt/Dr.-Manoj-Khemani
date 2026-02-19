@@ -104,6 +104,16 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.gpu {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
 /* Smooth reveal animation */
 .reveal {
   opacity: 0;
