@@ -81,7 +81,7 @@ export default function AboutPreview() {
                             <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-8 border-white group img-glass">
                                 <img
                                     src="/images/homepage/Doctor Headshot 2.png"
-                                    alt="Dr. Manoj Khemani Portrait"
+                                    alt="Dr. Manoj Kumar Khemani - Senior Orthopedic & Robotic Surgeon in Kolkata"
                                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>

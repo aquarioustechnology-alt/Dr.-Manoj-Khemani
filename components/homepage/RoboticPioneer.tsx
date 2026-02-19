@@ -119,7 +119,7 @@ export default function RoboticPioneer() {
                         >
                             <img
                                 src={feature.image}
-                                alt={feature.title}
+                                alt={`Robotic Joint Replacement Technology - ${feature.title} - Dr. Manoj Khemani`}
                                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />

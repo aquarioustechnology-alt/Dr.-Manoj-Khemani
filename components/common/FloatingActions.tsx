@@ -106,6 +106,7 @@ export default function FloatingActions() {
     const [selectedClinic, setSelectedClinic] = useState('')
     const [selectedTime, setSelectedTime] = useState('')
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+    const [phone, setPhone] = useState('+91 ')
 
     // Derived Time Options
     const timeOptions = selectedClinic
@@ -154,7 +155,7 @@ export default function FloatingActions() {
                 }
             `}</style>
             {/* Floating Buttons Container */}
-            <div className={`fixed bottom-8 right-8 z-[100] flex flex-col gap-4 transition-all duration-500 transform ${scrolled ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none max-lg:translate-y-0 max-lg:opacity-100 max-lg:pointer-events-auto'}`}>
+            <div className={`fixed bottom-8 right-2 z-[100] flex flex-col gap-4 transition-all duration-500 transform ${scrolled ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none sm:max-lg:translate-y-0 sm:max-lg:opacity-100 sm:max-lg:pointer-events-auto'}`}>
 
 
 
@@ -170,17 +171,17 @@ export default function FloatingActions() {
                 </button>
             </div>
 
-            {/* Side Sticky Buttons Container */}
-            <div className="fixed right-0 top-[60%] sm:top-1/2 -translate-y-1/2 z-[90] flex flex-col gap-3 items-end">
+            {/* Side Sticky Buttons Container - Adjusted to top-[72%] on mobile to reduce gap with scroll-top icon */}
+            <div className="fixed right-0 top-[72%] lg:top-1/2 -translate-y-1/2 z-[90] flex flex-col gap-3 items-end">
 
                 {/* Book Appointment Button */}
                 <button
                     onClick={toggleModal}
-                    className="bg-black text-white py-6 px-4 rounded-l-[20px] shadow-2xl flex flex-col items-center gap-3 transition-all duration-300 group border-l-[4px] border-[#EC1D24] hover:border-black overflow-hidden relative"
+                    className="w-14 bg-black text-white py-6 px-4 rounded-l-[20px] shadow-2xl flex flex-col items-center gap-3 transition-all duration-300 group border-l-[4px] border-[#EC1D24] hover:border-black overflow-hidden relative"
                 >
                     <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></div>
                     <span
-                        className="relative z-10 font-bold text-[13px] tracking-wide whitespace-nowrap group-hover:text-black transition-colors duration-300"
+                        className="relative z-10 font-bold text-[13px] tracking-wide whitespace-nowrap group-hover:text-black transition-colors duration-300 hidden sm:inline-block"
                         style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
                     >
                         Book an Appointment
@@ -197,7 +198,7 @@ export default function FloatingActions() {
                 {/* Call Button */}
                 <a
                     href="tel:+918697449191"
-                    className="bg-leaf-500 text-white w-14 h-14 rounded-l-[20px] shadow-2xl flex items-center justify-center transition-all duration-300 group overflow-hidden relative"
+                    className="w-14 h-14 bg-leaf-500 text-white rounded-l-[20px] shadow-2xl flex items-center justify-center transition-all duration-300 group overflow-hidden relative"
                 >
                     <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 z-0"></div>
                     <Phone size={24} className="relative z-10 text-white group-hover:text-leaf-500 transition-colors duration-300" />
@@ -239,14 +240,14 @@ export default function FloatingActions() {
                         <div className="flex-1 p-6 lg:p-8 overflow-y-auto">
                             <button
                                 onClick={closeModal}
-                                className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors z-30"
+                                className="absolute top-6 right-6 p-2 rounded-xl border border-gray-200 bg-white shadow-sm hover:border-leaf-500 hover:bg-gray-50 transition-all z-30 group/close"
                             >
-                                <X className="w-6 h-6 text-gray-400" />
+                                <X className="w-6 h-6 text-gray-500 group-hover/close:text-leaf-600 transition-colors" />
                             </button>
 
                             <div className="mb-4 lg:px-6">
                                 <h2 className="text-3xl lg:text-4xl font-bold text-[#1A1A1A] leading-[1.15] mb-2">
-                                    Don’t put up with pain! <span className="text-leaf-500">Make an appointment</span>
+                                    Don’t put up with pain! <br /> <span className="text-leaf-500">Make an appointment</span>
                                 </h2>
                                 <p className="text-sm text-gray-500 font-medium leading-relaxed">
                                     Please fill out the form below and we&apos;ll get back to you shortly.
@@ -266,11 +267,25 @@ export default function FloatingActions() {
                                     </div>
                                     <div className="space-y-1.5">
                                         <label className="text-[12px] font-semibold text-[#1A1A1A] uppercase tracking-wider ml-1">Phone Number</label>
-                                        <input
-                                            type="tel"
-                                            placeholder="+91 00000 00000"
-                                            className="w-full h-[46px] px-5 bg-gray-50 border border-gray-200/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-leaf-500/20 focus:border-leaf-500 hover:border-leaf-400 hover:bg-white transition-all text-[13px] font-normal text-[#1A1A1A] placeholder:text-gray-400 placeholder:text-[13px] placeholder:font-normal"
-                                        />
+                                        <div className="flex h-[46px] bg-gray-50 border border-gray-200/60 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-leaf-500/20 focus-within:border-leaf-500 hover:border-leaf-400 hover:bg-white transition-all">
+                                            <div className="flex items-center px-4 bg-gray-100/50 border-r border-gray-200/60 transition-colors">
+                                                <div className="flex items-center gap-2">
+                                                    <img
+                                                        src="https://flagcdn.com/w40/in.png"
+                                                        width="20"
+                                                        alt="India"
+                                                        className="rounded-sm"
+                                                    />
+                                                    <span className="text-[13px] font-bold text-gray-800">+91</span>
+                                                </div>
+                                            </div>
+                                            <input
+                                                type="tel"
+                                                placeholder="86974 49191"
+                                                className="flex-1 px-4 bg-transparent border-none focus:outline-none text-[13px] font-normal text-[#1A1A1A] placeholder:text-gray-400 placeholder:text-[13px] placeholder:font-normal"
+                                                onChange={(e) => setPhone(e.target.value.replace('+91 ', ''))}
+                                            />
+                                        </div>
                                     </div>
 
                                     {/* Row 2: Email Address and Select Clinic */}

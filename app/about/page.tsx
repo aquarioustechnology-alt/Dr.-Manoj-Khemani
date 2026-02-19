@@ -10,8 +10,19 @@ import Affiliations from '@/components/about doctor/Affiliations'
 import CTA from '@/components/about doctor/CTA'
 
 export const metadata = {
-  title: 'About Dr. Manoj Kumar Khemani | Best Orthopedic Surgeon in Kolkata',
-  description: 'Learn about Dr. Manoj Kumar Khemani, Kolkata\'s leading Orthopedic Surgeon specializing in Robotic Joint Replacement and Sports Medicine. 24+ Years of Excellence.',
+  title: 'About Dr. Manoj Kumar Khemani | 24+ Years of Orthopedic Excellence in Kolkata',
+  description: 'Learn about Dr. Manoj Kumar Khemani, a distinguished Orthopedic Surgeon in Kolkata with over 24 years of experience. Expert in Robotic Knee Replacement, AR-VR Surgery, and complex trauma care.',
+  keywords: [
+    'Dr. Manoj Kumar Khemani',
+    'Orthopedic Surgeon Education',
+    'Dr. Manoj Khemani experience',
+    'Robotic Surgeon Kolkata',
+    'Best Knee Surgeon Kolkata about',
+    'Orthopedic expert credentials'
+  ],
+  alternates: {
+    canonical: 'https://healmybones.com/about',
+  },
 }
 
 export default function AboutPage() {

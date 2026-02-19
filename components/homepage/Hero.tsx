@@ -92,7 +92,7 @@ export default function Hero() {
                         >
                             <img
                                 src={img}
-                                alt="Dr. Manoj Khemani Orthopedic Care"
+                                alt={`Dr. Manoj Khemani - Best Orthopedic Surgeon in Kolkata - Image ${index + 1}`}
                                 className="w-full h-full object-cover object-top"
                             />
                         </div>
@@ -124,7 +124,7 @@ export default function Hero() {
                         >
                             <img
                                 src={img}
-                                alt="Dr. Manoj Khemani Orthopedic Care"
+                                alt={`Dr. Manoj Khemani - Robotic Joint Replacement Expert Kolkata - Image ${index + 1}`}
                                 className="w-full h-full object-cover object-top"
                             />
                         </div>
