@@ -36,6 +36,16 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.classList.add('menu-open')
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.classList.remove('menu-open')
+            document.body.style.overflow = 'unset'
+        }
+    }, [isMobileMenuOpen])
+
+    useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 5)
         }
@@ -194,13 +204,13 @@ export default function Header() {
                     </div>
 
                     {/* Mobile Links */}
-                    <div className="flex-1 px-6 py-8 flex flex-col gap-2">
+                    <div className="flex-1 px-6 py-4 flex flex-col gap-1">
                         {navLinks.map((link) => (
-                            <div key={link.label} className="border-b border-gray-50 last:border-0 pb-4 mb-4 last:mb-0">
+                            <div key={link.label} className="border-b border-gray-50 last:border-0 pb-2 mb-2 last:mb-0">
                                 {link.isDropdown ? (
-                                    <div className="space-y-4">
+                                    <div className="space-y-2">
                                         <span className="text-xl font-bold text-text-primary block">{link.label}</span>
-                                        <div className="pl-4 border-l-2 border-leaf-100 space-y-3">
+                                        <div className="pl-4 border-l-2 border-leaf-100 space-y-2">
                                             {link.items?.map((item) => (
                                                 <Link
                                                     key={item.href}

@@ -271,3 +271,10 @@ a[class*="bg-leaf"]>* {
   background-color: transparent !important;
   opacity: 0 !important;
 }
+
+/* Hide floating actions when mobile menu is open */
+body.menu-open .fixed.bottom-8.right-8.z-\[100\],
+body.menu-open .fixed.right-0.top-\[60\%\],
+body.menu-open .fixed.right-0.sm\:top-1\/2 {
+  display: none !important;
+}
